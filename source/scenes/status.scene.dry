@@ -20,10 +20,7 @@ if (Q.economic_growth) {
 
 Resources available: [+ resources +]
 
-IP position: [? if ip_toleration : toleration ?][? if ip_in_government : in government - ?][? if ip_toleration == 0 and ip_in_government == 0 and ip_caretaker == 0 : opposition ?][? if ip_caretaker : caretaker government ?]
-[? if in_weimar_coalition and ip_in_government: Weimar Coalition ?][? if in_grand_coalition and ip_in_government: Grand Coalition ?][? if in_popular_front and ip_in_government: Popular Front ?][? if in_left_front and ip_in_government: Left Front ?][? if in_ip_majority and ip_in_government: IP majority ?][? if in_minority_government and ip_in_government: minority government ?][? if in_emergency_government and ip_in_government: emergency government ?]
-
-Coalition dissent: [+ coalition_dissent : coalition_dissent +]
+Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
 
 Internal dissent: [+ dissent_percent : dissent +]
 
@@ -35,16 +32,11 @@ Chancellor: [+ chancellor +] ([+ chancellor_party +])
 
 Reichstag composition:
 
-# 1928: 30, 1930: 25, 1932: 22
 {!<span class="tooltip-text" title="Independent Party">IP</span>!}: [+ ip_r +]%
 {!<span class="tooltip-text" title="Federalist Party">FP</span>!}: [+ fp_r +]%
-# 1928: 10, 1930: 13
 {!<span class="tooltip-text" title="Communist Party">CP</span>!}: [+ cp_r +]%
-# 1928: 5, 1930: 4 (as DstP)
 {!<span class="tooltip-text" title="Devolutionst Party">DP</span>!}: [+ dp_r +]%
-# 1928: 9, 1930: 5
 {!<span class="tooltip-text" title="Libertarian Party">LP</span>!}: [+ lp_r +]%
-# 1928: 14, 1930: 7
 
 [? if ip_in_government = 1 : Budget: [+ budget +] ?]
 
@@ -56,10 +48,9 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 = Inter-party Relations
 
-
 {!<span class="tooltip-text" title="Federalist Party">FP</span>!}: [+ fp_relation : relationships +]
 
-{!<span class="tooltip-text" title="Communist Party">!}CP</span>!}: [+ cp_relation : relationships +
+{!<span class="tooltip-text" title="Communist Party">CP</span>!}: [+ cp_relation : relationships +]
 
 {!<span class="tooltip-text" title="Devolutionist Party">DP</span>!}: [+ dp_relation : relationships +]
 
