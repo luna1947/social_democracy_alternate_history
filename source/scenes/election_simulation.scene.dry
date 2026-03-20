@@ -105,6 +105,7 @@ Q.fp_r = 15;
 Q.lp_r = 10;
 Q.dp_r = 10;
 !}
+
 go-to: election_algorithm
 set-jump: post_election
 
