@@ -156,5 +156,3 @@ New Middle Class: IP: [+ corpo_ip_display +]%, FP: [+ corpo_dp_display +]%, CP: 
 Nomad: IP: [+ nomad_ip_display +]%, FP: [+ nomad_fp_display +]%, CP: [+ nomad_cp_display +]%, DP: [+ nomad_dp_display +]%, LP: [+ nomad_lp_display +]%;
 
 Unemployed: IP: [+ unemployed_ip_display +]%, FP: [+ unemployed_fp_display +]%, CP: [+ unemployed_cp_display +]%, DP: [+ unemployed_dp_display +]%, LP: [+ unemployed_lp_display +]%;
-
-Support for the Republic: [+ pro_republic_disp +]%
