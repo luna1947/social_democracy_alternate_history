@@ -20,7 +20,7 @@ if (Q.economic_growth) {
 
 Resources available: [+ resources +]
 
-Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
+Coalition dissent: [+ coalition_dissent : coalition_dissent +]
 
 Internal dissent: [+ dissent_percent : dissent +]
 
