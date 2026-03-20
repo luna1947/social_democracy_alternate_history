@@ -101,49 +101,43 @@ Economic growth: [+ economic_growth_2 +]%
 
 @paramilitaries
 on-arrival: {!
-if (Q.rb_strength) {
-    Q.rb_strength_2 = Q.rb_strength.toFixed(1);
+if (Q.str_strength) {
+    Q.str_strength_2 = Q.str_strength.toFixed(1);
 }
-if (Q.rfb_strength) {
-    Q.rfb_strength_2 = Q.rfb_strength.toFixed(1);
+if (Q.sv_strength) {
+    Q.sv_strength_2 = Q.sv_strength.toFixed(1);
 }
-if (Q.sh_strength) {
-    Q.sh_strength_2 = Q.sh_strength.toFixed(1);
+if (Q.mt_strength) {
+    Q.mt_strength_2 = Q.mt_strength.toFixed(1);
 }
-if (Q.sa_strength) {
-    Q.sa_strength_2 = Q.sa_strength.toFixed(1);
+if (Q.rf_strength) {
+    Q.rf_strength_2 = Q.rf_strength.toFixed(1);
 }
 !}
 
 = Paramilitaries
 
-{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ rb_strength_2 +] thousand
+{!<span class="tooltip-text" title="The 6th Street Gang is a gang based in Night City. While expressing some Federalist ideals, they mostly adhere to the will of us (mostly), and the Devolutionists (slightly) ">6th Street Gang</span>!} Strength: [+ str_strength_2 +] thousand
 
-Reichsbanner Militarization: [+ rb_militancy : militancy +]
+6th Street Militarization: [+ str_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The RFB (Rotfrontkämpferbund) is a communist group associated with the KPD.">RFB</span>!} Strength: [+ rfb_strength_2 +] thousand
+{!<span class="tooltip-text" title="The Scavengers (or scavs) are an anarchist group that have the sole mission of collapsing the democracy of Night City to transform it into a combat zone.">Scavs</span>!} Strength: [+ sv_strength_2 +] thousand
 
-RFB Militarization: [+ rfb_militancy : militancy +]
+Scav Militarization: [+ sv_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The Stahlhelm is a right-wing organization of war veterans associated with the DNVP.">Stahlhelm</span>!} Strength: [+ sh_strength_2 +] thousand
+{!<span class="tooltip-text" title="Militech is an Armacorp and paramilitary that is the primary militant force of the Federalist Party.">Militech</span>!} Strength: [+ mt_strength_2 +] thousand
 
-Stahlhelm Militarization: [+ sh_militancy : militancy +]
+Militech Militarization: [+ mt_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The SA (Sturmabteilung) is the Nazi paramilitary.">SA</span>!} Strength: [+ sa_strength_2 +] thousand
+{!<span class="tooltip-text" title="The Red Front is the Communist paramilitary.">Red Front</span>!} Strength: [+ rf_strength_2 +] thousand
 
-SA Militarization: [+ sa_militancy : militancy +]
+Red Front Militarization: [+ rf_militancy : militancy +]
 
-= Official military/paramilitaries
+= Official Government Fighters
 
-Reichswehr: [+ reichswehr_strength +] thousand troops.
+Night City Police Strength: [+ ncpd_strength +] thousand troops.
 
-Reichswehr Loyalty: [+ reichswehr_loyalty : loyalty +]
-
-Prussian police: [+ prussian_police_strength +] thousand members.
-
-Prussian police loyalty: [+ prussian_police_loyalty : loyalty +]
-
-[? if spd_in_government : Interior police loyalty: [+ interior_police_loyalty : loyalty +] ?]
+Night City Police Loyalty: [+ ncpd_loyalty : loyalty +]
 
 @polls
 on-arrival: {!
