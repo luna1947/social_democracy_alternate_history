@@ -39,7 +39,7 @@ Reichstag composition:
 {!<span class="tooltip-text" title="Independent Party">IP</span>!}: [+ ip_r +]%
 {!<span class="tooltip-text" title="Federalist Party">FP</span>!}: [+ fp_r +]%
 # 1928: 10, 1930: 13
-{!<span class="tooltip-text" title="Communist Party">CPNUSA</span>!}: [+ cp_r +]%
+{!<span class="tooltip-text" title="Communist Party">CP</span>!}: [+ cp_r +]%
 # 1928: 5, 1930: 4 (as DstP)
 {!<span class="tooltip-text" title="Devolutionst Party">DP</span>!}: [+ dp_r +]%
 # 1928: 9, 1930: 5
