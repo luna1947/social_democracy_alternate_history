@@ -23,7 +23,7 @@ Resources available: [+ resources +]
 IP position: [? if ip_toleration : toleration ?][? if ip_in_government : in government - ?][? if ip_toleration == 0 and ip_in_government == 0 and ip_caretaker == 0 : opposition ?][? if ip_caretaker : caretaker government ?]
 [? if in_weimar_coalition and ip_in_government: Weimar Coalition ?][? if in_grand_coalition and ip_in_government: Grand Coalition ?][? if in_popular_front and ip_in_government: Popular Front ?][? if in_left_front and ip_in_government: Left Front ?][? if in_ip_majority and ip_in_government: IP majority ?][? if in_minority_government and ip_in_government: minority government ?][? if in_emergency_government and ip_in_government: emergency government ?]
 
-Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
+Coalition dissent: [+ coalition_dissent : coalition_dissent +]
 
 Internal dissent: [+ dissent_percent : dissent +]
 
