@@ -139,9 +139,9 @@ LP: [+ lp_votes +]%
 
 **Detailed results for each demographic**
 
-Workers: IP: [+ workers_ip_display +]%, FP: [+ workers_fp_display +]%, CP: [+ workers_cp_display +]%, DP: [+ dp_name +]?]: [+ workers_dp_display +]%, LP: [+ workers_lp_display +]%;
+Workers: IP: [+ workers_ip_display +]%, FP: [+ workers_fp_display +]%, CP: [+ workers_cp_display +]%, DP: [+ workers_dp_display +]%, LP: [+ workers_lp_display +]%;
 
-New Middle Class: IP: [+ corpo_ip_display +]%, FP: [+ corpo_dp_display +]%, CP: [+ corpo_cp_display +]%, DP: [+ dp_name +]?]: [+ corpo_dp_display +]%, LP: [+ corpo_lp_display +]%;
+New Middle Class: IP: [+ corpo_ip_display +]%, FP: [+ corpo_dp_display +]%, CP: [+ corpo_cp_display +]%, DP: [+ corpo_dp_display +]%, LP: [+ corpo_lp_display +]%;
 
 Nomad: IP: [+ nomad_ip_display +]%, FP: [+ nomad_fp_display +]%, CP: [+ nomad_cp_display +]%, DP: [+ nomad_dp_display +]%, LP: [+ nomad_lp_display +]%;
 
