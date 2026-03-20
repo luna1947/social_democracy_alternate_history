@@ -46,28 +46,22 @@ Q.dissent = 0.05;
 Q.dissent_percent = 5;
 
 // factions
-Q.factions = ['left', 'center', 'labor', 'reformist', 'neorevisionist'];
+Q.factions = ['green', 'industrialist', 'socialist', 'liberal'];
 // should this be normalized to 100%?
-Q.left_strength = 15;
-Q.left_dissent = 20;
-Q.center_strength = 30;
-Q.center_dissent = 0;
-Q.labor_strength = 25;
-Q.labor_dissent = 5;
-Q.reformist_strength = 25;
-Q.reformist_dissent = 5;
-Q.neorevisionist_strength = 5;
-Q.neorevisionist_dissent = 10;
+Q.green_strength = 15;
+Q.green_dissent = 20;
+Q.industrialist_strength = 30;
+Q.industrialist_dissent = 0;
+Q.socialist_strength = 25;
+Q.socialist_dissent = 5;
+Q.liberal_strength = 25;
+Q.liberal_dissent = 5;
 
 // secret events...
 Q.unions_independent = 0;
 Q.centrists_resign = 0;
-Q.left_split = 0;
-Q.reformists_resigned = 0;
-
-// have we discovered neorevisionism?
-Q.neorevisionism = 0;
-
+Q.green_split = 0;
+Q.liberals_resigned = 0;
 // crisis_urgency indicates how seriously the SPD is taking the economic crisis - scale from 0 to 10.
 Q.crisis_urgency = 0;
 // nazi_urgency indicates how seriously the SPD takes the nazis - scale from 0 to 10.
@@ -230,9 +224,6 @@ Q.new_middle_qol = 100;
 Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
 Q.parties = ['spd', 'kpd', 'z', 'ddp', 'dvp', 'dnvp', 'nsdap', 'other'];
 
-// TODO: add 'sapd' later on
-Q.sapd_formed = 0;
-
 // Support for party by social group
 // they don't have to sum to 100 since the electoral calculations will be normalized.
 Q.workers_spd = 60;
@@ -290,12 +281,8 @@ Q.catholics_nsdap = 0;
 Q.catholics_other = 12;
 
 
-// Current Reichstag composition
-// % of Reichstag in Jan 1928
-// source: wikipedia
-// note: the Z figures also include the BVP (Bavarian people's party)
-// since they were ideologically similar, but they were separate parties.
-// They did not have a CDU/CSU-style relationship.
+// Current Congress composition
+// % seats in congress in July 2077
 Q.spd_r = 26;
 Q.kpd_r = 9;
 Q.z_r = 17;
@@ -315,13 +302,6 @@ Q.old_dnvp_r = 20;
 Q.old_nsdap_r = 3;
 Q.old_other_r = 9;
 
-// sapd isn't formed yet, but it may be formed
-Q.sapd_r = 0;
-Q.old_sapd_r = 0;
-
-// for changing the DDP's name to the DStP
-Q.ddp_name = "DDP";
-
 // array of objects of the form {date: Date(), spd: 10, kpd: 12, ...} for each election
 Q.election_records = [];
 // party support records for every month
@@ -331,8 +311,8 @@ Q.economic_records = [];
 
 
 // State of the government
-Q.president = "Hindenburg";
-// starting chancellor: Wilhelm Marx
+Q.president = "Myers";
+// starting head congressperson: Darrel Tracy
 Q.chancellor = "Marx";
 Q.chancellor_party = 'Z';
 Q.spd_in_government = 0;
@@ -381,8 +361,8 @@ Q.interior_minister = 'von Keudell';
 Q.interior_minister_party = 'DNVP';
 Q.justice_minister = 'Hergt';
 Q.justice_minister_party = 'DNVP';
-Q.labor_minister = 'Brauns';
-Q.labor_minister_party = 'Z';
+Q.socialist_minister = 'Brauns';
+Q.socialist_minister_party = 'Z';
 Q.reichswehr_minister = 'Groener';
 Q.reichswehr_minister_party = 'I';
 Q.economic_minister = 'Curtius';
@@ -468,12 +448,12 @@ Q.timers = ['advisor_action', 'confronting_nazis', 'crisis_program',
             'party_disunity',
             // govt
             'agricultural_policy', 'domestic_enemies', 'fiscal_policy',
-            'foreign_policy', 'judiciary', 'labor_affairs', 'military_policy',
+            'foreign_policy', 'judiciary', 'socialist_affairs', 'military_policy',
             'police', 'prussian_affairs', 'shuffle_cabinet', 'social_welfare',
             'homosexual_rights', 'economic_policy', 'coalition_affairs',
             'war_guilt', 'womens_rights', 'economic_democracy',
             'dealing_with_toleration',
-            'constitutional_reform', 'labor_rights',
+            'constitutional_reform', 'socialist_rights',
             'education_science', 'curriculum',
             // events
             'emergency_cuts', 'unemployment_insurance',
@@ -514,7 +494,7 @@ Q.economic_policy_timer = 0;
 Q.fiscal_policy_timer = 0;
 Q.foreign_policy_timer = 0;
 Q.judiciary_timer = 0;
-Q.labor_affairs_timer = 0;
+Q.socialist_affairs_timer = 0;
 Q.military_policy_timer = 0;
 Q.police_timer = 0;
 Q.prussian_affairs_timer = 0;
@@ -553,13 +533,13 @@ Q.seydewitz_advisor = 0; // Max Seydewitz
 Q.pfulf_advisor = 0; // Antonie Pfülf
 Q.breitscheid_advisor = 0; // Rudolf Breitscheid
 
-// Reformist advisors
+// liberal advisors
 Q.severing_advisor = 0; // Carl Severing
 Q.braun_advisor = 0; // Otto Braun
 Q.juchacz_advisor = 0; // Marie Juchacz
 Q.baade_advisor = 0; // Fritz Baade
 
-// Labor advisors
+// socialist advisors
 Q.leipart_advisor = 0; // Theodor Leipart
 Q.aufhauser_advisor = 0; // Siegfried Aufhäuser
 Q.woytinsky_advisor = 0; // Wladimir Woytinsky (post-1930)
@@ -597,7 +577,7 @@ on-arrival: difficulty = -1; resources = 4; dues = 3; rb_strength = 2500; kpd_re
 go-to: 1928_main
 
 @1928_hard
-on-arrival: difficulty = 1; resources = 0; dues = 1; rb_strength = 1000; reformist_dissent = 25; left_dissent = 30; labor_dissent = 25; center_dissent = 25; z_relation = 41; kpd_relation = 16; dvp_relation = 31; budget = 3;
+on-arrival: difficulty = 1; resources = 0; dues = 1; rb_strength = 1000; liberal_dissent = 25; left_dissent = 30; socialist_dissent = 25; industrialist_dissent = 25; z_relation = 41; kpd_relation = 16; dvp_relation = 31; budget = 3;
 go-to: 1928_main
 
 @1928_historical
@@ -608,10 +588,10 @@ Q.historical_mode = 1;
 Q.resources = 2;
 Q.dues = 1;
 Q.rb_strength = 2000;
-Q.reformist_dissent = 25;
+Q.liberal_dissent = 25;
 Q.left_dissent = 30;
-Q.labor_dissent = 25;
-Q.center_dissent = 25;
+Q.socialist_dissent = 25;
+Q.industrialist_dissent = 25;
 Q.z_relation = 41;
 Q.kpd_relation = 16;
 Q.dvp_relation = 31;
