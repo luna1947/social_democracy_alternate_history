@@ -172,14 +172,10 @@ Q.budget = 4;
 
 // Proportion of different social groups
 // source: https://surface.syr.edu/cgi/viewcontent.cgi?filename=3&article=1016&context=books&type=additional page 45, table 3.4 - using 1925 figures
-Q.workers = 48; // industry and trade
-Q.old_middle = 13; // "old mittelstand"
-// 16.4 trade & commerce, 6.6 public and private services, 4.4 domestic help
-Q.new_middle = 14; // "new mittelstand"
-Q.rural = 25; // agriculture and forestry employment... but many of those are proletarians so...
-// source: https://surface.syr.edu/cgi/viewcontent.cgi?filename=3&article=1016&context=books&type=additional page 43, table 3.3
-Q.unemployed = 8.6;
-Q.catholics = 30;
+Q.workers = 48;
+Q.corpo = 22;
+Q.nomads = 20;
+Q.unemployed = 10;
 
 // unemployment: 1929 - 13.3, 1930 - 22.7, 1931 - 34.3, 1932 - 43.8 (same source as above)
 
@@ -270,12 +266,13 @@ Q.fp_in_government = 1;
 Q.lp_in_government = 0;
 Q.dp_in_government = 1;
 Q.cp_in_government = 0;
+Q.nsnawp_in_government = 0;
 
 Q.in_right_coalition = 0;
 // Weimar coalition = ip + fp + lp
 Q.in_weimar_coalition = 0;
 // Grand coalition = ip + fp + lp + dp
-// also includes the "new grand coalition" of ip + fp + BVP + lp + dp + Others
+// also includes the "new grand coalition" of ip + fp + lp + dp
 Q.in_grand_coalition = 0;
 // Popular front = ip + cp + fp + lp
 Q.in_popular_front = 0;
@@ -477,8 +474,8 @@ Q.breitscheid_advisor = 0; // Rudolf Breitscheid
 // liberal advisors
 Q.severing_advisor = 0; // Carl Severing
 Q.braun_advisor = 0; // Otto Braun
-Q.juchacfp_advisor = 0; // Marie Juchacfp
-Q.baade_advisor = 0; // Fritfp Baade
+Q.juchacz_advisor = 0; // Marie Juchacz
+Q.baade_advisor = 0; // Fritz Baade
 
 // socialist advisors
 Q.leipart_advisor = 0; // Theodor Leipart
@@ -500,18 +497,17 @@ Q.stampfer_advisor = 0; // Friedrich Stampfer
 set-bg: img/map_2.jpg
 new-page: true
 
-> *"Such a general development cannot be attributed to the false tactics of any single party or to the mistakes of individual leaders. On the contrary, the conduct of individual leaders is determined largely by the sentiments of the people as a whole. It would be erroneous, however, to regard the sentiments of the moment as reflecting the natural make-up and character of the people. They are merely the consequence of the special circumstances which have brought about this profound degradation of the entire nation."*
+> *"Not Askin' You To Never Give Up. Sometimes You Gotta Let Go... Just Don't Let Anyone Change Who You Are."*
 
- - Karl Kautsky, *Hitlerism and Social Democracy*, 1934
+ - Johnny Silverhand*, 2077
 
-This is a game of alternate history. While historical accuracy is a major concern, keep in mind that this is a *game*, and that any divergence from actual events will necessarily have to involve some element of make-believe. Nevertheless, please let the author know if there are any glaring mistakes.
+This is a game of alternate history and alternate universes. While canonical accuracy is a major concern, keep in mind that the politics of Cyberpunk's deep, lore rich universe are not nearly as explored as I wish they were, and thus I needed to bend the story a bit. Nevertheless, please let the author know if there are any glaring mistakes.
 
-For more information on the politics and government of the German Republic, see the "Library" page on the top left. If this is your first time playing the game, it is strongly recommended that you read at least some of this information.
+For more information on the politics and government of Night City, see the "Library" page on the top left. If this is your first time playing the game, it is strongly recommended that you read at least some of this information.
 
 - @1928_easy: Begin (easy difficulty)
 - @1928_main: Begin (normal difficulty)
 - @1928_hard: Begin (hard difficulty)
-- @1928_historical: Begin (historical mode)
 
 @1928_easy
 on-arrival: difficulty = -1; resources = 4; dues = 3; rb_strength = 2500; cp_relation = 29; fp_relation = 54; dp_relation = 49; budget = 5;
@@ -519,26 +515,6 @@ go-to: 1928_main
 
 @1928_hard
 on-arrival: difficulty = 1; resources = 0; dues = 1; rb_strength = 1000; liberal_dissent = 25; left_dissent = 30; socialist_dissent = 25; industrialist_dissent = 25; fp_relation = 41; cp_relation = 16; dp_relation = 31; budget = 3;
-go-to: 1928_main
-
-@1928_historical
-subtitle: Saving, loading, and polls will be disabled. [? if not achievement_game_completed: Not recommended for a first playthrough. ?]
-on-arrival: {!
-Q.difficulty = 2;
-Q.historical_mode = 1;
-Q.resources = 2;
-Q.dues = 1;
-Q.rb_strength = 2000;
-Q.liberal_dissent = 25;
-Q.left_dissent = 30;
-Q.socialist_dissent = 25;
-Q.industrialist_dissent = 25;
-Q.fp_relation = 41;
-Q.cp_relation = 16;
-Q.dp_relation = 31;
-Q.budget = 2;
-this.state.disableSaves = true;
-!}
 go-to: 1928_main
 
 @1928_main
