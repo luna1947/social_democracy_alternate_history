@@ -118,19 +118,19 @@ Q.hindenburg_enabled = 0;
 
 // The array of forces - paramilitary groups
 // Number of members in 1928 (in thousands)
-// Reichsbanner, stahlhelm, SA, rotfrontkämpferbund
-Q.str_strength = 2000;
-Q.str_militancy = 0.01;
-Q.women_in_str = 0;
+// 6th Street, Scav, Militech, Red Front
+Q.str_strength = 300;
+Q.str_militancy = 0.4;
 Q.str_banned = 0;
 Q.sv_strength = 500;
-Q.sv_militancy = 0.5;
+Q.sv_militancy = 0.15;
 Q.sv_banned = 0;
 Q.mt_strength = 80;
-Q.mt_militancy = 0.5;
+Q.mt_militancy = 0.7;
 Q.mt_banned = 0;
 Q.rf_strength = 130;
 Q.rf_militancy = 0.5;
+
 
 // strength includes actual military and de facto reserves?
 Q.ncpd_strength = 100;
@@ -204,7 +204,7 @@ Q.old_middle_qol = 100;
 Q.new_middle_qol = 100;
 
 Q.classes = ['workers', 'corpo', 'nomads', 'unemployed'];
-Q.parties = ['ip', 'cp', 'fp', 'lp', 'dp'];
+Q.parties = ['ip', 'cp', 'fp', 'lp', 'dp', 'nsnawp'];
 
 // Support for party by social group
 // they don't have to sum to 100 since the electoral calculations will be normalifped.
@@ -213,24 +213,28 @@ Q.workers_cp = 20;
 Q.workers_fp = 5;
 Q.workers_lp = 0;
 Q.workers_dp = 0;
+Q.workers_nsnawp = 0;
 
 Q.corpo_ip = 5;
 Q.corpo_cp = 0;
 Q.corpo_fp = 5;
 Q.corpo_lp= 10;
 Q.corpo_dp = 25;
+Q.corpo_nsnawp = 10;
 
-Q.nomad_ip = 5;
-Q.nomad_cp = 0;
-Q.nomad_fp = 10;
-Q.nomad_lp= 25;
-Q.nomad_dp = 25;
+Q.nomads_ip = 5;
+Q.nomads_cp = 0;
+Q.nomads_fp = 10;
+Q.nomads_lp= 25;
+Q.nomads_dp = 25;
+Q.nomads_nsnawp = 5;
 
 Q.unemployed_ip = 25;
 Q.unemployed_cp = 55;
 Q.unemployed_fp = 1;
 Q.unemployed_lp = 0;
 Q.unemployed_dp = 0;
+Q.unemployed_nsnawp = 15;
 
 
 // Current Congress composition
