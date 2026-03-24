@@ -63,10 +63,19 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 {!<span class="tooltip-text" title="The Industrialists are a faction of individuals that push for more industrial production in the New United States. Many members of this faction are industrial workers.">Industrialist</span>!} strength: [+ industrialist_strength : strength +], dissent: [+ industrialist_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The Socialist faction is mostly committed to a policy of social democracy, welfare, and fair taxes.">Socialist</span>!} strength: [+ socialis_strength : strength +], dissent: [+ socialist_dissent : dissent +]
+{!<span class="tooltip-text" title="The Socialist faction is mostly committed to a policy of social democracy, welfare, and fair taxes.">Socialist</span>!} strength: [+ socialist_strength : strength +], dissent: [+ socialist_dissent : dissent +]
 
 {!<span class="tooltip-text" title="The Liberals are primarily dedicated to maintaining the fiscally conservative economy of the New United States.">Liberal</span>!} strength: [+ liberal_strength : strength +], dissent: [+ liberal_dissent : dissent +]
 
+= Corporate Support
+
+Militech: relationplaceholder
+
+Arasaka: relationplaceholder
+
+Biotechnica: relationplaceholder
+
+Nightcorp: relationplaceholder
 
 @paramilitaries
 on-arrival: {!
