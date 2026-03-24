@@ -37,6 +37,7 @@ Reichstag composition:
 {!<span class="tooltip-text" title="Communist Party">CP</span>!}: [+ cp_r +]%
 {!<span class="tooltip-text" title="Devolutionst Party">DP</span>!}: [+ dp_r +]%
 {!<span class="tooltip-text" title="Libertarian Party">LP</span>!}: [+ lp_r +]%
+{!<span class="tooltip-text" title="National Socialist New American Worker's Party">NSNAWP</span>!}: [+ lp_r +]%
 
 [? if ip_in_government = 1 : Budget: [+ budget +] ?]
 
@@ -128,12 +129,14 @@ DP: [+ dp_votes +]%
 
 LP: [+ lp_votes +]%
 
+NSNAWP: [+ nsnawp_votes +]%
+
 **Detailed results for each demographic**
 
-Workers: IP: [+ workers_ip_display +]%, FP: [+ workers_fp_display +]%, CP: [+ workers_cp_display +]%, DP: [+ workers_dp_display +]%, LP: [+ workers_lp_display +]%;
+Workers: IP: [+ workers_ip_display +]%, FP: [+ workers_fp_display +]%, CP: [+ workers_cp_display +]%, DP: [+ workers_dp_display +]%, LP: [+ workers_lp_display +]%, NSNAWP: [+ workers_nsnawp_display +]%;
 
-New Middle Class: IP: [+ corpo_ip_display +]%, FP: [+ corpo_dp_display +]%, CP: [+ corpo_cp_display +]%, DP: [+ corpo_dp_display +]%, LP: [+ corpo_lp_display +]%;
+Corpos: IP: [+ corpo_ip_display +]%, FP: [+ corpo_dp_display +]%, CP: [+ corpo_cp_display +]%, DP: [+ corpo_dp_display +]%, LP: [+ corpo_lp_display +]%, NSNAWP: [+ corpo_nsnawp_display +]%;
 
-Nomad: IP: [+ nomad_ip_display +]%, FP: [+ nomad_fp_display +]%, CP: [+ nomad_cp_display +]%, DP: [+ nomad_dp_display +]%, LP: [+ nomad_lp_display +]%;
+Nomad: IP: [+ nomads_ip_display +]%, FP: [+ nomads_fp_display +]%, CP: [+ nomads_cp_display +]%, DP: [+ nomads_dp_display +]%, LP: [+ nomads_lp_display +]%, NSNAWP: [+ nomads_nsnawp_display +]%;
 
-Unemployed: IP: [+ unemployed_ip_display +]%, FP: [+ unemployed_fp_display +]%, CP: [+ unemployed_cp_display +]%, DP: [+ unemployed_dp_display +]%, LP: [+ unemployed_lp_display +]%;
+Unemployed: IP: [+ unemployed_ip_display +]%, FP: [+ unemployed_fp_display +]%, CP: [+ unemployed_cp_display +]%, DP: [+ unemployed_dp_display +]%, LP: [+ unemployed_lp_display +]%, NSNAWP: [+ unemployed_nsnawp +]%;
