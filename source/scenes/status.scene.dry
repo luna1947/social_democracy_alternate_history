@@ -26,11 +26,9 @@ Internal dissent: [+ dissent_percent : dissent +]
 
 = Government
 
-President: [+ president +]
+Mayor: [+ chancellor +] ([+ chancellor_party +])
 
-Chancellor: [+ chancellor +] ([+ chancellor_party +])
-
-Reichstag composition:
+Council composition:
 
 {!<span class="tooltip-text" title="Independent Party">IP</span>!}: [+ ip_r +]%
 {!<span class="tooltip-text" title="Federalist Party">FP</span>!}: [+ fp_r +]%
