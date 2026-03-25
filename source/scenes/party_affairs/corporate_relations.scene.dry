@@ -25,7 +25,7 @@ on-arrival: resources -= 1;
 go-to: militech_federalist if mt_affiliation = "Federalists"; militech_offer if militech_favor => 40 && mt_affiliation = "Federalists"; militech_pals if mt_affiliation = "Independent";
 
 @militech_federalist
-on-arrival: Q.green_dissent += 5; militech_favor += 5; fp_relation -= 5; arasaka_favor -= 10;
+on-arrival: green_dissent += 5; militech_favor += 5; fp_relation -= 5; arasaka_favor -= 10;
 
 In our attempts to make contact with Militech, we make some progress in forming a partnership. While they are still undoubtedly tied to the Federalists, we have still made good will between us. The green wing of our party expresses disdain at working with corporations, as does the Federalist party for "poaching their sponsor."
 
