@@ -99,9 +99,13 @@ Q.fp_relation = 50;
 Q.cp_relation = 25;
 Q.lp_relation = 60;
 Q.dp_relation = 35;
-// DNVP and NSDAP are invariably hostile
-Q.DNVP_relation = 10;
-Q.NSDAP_relation = 0;
+Q.nsnawp_relation = 0;
+
+//corporate support
+Q.militech_favor = 3;
+Q.arasaka_favor = 5;
+Q.biotechnica_favor = 6;
+Q.nightcorp_favor = 10;
 
 Q.cp_leader = "Thälmann";
 // alternative is the Conciliators as party leader
