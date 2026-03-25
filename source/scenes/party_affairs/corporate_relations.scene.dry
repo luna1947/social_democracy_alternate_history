@@ -22,7 +22,7 @@ subtitle: -1 resources.
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1;
-go-to: militech_federalist if mt_affiliation = "Federalists"; militech_offer if militech_favor => 40 && mt_affiliation = "Federalists"; militech_pals if mt_affiliation = "Independent"
+go-to: militech_federalist if mt_affiliation = "Federalists"; militech_offer if militech_favor => 40 and mt_affiliation = "Federalists"; militech_pals if mt_affiliation = "Independent"
 
 @militech_federalist
 on-arrival: green_dissent += 5; militech_favor += 5; fp_relation -= 5; arasaka_favor -= 10;
