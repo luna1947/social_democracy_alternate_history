@@ -262,9 +262,7 @@ Q.economic_records = [];
 
 // State of the government
 Q.mayor = "Peralez";
-// starting head
-Q.vice_mayor = "Richter";
-Q.chancellor_party = 'lp';
+Q.mayor_party = 'Devolutionist';
 Q.ip_in_government = 0;
 Q.fp_in_government = 1;
 Q.lp_in_government = 0;
