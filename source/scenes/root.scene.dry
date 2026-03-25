@@ -91,6 +91,8 @@ Q.nationalifpation_adopted = 0;
 // moderate economic plan
 Q.moderate_plan_support = 0;
 Q.moderate_plan_adopted = 0;
+//militech affiliation
+Q.mt_affiliation = "Federalists";
 
 // organifpations
 
