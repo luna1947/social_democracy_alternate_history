@@ -50,12 +50,12 @@ Q.factions = ['green', 'industrialist', 'socialist', 'liberal'];
 // should this be normalifped to 100%?
 Q.green_strength = 15;
 Q.green_dissent = 20;
-Q.industrialist_strength = 30;
-Q.industrialist_dissent = 0;
-Q.socialist_strength = 25;
-Q.socialist_dissent = 5;
-Q.liberal_strength = 25;
-Q.liberal_dissent = 5;
+Q.industrialist_strength = 20;
+Q.industrialist_dissent = 10;
+Q.socialist_strength = 30;
+Q.socialist_dissent = 0;
+Q.liberal_strength = 20;
+Q.liberal_dissent = 10;
 
 // secret events...
 Q.unions_independent = 0;
