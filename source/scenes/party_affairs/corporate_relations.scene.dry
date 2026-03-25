@@ -10,6 +10,8 @@ max-visits: 12
 
 = Corporate Relationships
 
+Unfortunately, corporate support is a major deciding factor in who wins elections, and who loses. Who should we try building relationships with?
+
 - @militech: Try reaching out to Militech
 - @arasaka: Strengthen our bonds with Arasaka
 - @biotechnica: Strengthen our bonds with Biotechnica
@@ -44,7 +46,7 @@ on-arrival: resources -= 1;
 placeholder
 
 @biotechnica
-subtitle: -1 resources. Maybe they could offer us militant help?
+subtitle: -1 resources. Maybe they could offer us monetary help?
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1;
@@ -52,7 +54,7 @@ on-arrival: resources -= 1;
 placeholder
 
 @nightcorp
-subtitle: -1 resources. Maybe they could offer us militant help?
+subtitle: -1 resources. Maybe they could offer us monetary help?
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1;
