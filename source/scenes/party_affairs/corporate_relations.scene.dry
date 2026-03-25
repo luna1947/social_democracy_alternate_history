@@ -18,7 +18,7 @@ Unfortunately, corporate support is a major deciding factor in who wins election
 - @nightcorp: Strengthen our bonds with Nightcorp
 
 @militech
-subtitle: -1 resources.
+subtitle: -1 resources. Maybe they could offer us militant help?
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1;
