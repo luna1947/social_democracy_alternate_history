@@ -33,9 +33,23 @@ In our attempts to make contact with Militech, we make some progress in forming 
 
 After some long, arduous negotiation with Militech's PR team, they give us an ultimatum. We could either work with them and pass laws to help them, or we could go against eachother, and they will not hesitate to stop us at every avenue.
 
-@militech_pals
+- @militech_yes: Yes, we will accept their offer, despite the pleas of the Green and Socialist factions.
+- @militech_no: No, we will not defy our core principles just for a stronger paramilitary.
 
-placeholder lmaoooo
+@militech_yes
+on-arrival: mt_affiliation = "Independent"; militech_favor += 35; green_dissent += 35; socialist_dissent += 30; fp_relation -= 50; arasaka_favor -= 50;
+
+After some deliberation, we have decided to tie the knot with Militech. While this may backfire on us later down the line, we are now untouchable in streetfights. This does anger our Green and Socialist factions to the point they may split, and will ruin any chance of a council with the Federalists along with any partnership with Arasaka.
+
+@militech_no
+on-arrival: militech_favor -= 50; industrialist_dissent += 20;
+
+After some deliberation, we have decided not to tie the knot with Militech. This enrages the Militech representative we were meeting with, and we're told that we'll regret this choice. This also invokes the ire of the Industrialists, for switching up regarding our deal.
+
+@militech_pals
+on-arrival: str_militarization += 0.1; str_strength += 100; mt_militancy += 0.05; militech_favor += 5;
+
+We are already good friends with Militech at this point. Rather than just building relations, they allow 6th Street to train with their own troops.
 
 @arasaka
 subtitle: -1 resources. Maybe they could offer us militant help?
