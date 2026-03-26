@@ -10,19 +10,39 @@ view-if: muller_advisor = 1
 
 Müller is a former [? if chancellor = "Müller": and current ?] Chancellor, and is a long-time Social Democratic leader.
 
-- @coalition
+- @militech
+- @biotechnica
+- @nightcorp
 - @toleration
 - @snap_election
 - @root: Return to main
 
-@coalition
+@militech
 title: DEBUG: Increase Militech favor.
 subtitle: Müller can help me debug militech shit.
 choose-if: advisor_action_timer <= 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not spd_in_government: The SPD is not in government. ?]
-on-arrival: militech_favor += 40;
+on-arrival: militech_favor += 50;
 
-We have improved our relations with the Z, [+ ddp_name +], and DVP, and reduced tensions with the coalition.
+Increased Militech favor.
+
+@biotechnica
+title: DEBUG: Increase Biotechnica favor.
+subtitle: Müller can help me debug militech shit.
+choose-if: advisor_action_timer <= 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not spd_in_government: The SPD is not in government. ?]
+on-arrival: biotechnica_favor += 50;
+
+Increased Biotechnica favor.
+
+@nightcorp
+title: DEBUG: Increase NightCorp favor.
+subtitle: Müller can help me debug militech shit.
+choose-if: advisor_action_timer <= 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not spd_in_government: The SPD is not in government. ?]
+on-arrival: nightcorp_favor += 50;
+
+Increased NightCorp favor.
 
 
 @toleration
