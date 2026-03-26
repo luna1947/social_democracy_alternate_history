@@ -16,7 +16,7 @@ if (Q.economic_growth) {
 
 = Status
 
-[+ month : month +] [+ year +]
+[+ month : month +] [+ year + 149 +]
 
 Resources available: [+ resources +]
 
@@ -39,7 +39,7 @@ Council composition:
 
 [? if ip_in_government = 1 : Budget: [+ budget +] ?]
 
-Next election: [+ next_election_month : month +] [+ next_election_year +]
+Next election: [+ next_election_month : month +] [+ next_election_year + 149 +]
 
 # = Public Opinion
 
