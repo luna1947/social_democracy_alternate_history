@@ -13,7 +13,7 @@ Q.economic_growth -= 1;
 // moved demographic changes to post_event
 !}
 tags: event
-view-if: year = 1930 and month = 1 
+view-if: year = 2079 and month = 1 
 priority: 2
 max-visits: 1
 
