@@ -210,42 +210,42 @@ Q.parties = ['ip', 'cp', 'fp', 'lp', 'dp', 'nsnawp'];
 
 // Support for party by social group
 // they don't have to sum to 100 since the electoral calculations will be normalifped.
-Q.workers_ip = 65;
-Q.workers_cp = 20;
-Q.workers_fp = 5;
+Q.workers_ip = 50;
+Q.workers_cp = 55;
+Q.workers_fp = 0;
 Q.workers_lp = 0;
 Q.workers_dp = 0;
-Q.workers_nsnawp = 0;
+Q.workers_nsnawp = 5;
 
 Q.corpo_ip = 5;
 Q.corpo_cp = 0;
-Q.corpo_fp = 5;
-Q.corpo_lp= 10;
-Q.corpo_dp = 25;
+Q.corpo_fp = 75;
+Q.corpo_lp= 15;
+Q.corpo_dp = 0;
 Q.corpo_nsnawp = 10;
 
 Q.nomads_ip = 5;
 Q.nomads_cp = 0;
 Q.nomads_fp = 10;
-Q.nomads_lp= 25;
+Q.nomads_lp= 50;
 Q.nomads_dp = 25;
-Q.nomads_nsnawp = 5;
+Q.nomads_nsnawp = 10;
 
-Q.unemployed_ip = 25;
-Q.unemployed_cp = 55;
-Q.unemployed_fp = 1;
-Q.unemployed_lp = 0;
+Q.unemployed_ip = 45;
+Q.unemployed_cp = 50;
+Q.unemployed_fp = 0;
+Q.unemployed_lp = 2;
 Q.unemployed_dp = 0;
-Q.unemployed_nsnawp = 15;
+Q.unemployed_nsnawp = 3;
 
 
-// Current Congress composition
+// Current Council composition
 // % seats in congress in July 2077
-Q.ip_r = 26;
-Q.cp_r = 9;
-Q.fp_r = 17;
-Q.lp_r = 6;
-Q.dp_r = 10;
+Q.ip_r = 34;
+Q.cp_r = 5;
+Q.fp_r = 30;
+Q.lp_r = 28;
+Q.dp_r = 20;
 
 // diff from prev
 Q.old_ip_r = 26;
@@ -267,8 +267,8 @@ Q.mayor = "Peralez";
 Q.mayor_party = 'Devolutionist';
 Q.ip_in_government = 0;
 Q.fp_in_government = 1;
-Q.lp_in_government = 0;
-Q.dp_in_government = 1;
+Q.lp_in_government = 1;
+Q.dp_in_government = 0;
 Q.cp_in_government = 0;
 Q.nsnawp_in_government = 0;
 
@@ -276,7 +276,6 @@ Q.in_right_coalition = 0;
 // Weimar coalition = ip + fp + lp
 Q.in_weimar_coalition = 0;
 // Grand coalition = ip + fp + lp + dp
-// also includes the "new grand coalition" of ip + fp + lp + dp
 Q.in_grand_coalition = 0;
 // Popular front = ip + cp + fp + lp
 Q.in_popular_front = 0;
