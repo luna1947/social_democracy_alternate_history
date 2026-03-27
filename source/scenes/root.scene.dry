@@ -21,7 +21,7 @@ on-arrival: {!
 Q.started = 1;
 // time elapsed (in months)
 Q.time = 1;
-Q.year = 1928;
+Q.year = 2077;
 Q.month = 1;
 // how many actions have been taken this month?
 Q.month_actions = 0;
@@ -64,8 +64,8 @@ Q.green_split = 0;
 Q.liberals_resigned = 0;
 // crisis_urgency indicates how seriously the ip is taking the economic crisis - scale from 0 to 10.
 Q.federalist_urgency = 0;
-// nafpi_urgency indicates how seriously the ip takes the nafpis - scale from 0 to 10.
-Q.nafpi_urgency = 0;
+// nazi_urgency indicates how seriously the ip takes the nazis - scale from 0 to 10.
+Q.nazi_urgency = 0;
 // radicalifpation indicates how radical the ip's rhetoric is - scale from 0 to 10.
 Q.radicalifpation = 0;
 // Support for the WTB plan and proto-Keynesian works creation plans in general
@@ -405,7 +405,7 @@ Q.timers = ['advisor_action', 'confronting_nazis', 'crisis_program',
             'understanding_enemy', 'schleichers_schemes'];
 Q.advisor_action_timer = 0;
 // party affairs timers
-Q.confronting_nafpis_timer = 0;
+Q.confronting_nazis_timer = 0;
 Q.crisis_program_timer = 0;
 Q.fundraising_timer = 0;
 Q.ideology_timer = 0;
@@ -427,9 +427,9 @@ Q.n_elections = 0;
 Q.no_majority_elections = 0;
 // elections are not on a timer, but rather there is an indicator for whether you're in an electoral cycle.
 Q.in_election = 1;
-Q.next_election_year = 1928;
-Q.next_election_month = 5;
-Q.next_election_time = 5;
+Q.next_election_year = 2077;
+Q.next_election_month = 11;
+Q.next_election_time = 11;
 // government affairs timers
 Q.agricultural_policy_timer = 0;
 Q.domestic_enemies_timer = 0;
