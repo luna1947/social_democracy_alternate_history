@@ -99,22 +99,12 @@ if (Q.cp_r >= Q.ip_r && Q.cp_r >= Q.nsnawp_r) {
 }
 
 // councils
-Q.weimar_council = Q.ip_r + Q.dp_r + Q.lp_r - 3;
+Q.lithuania_council = Q.ip_r + Q.fp_r + Q.lp_r - 3;
 Q.grand_council = Q.ip_r + Q.dp_r + Q.lp_r + Q.fp_r;
-Q.bourgeois_council = Q.dp_r + Q.lp_r + Q.fp_r + Q.other_r;
-Q.center_right_council = Q.lp_r + Q.dp_r + Q.fp_r + Q.other_r + Q.dnvp_r;
-Q.right_council = Q.lp_r + Q.fp_r + Q.other_r + Q.dnvp_r;
-Q.far_right_council = Q.dnvp_r + Q.nsnawp_r;
-Q.left_council = Q.ip_r + Q.cp_r + Q.sapd_r;
-// this is an absurd concept lol
-Q.popular_front_council = Q.ip_r + Q.cp_r + Q.lp_r + Q.dp_r - 3 + Q.sapd_r;
-Q.anti_democratic_council = Q.cp_r + Q.nsnawp_r + Q.dnvp_r;
-// aka everyone except nalpi, cp, dnvp
-Q.neo_weimar_council = Q.ip_r + Q.dp_r + Q.lp_r + Q.fp_r + Q.other_r;
-// Hitler + Right-wing parties (only comes into effect if you've alienated Z too badly)
-Q.hitler_right_council = Q.lp_r + Q.dnvp_r + Q.nsnawp_r;
-// Progressive council isn't going to be implemented as a distinct council but it's the council that lets you pass improved women's rights/gay rights
-Q.progressive_council = Q.ip_r + Q.cp_r + Q.dp_r + Q.sapd_r;
+Q.corporate_council = Q.dp_r + Q.lp_r + Q.fp_r;
+Q.earth_council = Q.ip_r + Q.dp_r;
+Q.right_council = Q.fp_r + Q.nsnawp_r;
+Q.left_council = Q.ip_r + Q.cp_r;
 
 if (Q.cp_relation >= 30) {
     Q.weimar_council += Q.sapd_r;
@@ -125,15 +115,12 @@ Q.leverage = Q.ip_r;
 Q.grand_council_failed = 0;
 // Reset government and ministers... Based on Brüning's 1930 govt
 Q.council_dissent = 0;
-Q.cp_council_dissent = 0;
 Q.ip_in_government = 0;
-Q.in_weimar_council = 0;
-Q.in_grand_council = 0;
-Q.in_left_front = 0;
+Q.in_lithuania_council = 0;
+Q.in_earth_council = 0;
+Q.in_left_council = 0;
+Q.in_grand_council
 Q.in_popular_front = 0;
-Q.in_emergency_government = 0;
-Q.in_minority_government = 0;
-Q.in_unity_government = 0;
 Q.ip_toleration = 0;
 Q.ip_caretaker = 0;
 Q.foreign_minister_party = 'Federalist';
@@ -141,32 +128,9 @@ Q.interior_minister_party = 'Z';
 Q.justice_minister_party = 'I';
 Q.labor_minister_party = 'Z';
 Q.reichswehr_minister_party = 'I';
-Q.economic_minister_party = Q.dp_name;
+Q.economic_minister_party = Devolutionist;
 Q.finance_minister_party = 'Federalist';
 Q.agriculture_minister_party = 'Z';
-
-// reset Communists goals
-Q.cp_goals_seen = 0;
-Q.cp_ultimatum_seen = 0;
-Q.welfare_goal = 0;
-Q.agriculture_goal = 0;
-Q.economy_goal = 0;
-Q.finance_goal = 0;
-Q.labor_goal = 0;
-Q.foreign_goal = 0;
-Q.interior_goal = 0;
-Q.reichswehr_goal = 0;
-
-Q.welfare_goal_completed = 0;
-Q.agriculture_goal_completed = 0;
-Q.economy_goal_completed = 0;
-Q.finance_goal_completed = 0;
-Q.labor_goal_completed = 0;
-Q.foreign_goal_completed = 0;
-Q.interior_goal_completed = 0;
-Q.reichswehr_goal_completed = 0;
-
-Q.strike_term_seen = 0;
 
 // understanding the enemy
 if (Q.nsnawp_r >= 15) {
@@ -249,32 +213,30 @@ go-to: council_menu
 
 {!<table>!} 
 {!<tr><td>Party</td><td>Vote share</td><td>% Change</td></tr>!}
-{!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **Independent:** {!</td><td>!} **[+ ip_r +]%** {!</td><td>!} **[+ str_change_ip +]** {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#13BE1F; outline: 2px; outline-style: solid;'> </div> !} **Independent:** {!</td><td>!} **[+ ip_r +]%** {!</td><td>!} **[+ str_change_ip +]** {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}Communists: {!</td><td>!} [+ cp_r +]% {!</td><td>!} [+ str_change_cp +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#540F00'> </div> !}Communists: {!</td><td>!} [+ cp_r +]% {!</td><td>!} [+ str_change_cp +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} Devolutionists: {!</td><td>!} [+ dp_r +]% {!</td><td>!} [+ str_change_dp +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#083A90'> </div> !} Devolutionists: {!</td><td>!} [+ dp_r +]% {!</td><td>!} [+ str_change_dp +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#000'> </div> !} Libertarians: {!</td><td>!} [+ lp_r +]% {!</td><td>!} [+ str_change_lp +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#FED000'> </div> !} Libertarians: {!</td><td>!} [+ lp_r +]% {!</td><td>!} [+ str_change_lp +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#D5AC27'> </div> !} Federalists: {!</td><td>!} [+ fp_r +]% {!</td><td>!} [+ str_change_fp +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#FF2B00'> </div> !} Federalists: {!</td><td>!} [+ fp_r +]% {!</td><td>!} [+ str_change_fp +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#954B00'> </div> !} National Socialists: {!</td><td>!} [+ nsnawp_r +]% {!</td><td>!} [+ str_change_nsnawp +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#0166ff'> </div> !} National Socialists: {!</td><td>!} [+ nsnawp_r +]% {!</td><td>!} [+ str_change_nsnawp +] {!</td></tr>!}
 {!</table>!}
 
 **Potential councils:**
 
-Weimar Council (Independent + Federalists + Devolutionists): [+ weimar_council +]%
+Lithuania Council (Independent + Federalists + Libertarian): [+ lithuania_council +]%
 
-Grand Council (Independent + Z + BVP + [+ dp_name +] + Federalist): [+ grand_council +]%
+Grand Council (Independent + Devolutionist + Libertarian + Federalist): [+ grand_council +]%
 
-Bourgeois Council (Z + BVP + [+ dp_name +] + Federalist + Others): [+ bourgeois_council +]%
+Earth Council (Independant + Devolutionist): [+ earth_council +]%
 
-Right-wing Council (Z + BVP + Federalist + Others + DNVP): [+ right_council +]%
+Corporate Council (Federalist + Libertarian): [+ right_council +]%
 
 [? if nazi_urgency <= 1 and nsnawp_r >= 15 : The rapid rise in National Socialist votes is extremely worrying. Many had believed that the party was moribund; now, some of us consider it to be the greatest threat to democracy in Germany. ?]
-
-[? if anti_democratic_council >= 50 : Together, the anti-democratic Communists and National Socialists have a majority in the city council. A stable governing majority will be almost impossible. ?]
 
 There are some potential council arrangements.
 
@@ -293,88 +255,6 @@ There are some potential council arrangements.
 - @right_council
 
 # TODO: black-brown council
-
-
-@popular_front_council
-title: A new "Popular Front" council?
-subtitle: Independents + Communists + Libertarians + Devolutionists ([+ popular_front_council +]%)
-unavailable-subtitle: Independent + Communists + Libertarians + Devolutionists ([+ popular_front_council +]%) - [? if ((cp_relation < 65 and cp_party_leader == "Thälmann") or (cp_relation < 45 and cp_party_leader == "Conciliators")): We do not have good enough relations with the Communists. ?][? if (lp_relation < 45 and lp_party_leader == "Joos") or (lp_relation < 65 and lp_party_leader != "Joos" and cp_party_leader != "Conciliators") or (lp_relation < 55 and lp_party_leader != "Joos" and cp_party_leader == "Conciliators"): We do not have good enough relations with the Libertarian Party. ?][? if communist_council < 3 : The Communists are unwilling to compromise at all. ?]
-view-if: popular_front_council >= 50
-choose-if: (((cp_relation >= 65 and cp_party_leader == "Thälmann") or (cp_relation >= 45 and cp_party_leader == "Conciliators")) and ((lp_relation >= 45 and lp_party_leader == "Joos") or (lp_relation >= 65 and lp_party_leader != "Joos" and cp_party_leader != "Conciliators") or (lp_relation >= 55 and lp_party_leader != "Joos" and cp_party_leader == "Conciliators")) and dp_relation >= 50 and communist_council >= 3) or (lp_party_leader == "Joos" and cp_party_leader == "Conciliators" and lp_relation >= 30 and cp_relation >= 30)
-
-Could we really form a council that included both the Libertarian and the Communists? It seems like an absurd concept, but given our good relationships with both sides, it is not an impossibility.
-
-The far-right might attempt a coup, if such a council were formed.
-
-- @popular_front_2: Form the Popular Front!
-- @great_popular_front: Form the Popular Front!
-
-@popular_front_2
-view-if: lp_party_leader != "Joos" or cp_party_leader != "Conciliators"
-
-Somehow, both the Communists and Libertarian are at the very least willing to entertain negotiations. Of course, Communists radicals and Libertarian conservatives derail the negotiations almost immediately. The Communists demands leadership of the council for themselves and their chairman Ernst Thälmann, [? if ip_r > cp_r : despite our higher vote share, ?]while the Libertarian is offended by the prospect of helping Bolsheviks enter government. *Something* must be done to restore balance.
-
-- @popular_front_resources
-- @popular_front_democracy
-- @popular_front_braun
-- @council_menu: This is impossible. Try another governing arrangement.
-
-@popular_front_resources
-title: Use our resources to smooth things over.
-unavailable-subtitle: Required: 4 resources
-subtitle: -4 resources
-choose-if: resources >= 4
-on-arrival: resources -= 4
-go-to: popular_front_success
-
-@popular_front_democracy
-title: Convince the Communists to accept democracy.
-subtitle: [? if cp_party_leader == "Conciliators" : The Conciliator leadership of the Communists at least claim to support the Popular Front. ?]
-unavailable-subtitle: Our relationship with the Communists is not high enough.
-choose-if: (cp_relation >= 60 and communist_council >= 3) or cp_party_leader == "Conciliators"
-go-to: popular_front_success
-
-@popular_front_braun
-title: Use pressure from President Braun to force the parties to cooperate.
-view-if: president == "Braun"
-go-to: popular_front_success
-
-@great_popular_front
-view-if: lp_party_leader == "Joos" and cp_party_leader == "Conciliators"
-on-arrival: ip_in_government = 1; in_popular_front = 1; chancellor = "Breitscheid"; chancellor_party = "Independent"; cp_relation += 10; coup_progress += 2; in_left_front = 0; in_weimar_council = 0; in_grand_council = 0; council_dissent = 0;
-achievement: grosse_volksfront
-go-to: popular_front_civil_war if coup_progress >= 10; popular_front_no_civil_war if coup_progress < 10
-
-Somehow, the council is successfully formed! The conciliatory leadership of the Libertarian Party and Communists helped make the negotiations possible. We still need a chancellor; the only acceptable choice among the parties was Rudolf Breitscheid of the Independent, acceptable to the Libertarian and Communists [? if president == "Hindenburg" : as well as President Hindenburg, albeit extremely reluctantly ?].
-
-@popular_front_success
-on-arrival: ip_in_government = 1; in_popular_front = 1; chancellor = "Breitscheid"; chancellor_party = "Independent"; cp_relation += 10; coup_progress += 2; in_left_front = 0; in_weimar_council = 0; in_grand_council = 0; council_dissent = 0;
-go-to: popular_front_civil_war if coup_progress >= 10; popular_front_no_civil_war if coup_progress < 10
-achievement: volksfront
-
-Somehow, surprisingly, the council is successfully formed! We still need a chancellor; the only acceptable choice among the parties was Rudolf Breitscheid of the Independent, acceptable to the Libertarian and Communists [? if president == "Hindenburg" : as well as President Hindenburg, albeit extremely reluctantly ?].
-
-@popular_front_no_civil_war
-on-arrival: cp_goals_seen = 0; finance_minister_party = "Z"; interior_minister_party = "Z"; economic_minister_party = "Z"; labor_minister_party = "Z"; foreign_minister_party = "Z"; agriculture_minister_party = "Z"; reichswehr_minister = "I"; leverage = ip_r + cp_r;
-achievement: volksfront
-
-In response to the Communists's entrance into the government, the right-wing takes a "wait-and-see" approach for now. They expect that the Popular Front government will be unstable and incompetent, and will collapse of its own accord, discrediting the left and center and eventually enabling the destruction of the Weimar Republic. Our task is to prove them wrong.
-
-The Communists has taken an abstentionist position with regards to ministries. They claim to be participating as the "loyal opposition" within the Popular Front government, supporting us from the outside while also running their own propaganda campaigns to turn workers to their side. They seem to expect that the Popular Front would inevitably fail, and that our failure would benefit them.
-
-- @ministries: First, we must select our ministries.
-
-
-@popular_front_civil_war
-on-arrival: cp_relation = 80; reichswehr_loyalty += 0.25;
-
-In response to the Communists' entrance into the government, the right-wing immediately launches a coup attempt. Troops of the Stahlhelm and Nazi SA enter Berlin and immediately begin clashing with our supporters! Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined them with the Stahlhelm to stop us from taking power.
-
-The Libertarian manages to diffuse some of the hostility from the Reichswehr and the Stahlhelm, but fail to prevent the outbreak of fighting. We are forced to fight on the same side as the Communists, whether we want to or not.
-
-- @civil_war: A civil war, then.
-
-
 
 @far_right_council
 title: Far-right council
