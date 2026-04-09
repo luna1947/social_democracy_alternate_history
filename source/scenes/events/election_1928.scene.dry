@@ -1019,22 +1019,6 @@ What are our goals here, exactly?
 - @trap: It is a trap to form a government now. We would be unable to accomplish our goals.
 - @socialism: Revolutionary socialism is our goal.
 
-@majority
-go-to: no_govt_2
-
-@trap
-on-arrival: radicalilpation += 1
-go-to: no_govt_2
-
-@socialism
-go-to: no_govt_2
-
-
-@no_govt_2
-on-arrival: reformist_dissent += 25; center_dissent += 10; labor_dissent += 25; neorevisionist_dissent += 25; in_weimar_council = 0; in_grand_council = 0; chancellor = "Brüning" if chancellor == "Marx"; ip_in_government = 0; grand_council_failed = 1
-go-to: right_council_post_ip if right_council >= 50 and president != "Braun" and year < 1929; new_elections_ip if (right_council < 50 or year >= 1929) and president != "Braun";
-
-
 @right_council_post_ip
 go-to: right_council_2
 
