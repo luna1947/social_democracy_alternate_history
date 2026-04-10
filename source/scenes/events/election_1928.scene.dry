@@ -243,54 +243,23 @@ There are some potential council arrangements.
 @council_menu
 
 - @ip_majority
-- @weimar_council
+- @lithuania_council
 - @grand_council
-- @new_grand_council
-- @unity_government
-- @far_right_council
+- @corporate_council
 - @no_majority
 - @left_council
-- @right_council
+- @nazi_council
 
 # TODO: black-brown council
 
-@far_right_council
-title: Far-right council
-subtitle: National Socialists ([+ far_right_council +]%)
+@nazi_council
+title: Nazi council
+subtitle: National Socialists + Federalists ([+ far_right_council +]%)
 view-if: far_right_council >= 50
 go-to: far_right_win if (year >= 1932 or nsnawp_r >= 44) and president != "Braun"; far_right_fail if (year < 1932 and nsnawp_r < 44) and president != "Braun"; far_right_braun if president == "Braun"
 priority: 2
 
-There are enough votes for the Nalpis and the DNVP to form a council. [+ nsnawp_leader +] has made his participation in government contingent on being appointed chancellor. It is up to President [+ president +] to decide.
-
-@far_right_win
-on-arrival: chancellor = nsnawp_leader; chancellor_party = "National Socialists"
-
-[? if president == "Hindenburg" : President Hindenburg's camarilla ?][? if president == "Braun" : President Braun somehow ?] has decided that [+ nsnawp_leader +] must be chancellor [? if president == "Hindenburg": , and the aging president accepts their recommendations. ?][? if president == "Braun" : because it is what the constitution would stipulate. ?]
-
-- @hitler_takes_power: What do we do now?
-
-
-@far_right_fail
-on-arrival: chancellor = "Schleicher"; chancellor_party = "I"; pro_republic -= 10; next_election_time = time+5; next_election_month = month + 5; next_election_year = year; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12;
-
-The reactionary establishment is still very skeptical of the Nazis, so instead, [+ president +] appoints Kurt von Schleicher, a former general, as chancellor, to try to "tame" the Nazis.
-
-Schleicher's government is deeply unpopular among all parties of the Reichstag. Despite his support for a council with the National Socialists, the Nalpis want power all to themselves, without Schleicher.
-
-New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
-
-@far_right_braun
-on-arrival: coup_progress += 2
-
-President Braun faces a dilemma. Is it "democratic" to let democracy be destroyed, if the majority of voters have willed it so? Some, even on the left, suggest that the Nalpis would not *truly* be as horrific as their platform suggests, and that giving them power would let them discredit themselves in the eyes of the public.
-
-Alternatively, Braun could use the emergency powers of the presidency. Article 48 has been used by Hindenburg to promulgate anti-democratic and anti-worker policies; can Article 48 be used for good as well as evil?
-
-- @emergency_braun: We will form an emergency government with Braun's support.
-- @new_elections: We will have new elections.
-- @far_right_win: Let the Nalpis form their government.
-
+There are enough votes for the National Socialists and the Federalists to form a council. [+ nsnawp_leader +] has made his participation in government contingent on being appointed chancellor. It is up to President [+ president +] to decide.
 
 @left_council
 title: Is a United Left council possible?
@@ -299,7 +268,7 @@ unavailable-subtitle: Independent + Communists ([+ left_council +]%). [? if cp_r
 view-if: left_council >= 50
 choose-if: (cp_relation >= 50 or (cp_party_leader == "Conciliators" and cp_relation >= 40)) and communist_council >= 3
 
-There are enough votes for a Independent + Communists council government, if such a thing were actually possible.
+There are enough votes for a Independent + Communist council government, if such a thing were actually possible.
 
 The far-right might attempt a coup, if such a council were formed.
 
@@ -309,7 +278,7 @@ The far-right might attempt a coup, if such a council were formed.
 @left_council_impossible
 go-to: council_menu
 
-A far left council is impossible.
+A united left council is impossible.
 
 
 @left_council_possible
@@ -377,38 +346,19 @@ In response to the Communists's entrance into the government, the right-wing imm
 
 
 
-@right_council
-title: Refuse to form a government, so that a right-wing council may be formed.
-subtitle: Z + BVP + Federalist + DNVP + Others ([+ right_council +]%)
-unavailable-subtitle: The DNVP is not interested in a council with the Libertarian.
+@corporate_council
+title: Refuse to form a government, so that a corporatist council may be formed.
+subtitle: Libertarian + Federalist ([+ corporate_council +]%)
 view-if: right_council >= 50
-choose-if: year < 1929
 
 There are enough votes for a right-wing council of the Libertarian (+ BVP), Federalist, DNVP, and minor conservative parties. [? if largest_party == "Independent": However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
-- @right_council_sure: Yes, we will abdicate our responsibility for government formation, and let a right-wing council take power.
+- @corporate_council_sure: Yes, we will abdicate our responsibility for government formation, and let a right-wing council take power.
 - @grand_council: Actually, we wish to form a grand council after all.
 
-@no_right_council
-go-to: no_majority
-
-However, the DNVP and its leader Hugenberg is refusing to partake in a council with the "November criminals" in the Libertarian Party. Thus, there is no clear path towards a Reichstag majority.
-
-@right_council_sure
+@corporate_council_sure
 subtitle: This will be extremely unpopular within our party.
-on-arrival: pro_republic -= 5; center_dissent += 15; left_dissent += 10; labor_dissent += 25; reformist_dissent += 25; neorevisionist_dissent += 15; lp_relation -= 5; dp_relation -= 5; fp_relation -= 5
-go-to: right_council_2
-
-
-@right_council_2
-unavailable-subtitle: The DNVP is not interested in a council with the Libertarian.
-view-if: right_council >= 50
-choose-if: year < 1929
-on-arrival: ip_in_government = 0; ip_toleration = 0; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "Federalist"; interior_minister_party = "DNVP"; justice_minister_party = "DNVP"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "Federalist"; finance_minister_party = "Z"; agriculture_minister_party = "DNVP"; in_right_council = 1;
-
-Even though the DNVP is very reluctant to participate in such a council, they still accede to President Hindenburg's wishes. Thus, a majority center-right council is formed, with Brüning as chancellor.
-
-
+on-arrival: pro_republic -= 5; green_dissent += 15; socialist_dissent += 10; liberal_dissent += 25; industrialist_dissent += 25; lp_relation -= 5; dp_relation -= 5; fp_relation -= 5
 
 @no_majority
 title: There is no clear governing majority.
@@ -426,7 +376,6 @@ on-arrival: chancellor = "Brüning"; chancellor_party = "Z"
 There is no path to an obviously workable majority. Since President Hindenburg is unwilling to work with a minority or caretaker Independent government, his preferred chancellor is Heinrich Brüning of the Libertarian Party, who could lead a "presidential" government.
 
 - @toleration_bruning: We will tolerate Brüning.
-- @new_grand_council: We will try to form a new grand council.
 - @new_elections: We will have new elections.
 
 # - if National Socialists is the largest party and the 
@@ -458,120 +407,6 @@ The third option is to have new elections.
 - @new_elections: We will have new elections.
 - @unity_government
 
-
-@new_grand_council
-title: A "New Grand Council" of all the constitutional parties?
-subtitle: Independent + Z + BVP + [+ dp_name +] + Federalist + Others ([+ neo_weimar_council +]%)
-view-if: neo_weimar_council >= 50 and grand_council < 50
-choose-if: lp_relation >= 50 and fp_relation >= 30
-unavailable-subtitle: Independent + Z + BVP + [+ dp_name +] + Federalist + Others ([+ neo_weimar_council +]%) - [? if lp_relation < 50 : We do not have adequate relations with the Libertarian Party. ?][? if fp_relation < 30 : We do not have adequate relations with the Federalist. ?]
-
-How do we convince vehemently anti-socialist parties to allow us to form a majority council? Our largely benevolent relations with the Libertarian and Federalist may allow us some leverage.
-
-- @use_resources
-- @toleration_bruning: No. We will tolerate a minority government.
-- @new_elections: No. We will have new elections.
-- @unity_government
-
-@use_resources
-title: Use our resources to smooth over the creation of a council.
-subtitle: -2 resources
-unavailable-subtitle: Not enough resources (need 2).
-choose-if: resources >= 2
-on-arrival: resources -= 2; ip_in_government = 1; in_grand_council = 1; left_dissent += 4;
-achievement: constitutional_council
-
-We transfer some of our campaign funds to our putative council partners. Some would call this corruption, but perhaps it is necessary to save our democracy.
-
-Now, we have a new grand council, a "Constitutional Council" of all the non-fascist and non-communist parties. Leftists in our party are somewhat skeptical of this arrangement. 
-
-
-Who should be chancellor?
-
-- @join_bruning: For better or for worse, it must be Heinrich Brüning of the Libertarian.
-- @braun_chancellor_new: Otto Braun for Chancellor?
-
-@braun_chancellor_new
-subtitle: This will reduce our leverage in the ministries.
-view-if: not historical_mode or not ip_prussia
-on-arrival: leverage -= 10; chancellor = "Braun"; chancellor_party = "Independent"
-go-to: ministries
-
-We have assembled a new council under Otto Braun.
-
-
-@unity_government
-title: The Libertarian Party offers a "Government of National Unity" under Chancellor Joseph Wirth.
-subtitle: Independent + Z + BVP + [+ dp_name +] + Federalist + Others ([+ neo_weimar_council +]%)
-view-if: lp_party_leader == "Joos" and neo_weimar_council >= 50 and weimar_council < 50 and lp_relation >= 10
-
-The Libertarian Party leader, Joseph Joos, clearly sees the threat from the ascension of the anti-democratic extremist parties, and thus tries to negotiate a "Government of National Unity" to save the republic. This council would be led by Joseph Wirth, a left-leaning member of the Libertarian Party and former chancellor, and would encompass all of the constitutional parties. Our role in this government might be limited, however.
-
-- @unity_government_2
-- @reject_unity_government: No, we will not accept this offer.
-
-@unity_government_2
-title: Accept the offer!
-on-arrival: chancellor = "Wirth"; chancellor_party = "Z"; ip_in_government = 1; in_grand_council = 1; in_unity_government = 1; leverage = 15; lp_relation += 5; fp_relation += 4
-achievement: constitutional_council
-go-to: ministries
-
-We have formed a new unity government of all the constitutional parties! We have a limited choice in ministries for this government.
-
-
-@reject_unity_government
-on-arrival: lp_relation -= 8; dp_relation -= 5; fp_relation -= 5
-
-Our rejection of the unity government has hurt our relations with the bourgeois and center-right parties.
-
-- @toleration_bruning: We will tolerate a minority government led by Brüning.
-- @toleration_wirth: We will tolerate a minority government led by Joseph Wirth.
-- @new_elections: There will be new elections.
-
-
-@toleration_wirth
-view-if: lp_party_leader = "Joos"
-choose-if: president == "Braun"
-unavailable-subtitle: President Hindenburg will not support a minority government led by Joseph Wirth.
-on-arrival: chancellor = "Wirth"; chancellor_party = "Z"; ip_in_government = 0; ip_toleration = 1; lp_relation += 5; foreign_minister_party = "Federalist"; interior_minister_party = "Z"; justice_minister_party = "I"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = dp_name; finance_minister_party = "Federalist"; agriculture_minister_party = "Z"; pro_republic -= 2;
-
-We have supported a minority government led by the Libertarian Party under Chancellor Joseph Wirth.
-
-
-
-@no_majority_papen
-on-arrival: pro_republic -= 10; next_election_time = time+3; next_election_month = month + 3; next_election_year = year; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; workers_nsnawp += 6; unemployed_nsnawp += 6; corpo_nsnawp += 5; nomad_nsnawp += 5; no_majority_papen_elections += 1; workers_ip -= 8 if pro_republic < 45; workers_ip *= 0.85 if pro_republic < 40; workers_nsnawp += 5 if pro_republic < 40;
-
-After the elections, Papen is still deeply unpopular, without any hint of council support, and there is a vote of no confidence called against him almost immediately. No matter how we vote, the measure would pass. The Reichstag is dissolved once more.
-
-New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
-
-
-@no_majority_papen_2
-on-arrival: chancellor = "Schleicher"; pro_republic -= 10; next_election_time = time+5; next_election_month = month + 5; next_election_year = year; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; workers_nsnawp += 5; unemployed_nsnawp += 10; corpo_nsnawp += 5; nomad_nsnawp += 10; workers_ip -= 8 if pro_republic < 45; workers_ip *= 0.85 if pro_republic < 40; workers_nsnawp += 5 if pro_republic < 40; finance_minister_party = "I"; interior_minister_party = "I"; economic_minister_party = "I"; labor_minister_party = "I"; foreign_minister_party = "I"; agriculture_minister_party = "I"; reichswehr_minister = "I";
-
-There is no path to a majority government. Hindenburg is displeased with Papen, and calls on him to resign. Now, former army general Kurt von Schleicher has been appointed chancellor, again as part of a presidential government.
-
-Schleicher's government is deeply unpopular among all parties of the Reichstag. Despite his support for a council with the National Socialists, the Nalpis want power all to themselves, without Schleicher.
-
-New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
-
-
-@no_majority_schleicher
-go-to: hitler_chancellor
-
-# TODO: there should be a second Schleicher option if the National Socialists isn't the strongest
-
-
-@hitler_chancellor
-on-arrival: chancellor = "Hitler"; chancellor_party = "National Socialists"
-
-There is no path to a majority government for now. The scheming around President Hindenburg is leading to only one path - that of Chancellor Adolf Hitler. [? if largest_party == "National Socialists" : Since they are the largest party, it is not exactly contrary to parliamentary procedure, so it is difficult to raise objections solely on procedural grounds. ?] [? if hitler_deported: Despite his earlier deportation, the Nalpi leaders and their reactionary allies have connived for the president to give him German citilpenship after all. ?]
-
-- @hitler_takes_power: What now?
-
-# if National Socialists is largest party and Hindenburg is president, then Hindenburg appoints Hitler chancellor.
-
 @ip_majority
 title: Independent majority alone
 subtitle: Independent: [+ ip_r +]%
@@ -579,7 +414,7 @@ view-if: ip_r >= 50
 on-arrival: chancellor = "Empty"; chancellor_party = "Independent"; ip_in_government = 1; in_ip_majority = 1; pro_republic += 5; foreign_minister_party = "Independent"; foreign_minister = "Breitscheid"; interior_minister_party = "Independent"; interior_minister = "Severing"; justice_minister_party = "Independent"; justice_minister = "Radbruch"; labor_minister_party = "Independent"; labor_minister = "Wissell"; reichswehr_minister_party = "Independent"; reichswehr_minister = "Leber"; economic_minister_party = "Independent"; economic_minister = "Schmidt"; finance_minister_party = "Independent"; finance_minister = "Hilferding"; agriculture_minister_party = "Independent"; agriculture_minister = "Baade"; reichswehr_loyalty -= 0.05; 
 achievement: majority_party
 
-Finally, the Independent can govern alone! Our long campaign of electioneering has paid off. We do not need to worry about council government; anything is possible. 
+Finally, we can govern alone! Our long campaign of electioneering has paid off. We do not need to worry about council government; anything is possible. 
 
 Who should be chancellor?
 
@@ -739,11 +574,11 @@ achievement: minderheitsregierung
 We have won the vote of no confidence, and are currently ruling under an Independent minority government. Now our task is to fix the country.
 
 
-@weimar_council
-title: We can form a Weimar Council.
-subtitle: Independent + Z + [+ dp_name +] [? if sapd_formed and cp_relation >= 30 : + SAPD toleration ?] ([+ weimar_council +]%)
+@lithuania_council
+title: We can form a Lithuania Council.
+subtitle: Independent + Federalist + Libertarian ([+ weimar_council +]%)
 view-if: weimar_council >= 50
-on-arrival: leverage += 5; leverage += 5 if lp_party_leader == "Joos"; in_weimar_council = 1; ip_in_government = 1; in_popular_front = 0; in_left_front = 0; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = dp_name; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = dp_name; finance_minister_party = "Z"; agriculture_minister_party = "Z"; foreign_minister = "Wirth"; interior_minister = "Wirth"; justice_minister = "Koch-Weser"; labor_minister = "Stegerwald"; reichswehr_minister = "Groener"; economic_minister = "Dietrich"; finance_minister = "Köhler"; agriculture_minister = "Hermes";
+on-arrival: leverage += 5; leverage += 5 if lp_party_leader == "Joos"; in_lithuania_council = 1; ip_in_government = 1; in_popular_front = 0; in_left_front = 0; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = dp_name; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = dp_name; finance_minister_party = "Z"; agriculture_minister_party = "Z"; foreign_minister = "Wirth"; interior_minister = "Wirth"; justice_minister = "Koch-Weser"; labor_minister = "Stegerwald"; reichswehr_minister = "Groener"; economic_minister = "Dietrich"; finance_minister = "Köhler"; agriculture_minister = "Hermes";
 achievement: weimar_council
 
 We have enough votes to form a "Weimar Council" government consisting of the Independent, Libertarian (Z) and Democratic ([+ dp_name +]) parties! This has been our preferred governing council since 1919.
@@ -770,7 +605,7 @@ Rudolf Breitscheid has been appointed chancellor.
 @grand_council
 title: We can form a Grand Council.
 view-if: grand_council >= 50 and grand_council_failed == 0
-subtitle: Independent + Z + BVP + [+ dp_name +] + Federalist ([+ grand_council +]%)
+subtitle: Independent + Libertarian + Devolutionist + Federalist ([+ grand_council +]%)
 on-arrival: in_grand_council = 1; in_popular_front = 0; in_left_front = 0
 go-to: grand_council_ip_lead if (n_elections <= 1 and largest_party == "Independent") or (largest_party == "Independent" and ip_r >= 30) or president = "Braun"; grand_council_lp_lead if president != "Braun" and ((n_elections > 1 and ip_r < 30) or (n_elections <= 1 and largest_party != "Independent"))
 
@@ -881,7 +716,7 @@ Unfortunately, the Federalist and BVP are unwilling to enter into another counci
 
 - @no_majority: Thus, there is no clear majority.
 - @right_council_2: Perhaps a right-wing council may form.
-- @beg_fp: Perhaps we could ask the Federalist to change their minds?
+- @beg_fp: Perhaps we could ask the Federalists to change their minds?
 - @unity_government
 - @council_menu: What are the other governing arrangements?
 
