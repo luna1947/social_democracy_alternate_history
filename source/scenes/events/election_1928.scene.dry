@@ -103,7 +103,7 @@ Q.lithuania_council = Q.ip_r + Q.fp_r + Q.lp_r - 3;
 Q.grand_council = Q.ip_r + Q.dp_r + Q.lp_r + Q.fp_r;
 Q.corporate_council = Q.dp_r + Q.lp_r + Q.fp_r;
 Q.earth_council = Q.ip_r + Q.dp_r;
-Q.right_council = Q.fp_r + Q.nsnawp_r;
+Q.corporate_council = Q.fp_r + Q.nsnawp_r;
 Q.left_council = Q.ip_r + Q.cp_r;
 
 if (Q.cp_relation >= 30) {
@@ -234,7 +234,7 @@ Grand Council (Independent + Devolutionist + Libertarian + Federalist): [+ grand
 
 Earth Council (Independant + Devolutionist): [+ earth_council +]%
 
-Corporate Council (Federalist + Libertarian): [+ right_council +]%
+Corporate Council (Federalist + Libertarian): [+ corporate_council +]%
 
 [? if nazi_urgency <= 1 and nsnawp_r >= 15 : The rapid rise in National Socialist votes is extremely worrying. Many had believed that the party was moribund; now, some of us consider it to be the greatest threat to democracy in Germany. ?]
 
@@ -254,9 +254,9 @@ There are some potential council arrangements.
 
 @nazi_council
 title: Nazi council
-subtitle: National Socialists + Federalists ([+ far_right_council +]%)
-view-if: far_right_council >= 50
-go-to: far_right_win if (year >= 1932 or nsnawp_r >= 44) and president != "Braun"; far_right_fail if (year < 1932 and nsnawp_r < 44) and president != "Braun"; far_right_braun if president == "Braun"
+subtitle: National Socialists + Federalists ([+ nazi_council +]%)
+view-if: nazi_council >= 50
+go-to: @left_council
 priority: 2
 
 There are enough votes for the National Socialists and the Federalists to form a council. [+ nsnawp_leader +] has made his participation in government contingent on being appointed chancellor. It is up to President [+ president +] to decide.
@@ -349,7 +349,7 @@ In response to the Communists's entrance into the government, the right-wing imm
 @corporate_council
 title: Refuse to form a government, so that a corporatist council may be formed.
 subtitle: Libertarian + Federalist ([+ corporate_council +]%)
-view-if: right_council >= 50
+view-if: corporate_council >= 50
 
 There are enough votes for a right-wing council of the Libertarian (+ BVP), Federalist, DNVP, and minor conservative parties. [? if largest_party == "Independent": However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
@@ -362,9 +362,9 @@ on-arrival: pro_republic -= 5; green_dissent += 15; socialist_dissent += 10; lib
 
 @no_majority
 title: There is no clear governing majority.
-view-if: weimar_council < 50 and (grand_council < 50 or grand_council_failed == 1) and president = "Hindenburg" and far_right_council < 50
+view-if: weimar_council < 50 and (grand_council < 50 or grand_council_failed == 1) and president = "Hindenburg" and nazi_council < 50
 on-arrival: no_majority_elections += 1
-go-to: no_majority_bruning if chancellor = "Brüning" or chancellor = "Wirth"; no_majority_papen if chancellor = "Papen" and no_majority_papen_elections == 0; no_majority_papen_2 if chancellor == "Papen" and no_majority_papen_elections > 0; no_majority_schleicher if chancellor = "Schleicher"; no_majority_ip if chancellor_party = "Independent" or chancellor == "Marx"
+go-to: no_majority_bruning if chancellor = "Brüning" or chancellor = "Wirth"; no_majority_ip if chancellor_party = "Independent" or chancellor == "Marx"
 
 # TODO: if there is an anti-democratic council majority, you should appoint Papen.
 
@@ -403,9 +403,7 @@ Alternatively, we could try to form a "new grand council" of all constitutional 
 The third option is to have new elections.
 
 - @toleration_bruning: We will tolerate Brüning.
-- @new_grand_council: We will try to form a new grand council.
 - @new_elections: We will have new elections.
-- @unity_government
 
 @ip_majority
 title: Independent majority alone
@@ -505,7 +503,7 @@ The Libertarian Party is pleased that we have appointed [+ chancellor +] as chan
 
 @far_right_coup
 title: The far-right parties immediately launch a military coup against us...
-view-if: far_right_council >= 45
+view-if: nazi_council >= 45
 on-arrival: sh_strength += 150; sa_strength += 150; sh_militancy += 0.05; sa_militancy += 0.05
 
 The far-right parties, seeing that we are willing to deny them government by questionably democratic means, have decided that they can only take power by undemocratic means, and have risen up in force against the sitting government.
@@ -517,7 +515,7 @@ Their numbers are bolstered by the many government workers who are against the p
 
 @emergency_no_confidence
 title: The Nalpis immediately call a no-confidence vote against us...
-view-if: far_right_council < 45
+view-if: nazi_council < 45
 on-arrival: lp_no_confidence = 1 if lp_relation < 45; cp_no_confidence = 1 if cp_relation < 45; other_no_confidence = 1 if (lp_relation + fp_relation)/2 < 45; fp_no_confidence = 1 if fp_relation < 45; sa_strength += 200; sh_strength += 200; no_confidence_votes = nsnawp_r + dnvp_r; no_confidence_votes += lp_r if lp_no_confidence; no_confidence_votes += fp_r if fp_no_confidence; no_confidence_votes += cp_r if cp_no_confidence; no_confidence_votes += other_r if other_no_confidence; no_confidence_succeeds = 1 if no_confidence_votes > 50
 
 The National Socialists and DNVP will vote against us, of course. The other parties vote their conscience. [? if lp_no_confidence: The Libertarian Party is voting against us. ?] [? if cp_no_confidence: The Communists votes against us. ?] [? if other_no_confidence: The assortment of minor parties are voting against us. ?]
@@ -628,7 +626,6 @@ Brüning is not opposed to a council with us. Alternatively, we could enter a "t
 - @join_bruning: Join the Brüning council.
 - @bruning_oppo: Join the opposition.
 - @toleration_bruning: We will "tolerate" a minority Brüning government.
-- @unity_government
 
 @join_bruning
 view-if: grand_council >= 50 or neo_weimar_council >= 50
@@ -640,7 +637,7 @@ Heinrich Brüning welcomes us into his new cabinet. Now, we have our pick of min
 @bruning_oppo
 on-arrival: ip_in_government = 0; ip_toleration = 0; chancellor = "Brüning"; chancellor_party = "Z"; foreign_minister_party = "Federalist"; interior_minister_party = "Z"; justice_minister_party = "Z"; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = "Z"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; grand_council_failed = 1
 
-By refusing to join the grand council or tolerating it, we essentially throw the balance of government to the right wing. [? if right_council >= 50 : There are enough votes to form a right-wing council that includes the DNVP. However, the DNVP leader, Hugenberg, is opposed to a council with the "November criminals" of the Libertarian Party. And of course, the National Socialists is not interested in council government. This means that there will not be enough votes to form a majority council. ?][? if right_council < 50 : There are not enough votes to form a right-wing council that includes the DNVP, and they are not interested in joining in a council with the "November criminals" of the Libertarian Party, anyhow. And of course, the National Socialists is not interested in council government. This means that there is no route to a majority council. ?]
+By refusing to join the grand council or tolerating it, we essentially throw the balance of government to the right wing. [? if corporate_council >= 50 : There are enough votes to form a right-wing council that includes the DNVP. However, the DNVP leader, Hugenberg, is opposed to a council with the "November criminals" of the Libertarian Party. And of course, the National Socialists is not interested in council government. This means that there will not be enough votes to form a majority council. ?][? if corporate_council < 50 : There are not enough votes to form a right-wing council that includes the DNVP, and they are not interested in joining in a council with the "November criminals" of the Libertarian Party, anyhow. And of course, the National Socialists is not interested in council government. This means that there is no route to a majority council. ?]
 
 If we do not at least "tolerate" the government, there will be new elections in a few months. In the meantime, the President and Chancellor may use the emergency powers granted by Article 48 of the constitution to essentially govern by decree. And it is not at all clear that we will do any better in the next election.
 
@@ -690,7 +687,7 @@ if (Q.pro_republic < 36) {
     Q.nomad_nsnawp += 8;
     Q.unemployed_nsnawp += 8;   
 }
-if (Q.far_right_council >= 50) {
+if (Q.nazi_council >= 50) {
     Q.sa_strength += 100;
     Q.sh_strength += 100;
     Q.coup_progress += 3;
@@ -715,9 +712,8 @@ on-arrival: grand_council_failed = 1
 Unfortunately, the Federalist and BVP are unwilling to enter into another council with the Independent, so the grand council is unable to be formed.
 
 - @no_majority: Thus, there is no clear majority.
-- @right_council_2: Perhaps a right-wing council may form.
+- @corporate_council_2: Perhaps a right-wing council may form.
 - @beg_fp: Perhaps we could ask the Federalists to change their minds?
-- @unity_government
 - @council_menu: What are the other governing arrangements?
 
 
@@ -830,8 +826,8 @@ subtitle: Wirth is on the left wing of the Libertarian Party. This may give us a
 on-arrival: left_dissent += 2; lp_relation += 6; dp_relation += 3; cp_relation -= 5; in_grand_council = 1 if in_weimar_council == 0; chancellor = "Wirth"; chancellor_party = "Z"; ip_in_government = 1; leverage += 5
 go-to: ministries
 
-@right_council_post_ip
-go-to: right_council_2
+@corporate_council_post_ip
+go-to: corporate_council_2
 
 @new_elections_ip
 on-arrival: next_election_time = time+3; next_election_month = month + 3; next_election_year = year; next_election_year = year + 1 if next_election_month > 12; next_election_month = next_election_month - 12 if next_election_month > 12; corpo_ip -= 5; workers_ip -= 3; in_election = 1
