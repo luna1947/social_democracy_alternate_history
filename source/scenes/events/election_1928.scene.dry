@@ -712,7 +712,6 @@ on-arrival: grand_council_failed = 1
 Unfortunately, the Federalist and BVP are unwilling to enter into another council with the Independent, so the grand council is unable to be formed.
 
 - @no_majority: Thus, there is no clear majority.
-- @corporate_council_2: Perhaps a right-wing council may form.
 - @beg_fp: Perhaps we could ask the Federalists to change their minds?
 - @council_menu: What are the other governing arrangements?
 
@@ -827,7 +826,7 @@ on-arrival: left_dissent += 2; lp_relation += 6; dp_relation += 3; cp_relation -
 go-to: ministries
 
 @corporate_council_post_ip
-go-to: corporate_council_2
+go-to: corporate_council
 
 @new_elections_ip
 on-arrival: next_election_time = time+3; next_election_month = month + 3; next_election_year = year; next_election_year = year + 1 if next_election_month > 12; next_election_month = next_election_month - 12 if next_election_month > 12; corpo_ip -= 5; workers_ip -= 3; in_election = 1
