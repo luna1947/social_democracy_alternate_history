@@ -6,62 +6,62 @@ view-if: international_relations_timer <= 0
 on-arrival: month_actions += 1; international_relations_timer += 12;
 card-image: img/international.jpg
 max-visits: 4
-#subtitle: Building ties with our fraternal socialist parties.
+#subtitle: Building ties with other big tent parties.
 
 At the Labor and Socialist International, we can forge contacts with our fraternal socialist parties in Europe and across the world.
 
-- @fr_uk: Build relationships with the French SFIO and British Labour Party to move their governments in Germany's favor.
-- @austria: Learn organization and street fighting from the Austrian SDAPÖ.
-- @scandi: Learn the path of economics and reform from the Scandinavian social democrats.
-- @comintern: Forget the second international - embed a spy in the Comintern's conference.
-- @america: Contact the Socialist party of America.
+- @jpsdp: Build relationships with the Japanese Social Democratic Party.
+- @jpldp: Build relationships with the Japanese Liberal Democratic Party.
+- @ussr: Learn the path of economics and reform from the Soviet social democrats.
+- @imcwp: Forget the socialists - embed a spy in the International Meeting of Communist and Workers' Parties.
+- @america: Contact the Independant party of New America.
 - @return: We do not need international contacts at the moment.
 - @easy_discard
 - @cancel_advisor_action
 
-@fr_uk
-subtitle: -1 resources
+@jpsdp
+subtitle: -1 resources [? if arasaka_corruption_seen and not arasaka_takeover_seen: We can also help their struggle against Arasaka in their nation. ?]
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; west_relation += 1; reformist_strength += 5; pacifism += 1; moderate_plan_support += 1
+on-arrival: resources -= 1; jpldp_relation += 1; japan_relation += 1; socialist_strength += 5; liberal_dissent += 5; arasaka_relation -= 5;
 
-The socialists of France and Britain can influence their governments to be friendlier towards Germany. Hopefully they will reduce our reparations burden.
+The socialists of Japan can help us broaden our horizons and push their government in our favor.
 
-@austria
-subtitle: -1 resources [? if austrian_parliament_seen and not austrian_civil_war_seen: - We will also help the Austrians oppose their dictatorship. ?]
+@jpldp
+subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 audio: shuffle music/communist/workers_of_vienna_normalized.mp3
-on-arrival: left_strength += 5; radicalization += 1; rb_militancy += 0.03; resources -= 1; austria_relation += 1; sdapo_strength += 1 if austrian_parliament_seen = 1
+on-arrival: liberal_strength += 5; socialist_dissent += 5; resources -= 1; jpldp_relation += 1; arasaka_relation += 0.5;
 
 Our Reichsbanner can learn much in paramilitary organization and training from the Austrian Republikanischer Schutzbund (Republican Protection Units), the paramilitary branch of the Austrian social democrats.
 
-[? if austrian_parliament_seen and not austrian_civil_war_seen: We are also helping the Austrian Social Democratic Worker's Party build up their resources in preparation for a future struggle, legally and illegally. ?]
+[? if arasaka_corruption_seen and not arasaka_takeover_seen: We are also helping the Austrian Social Democratic Worker's Party build up their resources in preparation for a future struggle, legally and illegally. ?]
 
 
-@scandi
+@ussr
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: reformist_strength += 8; wtb_support += 1; resources -= 1; moderate_plan_support += 1
+on-arrival: socialist_strength += 8; socialism_support += 1; resources -= 1; moderate_plan_support += 1
 
-The programs of the Nordic socialists involve active government intervention in the economy. We can learn from their economic strategies, and how they moved beyond their working-class base to attract a broader set of constituents.
+The programs of the Social Democratic Party of the United Sovreign Soviet Republics involve active government intervention in the economy. We can learn from their economic strategies, and how they moved beyond their working-class base to attract a broader set of constituents.
 
-@comintern
+@imcwp
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; kpd_relation += 5*(1-dissent); communist_coalition += 1 if comintern_seen == 0; comintern_seen += 1
+on-arrival: resources -= 1; kpd_relation += 5*(1-dissent); communist_coalition += 1 if imcwp_seen == 0; imcwp_seen += 1
 
-The Stalinists of the KPD insists on calling us "social fascists", suggesting that we social democrats are as bad or worse than actual fascists. Needless to say, this is not good for our relationship with the Communists. By observing the Comintern, we can better understand the KPD, enabling us to potentially improve relations, or counter the KPD if it may come to that.
+The Stalinists of the Communist Party insist on calling us "fence-riders", suggesting that we aren't an actual party. Needless to say, this is not good for our relationship with the Communists. By observing the IMCWP, we can better understand the KPD, enabling us to potentially improve relations, or counter the KPD if it may come to that.
 
 @america
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1
+on-arrival: resources -= 1;
 
-The Socialist Party of America is tiny and has limited support. There is not much we can do for them, and conversely, not much they can do for us.
+The Socialist Party of New America is tiny and has limited support. There is not much we can do for them, and conversely, not much they can do for us.
 
 @reduce
 
