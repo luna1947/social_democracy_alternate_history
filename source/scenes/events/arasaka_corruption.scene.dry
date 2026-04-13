@@ -26,7 +26,7 @@ We declare full support for the revolutionaries in Japan. While Arasaka expresse
 
 @oppose
 subtitle: This may face fierce opposition from the socialists.
-choose-if: socialist_strength =< 50
+choose-if: socialist_strength <= 50
 unavailable-subtitle: Our socialist majority would never allow this.
 on-arrival: arasaka_stance = 2; arasaka_favor += 50; militech_favor -= 10;
 
