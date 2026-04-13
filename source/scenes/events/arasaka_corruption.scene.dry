@@ -1,6 +1,6 @@
 title: Arasaka corruption in Japan...
 subtitle: Corporate overreach is consuming their homeland...
-view-if: year = 2078 and month = 7 and japan_relation = 3 and arasaka_relation >= 40
+view-if: year = 2078 and month = 7 and japan_relation <= 0 and arasaka_relation >= 40
 max-visits: 1
 tags: event
 new-page: true
