@@ -18,7 +18,7 @@ While we could help them resist, it could ruin any potential of relationship wit
 
 @support
 subtitle: While this could have detrimental effects towards our relationship with Arasaka, this could open a lot of doors with Militech.
-choose-if: arasaka_favor =< 40
+choose-if: arasaka_favor <= 40
 unavailable-subtitle: Our Arasaka-aligned leadership would never allow this.
 on-arrival: arasaka_stance = 1; arasaka_favor = 0; militech_favor += 20;
 
