@@ -13,7 +13,6 @@ The Nazis' strength is gaining, as shown by their recent election results and th
 Many in our party are calling for urgent action. The "neorevisionist" faction, led by young socialists like Carlo Mierendorff and Julius Leber, have formed specifically around this cause. But many in all factions of the party are calling for action.
 
 - @not_a_big_deal: The Nazis' moment will pass. Let's not get too hasty.
-- @economic_crisis
 - @major_crisis: We must do something to confront the Nazis.
 - @iron_front
 
@@ -23,11 +22,6 @@ on-arrival: nazi_urgency -= 1; left_dissent += 5; neorevisionist_dissent += 15
 view-if: mierendorff_advisor = 0 and leber_advisor = 0 and schumacher_advisor = 0
 
 The Nazis are just another far-right movement that will die of its own contradictions sooner or later; we do not need to build a specific policy to combat them.
-
-@economic_crisis
-title: We must address the economic crisis first.
-view-if: economic_plan == 0 and black_thursday_seen == 1
-go-to: crisis_program
 
 @major_crisis
 view-if: nazi_urgency < 5
