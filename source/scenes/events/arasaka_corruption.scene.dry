@@ -1,0 +1,39 @@
+title: Arasaka corruption in Japan...
+subtitle: Corporate overreach is consuming their homeland...
+view-if: year = 2078 and month = 7 and japan_relation = 3 and arasaka_relation >= 40
+max-visits: 1
+tags: event
+new-page: true
+face-image: img/All_Quiet.jpg
+
+= Arasaka Corruption
+
+Word has come to us that through our Japanese [? if jpsdp_relation < 0: social democratic ?] [? if jpsdp_relation < 0 and jpldp_relation < 0: and ?] [? if jpldp_relation < 0: liberal ?] allies that Arasaka is planning a complete takeover of Japan, starting by corrupting the government.
+
+While we could help them resist, it could ruin any potential of relationship with Arasaka. This may, however, help us reconcile with Militech.
+
+- @support: Support the Japanese revolutionaries, against Arasaka.
+- @oppose: Oppose the revolution, to stay on good terms with Arasaka.
+- @neutrality: Neither support or oppose the revolution.
+
+@support
+subtitle: While this could have detrimental effects towards our relationship with Arasaka, this could open a lot of doors with Militech.
+choose-if: arasaka_favor =< 40
+unavailable-subtitle: Our Arasaka-aligned leadership would never allow this.
+on-arrival: arasaka_stance = 1; arasaka_favor = 0; militech_favor += 20;
+
+We declare full support for the revolutionaries in Japan. While Arasaka expresses strong disdain for us, Militech starts acting far more friendly to us in discussions.
+
+@oppose
+subtitle: This may face fierce opposition from the socialists.
+choose-if: socialist_strength =< 50
+unavailable-subtitle: Our socialist majority would never allow this.
+on-arrival: arasaka_stance = 2; arasaka_favor += 50; militech_favor -= 10;
+
+We declare full opposition towards the revolution and support for Arasaka. While this puts us in the warm pockets of the corporation, we have betrayed our allies across the Pacific.
+
+@neutrality
+subtitle: Our opponents may twist this into complacency.
+on-arrival: arasaka_stance = 3; ip_corpo -= 4; nsnawp_corpo += 4; ip_worker -= 5; nsnawp_worker += 5; 
+
+We do not take a stance on Arasaka, and as expected we are called weak and complacent by the Nazis. 
