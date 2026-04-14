@@ -1,6 +1,6 @@
 title: Corporate Relationships
 new-page: true
-view-if: year <= 1932 and corporate_relations_timer <= 0
+view-if: corporate_relations_timer <= 0
 tags: party_affairs
 is-card: true
 on-arrival: month_actions += 1; corporate_relations_timer = 6;
