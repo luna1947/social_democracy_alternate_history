@@ -37,7 +37,7 @@ We have increased our campaigning among farmers and the rural populace.
 title: Adopt a socialist ideology
 subtitle: Push our party towards a more socialist ideology,
 choose-if: advisor_action_timer <= 0
-unavailable-subtitle: [? if advisor_action_timer >= 0 : [+ advisor_action_timer +] months before next advisor action. ?][? ideology == "socialist" : We have already adopted a socialist ideology. ?]
+unavailable-subtitle: [? if advisor_action_timer >= 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 6; ideology = "socialist"; socialist_strength += 10; socialist_dissent -= 5; lp_relation -= 3; fp_relation -= 5; cp_relation += 3
 
 The socialist wing of the party support this new ideology, and this may represent a partnership between us and the communists. This may also be detrimental towards any relations towards corporations.
