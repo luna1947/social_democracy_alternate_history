@@ -124,13 +124,12 @@ Q.in_popular_front = 0;
 Q.ip_toleration = 0;
 Q.ip_caretaker = 0;
 Q.foreign_minister_party = 'Federalist';
-Q.interior_minister_party = 'Z';
-Q.justice_minister_party = 'I';
-Q.labor_minister_party = 'Z';
-Q.reichswehr_minister_party = 'I';
-Q.economic_minister_party = Devolutionist;
-Q.finance_minister_party = 'Federalist';
-Q.agriculture_minister_party = 'Z';
+Q.interior_minister_party = 'Federalist';
+Q.justice_minister_party = 'Federalist';
+Q.labor_minister_party = 'Libertarian';
+Q.defense_minister_party = 'Federalist';
+Q.corporate_minister_party = 'Federalist';
+Q.finance_minister_party = 'Libertarian';
 
 // understanding the enemy
 if (Q.nsnawp_r >= 15) {
@@ -575,7 +574,7 @@ We have won the vote of no confidence, and are currently ruling under an Indepen
 @lithuania_council
 title: We can form a Lithuania Council.
 subtitle: Independent + Federalist + Libertarian ([+ weimar_council +]%)
-view-if: weimar_council >= 50
+view-if: lithuania_council >= 50
 on-arrival: leverage += 5; leverage += 5 if lp_party_leader == "Joos"; in_lithuania_council = 1; ip_in_government = 1; in_popular_front = 0; in_left_front = 0; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = dp_name; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = dp_name; finance_minister_party = "Z"; agriculture_minister_party = "Z"; foreign_minister = "Wirth"; interior_minister = "Wirth"; justice_minister = "Koch-Weser"; labor_minister = "Stegerwald"; reichswehr_minister = "Groener"; economic_minister = "Dietrich"; finance_minister = "Köhler"; agriculture_minister = "Hermes";
 achievement: weimar_council
 
