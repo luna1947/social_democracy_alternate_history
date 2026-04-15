@@ -1,42 +1,43 @@
 title: Johnathan Richter
 is-pinned-card: true
-tags: advisor, left
+tags: advisor, socialist
 card-image: img/portraits/BaadeFritz.jpg
-view-if: 1 = 1
+view-if: richter_advisor = 1
 new-page: true 
 
 = Johnathan Richter
 
-Richter is how I fix the error that's fucking over this mod. All these options are for Fritz Baade. I'm gonna kill myself if this doesn't work. He's gonna be a socialist advisor btw ok cheers.
+Johnathan Richter is a leading socialist political scientist in our party.
 
-- @agriculture
-- @rural_campaign
-- @depression
+- @build_socialist
+- @workers_campaign
+- @socialist_ideology
 - @root: Return to main
 
-@agriculture
-title: Agricultural Policy
-subtitle: Baade is the Minister of Agriculture.
-choose-if: advisor_action_timer <= 0 and spd_in_government and agriculture_minister_party == "SPD"
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not spd_in_government : The SPD is not in government. ?][? if agriculture_minister_party != "SPD": The SPD does not have the Agriculture Ministry. ?]
-on-arrival: advisor_action_timer = 6; agricultural_policy_timer -= 6; last_advisor_action = 1
-go-to: agricultural_policy
+@build_socialist
+title: Building the Socialists
+subtitle: Richter can help us strengthen the socialists
+choose-if: advisor_action_timer <= 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; socialist_strength += 10; liberal_dissent += 10;
+
+We've strengthened the socialists, to the disdain of the liberals.
 
 
-@rural_campaign
-title: Rural Campaign
-subtitle: Try to campaign among the rural populace.
-choose-if: advisor_action_timer == 0 and rural_policy > 0
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if rural_policy == 0 : We have not enacted any rural policies. ?]
-on-arrival: advisor_action_timer = 6; rural_spd += 5*(1-dissent); peoples_party_support += 1
+@workers_campaign
+title: Urban Worker Campaign
+subtitle: Campaign among the working class.
+choose-if: advisor_action_timer == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; workers_ip += 5*(1-dissent);
 
 We have increased our campaigning among farmers and the rural populace.
 
-@depression
-title: Addressing the economic crisis
-subtitle: Formulate a plan to rescue us from the economic crisis.
-choose-if: advisor_action_timer <= 0 and wtb_adopted = 0 and black_thursday_seen
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if black_thursday_seen == 0 : We are not currently in an economic crisis. ?][? if wtb_adopted > 0 : We have already adopted the WTB-Plan. ?]
-on-arrival: advisor_action_timer = 6; wtb_support += 2; center_dissent += 10; labor_strength += 1
+@socialist_ideology
+title: Adopt a socialist ideology
+subtitle: Push our party towards a more socialist ideology,
+choose-if: advisor_action_timer <= 0 and ideology != "socialist"
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? ideology == "socialist" : We have already adopted a socialist ideology. ?]
+on-arrival: advisor_action_timer = 6; ideology = "socialist"; socialist_strength += 10; socialist_dissent -= 5; lp_relation -= 3; fp_relation -= 5; cp_relation += 3
 
-The WTB-Plan, standing for its primary supporters Woytinsky, Tarnow, and Baade, has been adopted as the unions' plan for getting us out of the depression. Baade canvasses in favor of this plan throughout the party.
+The socialist wing of the party support this new ideology, and this may represent a partnership between us and the communists. This may also be detrimental towards any relations towards corporations.
