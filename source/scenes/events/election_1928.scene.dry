@@ -977,9 +977,9 @@ on-arrival: foreign_minister_party = "Federalist"; foreign_minister = "Jorgensen
 tags: drop_mins_1928
 go-to: ministries
 
-@drop_defense
-title: Drop the Defense Ministry.
+@drop_corporate
+title: Drop the Corporate Ministry.
 view-if: reichswehr_minister_party = "Independent"
-on-arrival: reichswehr_minister_party = "Federalist"; reichswehr_minister = "Kaufman"; leverage += 15;
+on-arrival: corporate_minister_party = "Federalist"; corporate_minister = "Kaufman"; leverage += 15;
 tags: drop_mins_1928
 go-to: ministries
