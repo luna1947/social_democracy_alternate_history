@@ -27,7 +27,7 @@ We've strengthened the socialists, to the disdain of the liberals.
 @workers_campaign
 title: Urban Worker Campaign
 subtitle: Campaign among the working class.
-choose-if: advisor_action_timer == 0
+choose-if: advisor_action_timer <= 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 6; workers_ip += 5*(1-dissent);
 
@@ -36,7 +36,7 @@ We have increased our campaigning among farmers and the rural populace.
 @socialist_ideology
 title: Adopt a socialist ideology
 subtitle: Push our party towards a more socialist ideology,
-choose-if: advisor_action_timer <= 0 and ideology != "socialist"
+choose-if: advisor_action_timer <= 0
 unavailable-subtitle: [? if advisor_action_timer >= 0 : [+ advisor_action_timer +] months before next advisor action. ?][? ideology == "socialist" : We have already adopted a socialist ideology. ?]
 on-arrival: advisor_action_timer = 6; ideology = "socialist"; socialist_strength += 10; socialist_dissent -= 5; lp_relation -= 3; fp_relation -= 5; cp_relation += 3
 
