@@ -100,10 +100,10 @@ if (Q.cp_r >= Q.ip_r && Q.cp_r >= Q.nsnawp_r) {
 
 // councils
 Q.lithuania_council = Q.ip_r + Q.fp_r + Q.lp_r - 3;
-Q.grand_council = Q.ip_r + Q.dp_r + Q.lp_r + Q.fp_r;
+Q.grand_council = Q.ip_r + Q.dp_r + Q.lp_r;
 Q.corporate_council = Q.dp_r + Q.lp_r + Q.fp_r;
 Q.earth_council = Q.ip_r + Q.dp_r;
-Q.corporate_council = Q.fp_r + Q.nsnawp_r;
+Q.corporate_council = Q.fp_r + Q.lp_r;
 Q.left_council = Q.ip_r + Q.cp_r;
 
 if (Q.cp_relation >= 30) {
@@ -229,9 +229,9 @@ go-to: council_menu
 
 Lithuania Council (Independent + Federalists + Libertarian): [+ lithuania_council +]%
 
-Grand Council (Independent + Devolutionist + Libertarian + Federalist): [+ grand_council +]%
+Grand Council (Independent + Devolutionist + Libertarian): [+ grand_council +]%
 
-Earth Council (Independant + Devolutionist): [+ earth_council +]%
+Earth Council (Independant + Devolutionist): [+  +]%
 
 Corporate Council (Federalist + Libertarian): [+ corporate_council +]%
 
@@ -260,12 +260,20 @@ priority: 2
 
 There are enough votes for the National Socialists and the Federalists to form a council. [+ nsnawp_leader +] has made his participation in government contingent on being appointed chancellor. It is up to President [+ president +] to decide.
 
+@earth_council
+title: Earth council
+subtitle: Independent + Devolutionists ([+ earth_council +]%)
+view-if: earth_council >= 50
+priority: 2
+
+There are enough votes for us and the Devolutionists to form a council.
+
 @left_council
 title: Is a United Left council possible?
 subtitle: Independent + Communists + Devolutionists ([+ left_council +]%)
 unavailable-subtitle: Independent + Communists ([+ left_council +]%). [? if cp_relation < 50 : We do not have adequate relations with the Communists. ?][? if communist_council < 3 : The Communists are too committed to their radical ways to partake in government. ?]
 view-if: left_council >= 50
-choose-if: (cp_relation >= 50 or (cp_party_leader == "Conciliators" and cp_relation >= 40)) and communist_council >= 3 and dp_relation >= 40
+choose-if: (cp_relation >= 50 or (cp_party_leader == "Conciliators" and cp_relation >= 40)) and dp_relation >= 40
 
 There are enough votes for a Independent + Communist council government, if such a thing were actually possible.
 
@@ -602,7 +610,7 @@ Rudolf Breitscheid has been appointed chancellor.
 @grand_council
 title: We can form a Grand Council.
 view-if: grand_council >= 50 and grand_council_failed == 0
-subtitle: Independent + Libertarian + Devolutionist + Federalist ([+ grand_council +]%)
+subtitle: Independent + Libertarian + Devolutionist ([+ grand_council +]%)
 on-arrival: in_grand_council = 1; in_popular_front = 0; in_left_front = 0
 go-to: grand_council_ip_lead if (n_elections <= 1 and largest_party == "Independent") or (largest_party == "Independent" and ip_r >= 30) or president = "Braun"; grand_council_lp_lead if president != "Braun" and ((n_elections > 1 and ip_r < 30) or (n_elections <= 1 and largest_party != "Independent"))
 
