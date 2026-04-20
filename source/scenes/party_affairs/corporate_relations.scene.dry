@@ -18,7 +18,7 @@ Unfortunately, corporate support is a major deciding factor in who wins election
 - @nightcorp: Strengthen our bonds with Nightcorp
 
 @militech
-subtitle: -1 resources. Maybe they could offer us militant help?
+subtitle: -1 resources.
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1;
@@ -52,15 +52,20 @@ on-arrival: str_militarization += 0.1; str_strength += 100; mt_militancy += 0.05
 We are already good friends with Militech at this point. Rather than just building relations, they allow 6th Street to train with their own troops.
 
 @arasaka
-subtitle: -1 resources. Maybe they could offer us militant help?
+subtitle: -1 resources.
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1;
+go-to: arasaka_neutral if (arasaka_stance == 0 or arasaka_stance == 3) and mt_affiliation != "Independent"; arasaka_glaze if arasaka_stance == 2 and mt_affiliation != "Independent"; arasaka_opps if arasaka_stance == 1 and mt_affiliation == "Independent";
 
-placeholder
+@arasaka_neutral
+
+@arasaka_glaze
+
+@arasaka_opps
 
 @biotechnica
-subtitle: -1 resources. Maybe they could offer us monetary help?
+subtitle: -1 resources.
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1;
@@ -68,7 +73,7 @@ on-arrival: resources -= 1;
 placeholder
 
 @nightcorp
-subtitle: -1 resources. Maybe they could offer us monetary help?
+subtitle: -1 resources.
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1;
