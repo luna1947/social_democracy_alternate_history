@@ -56,13 +56,8 @@ subtitle: -1 resources.
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1;
-go-to: arasaka_neutral if (arasaka_stance == 0 or arasaka_stance == 3) and mt_affiliation != "Independent"; arasaka_glaze if arasaka_stance == 2 and mt_affiliation != "Independent"; arasaka_opps if arasaka_stance == 1 and mt_affiliation == "Independent";
 
-@arasaka_neutral
-
-@arasaka_glaze
-
-@arasaka_opps
+placeholder again until i can do this properly
 
 @biotechnica
 subtitle: -1 resources.
