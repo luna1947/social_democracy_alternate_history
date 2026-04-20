@@ -265,7 +265,6 @@ There are enough votes for the National Socialists and the Federalists to form a
 title: Earth council
 subtitle: Independent + Devolutionists ([+ earth_council +]%)
 view-if: earth_council >= 50
-priority: 2
 
 There are enough votes for us and the Devolutionists to form a council.
 
