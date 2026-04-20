@@ -1,6 +1,6 @@
 title: Saburo Arasaka Dead
 subtitle: The end of an empire has come to a close.
-view-if: year = 2077 and month = 5
+view-if: year == 2077 and month == 5
 new-page: true
 max-visits: 1
 #tags: event
