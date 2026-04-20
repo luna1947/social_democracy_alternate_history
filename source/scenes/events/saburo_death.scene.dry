@@ -1,0 +1,11 @@
+title: Saburo Arasaka Dead
+subtitle: The end of an empire has come to a close.
+view-if: year = 2077 and month >= 5
+on-arrival: 
+new-page: true
+max-visits: 1
+#tags: event
+
+= Saburo Arasaka Dead
+
+Saburo Arasaka has been found dead in his Konpeki Plaza penthouse. The official statement is that he was poisoned, but rumors on the street indicate that it was his own son that had strangled him to death.
