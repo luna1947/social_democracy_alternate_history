@@ -6,9 +6,13 @@ priority: 2
 max-visits: 1
 
 Q.federalist_support = 0;
+Q.federalist_attempted = 0;
 Q.communist_support = 0;
+Q.communist_attempted = 0;
 Q.devolutionist_support = 0;
+Q.devolutionist_attempted = 0;
 Q.libertarian_support = 0;
+Q.libertarian_attempted = 0;
   
 The mayoral election is coming up due to the death of Mayor Rhyne in May. Since Rhyne's leadership was wildly popular among our base, we now stand to gain among the workers. While we stand to gain here, other parties such as the National Socialists and the Federalists stand to gain as well.
 
@@ -67,3 +71,33 @@ There are many other parties in Night City, meaning a lot of potential endorseme
 - @convince_devolutionists: Try convicing the Devolutionists to support us.
 - @convince_libertarians: Try convicing the Libertarians to support us.
 - @convince_communists: Try convicing the Communists to support us.
+
+@convince_federalists
+on-arrival: federalist_attempted = 1
+choose-if: federalist_attempted = 0
+unavailable-subtitle: We've already tried with them. [? federalist_support = 0: We failed, if you don't remember.]
+go-to: federalists_no; federalists_yes if fp_relation >= 60;
+
+@federalists_no
+
+The Federalists express no desire to work with us, on account of our poor relations.
+
+- @federalists_bribe: Can they be paid?
+- @choose_endorsements: Fuck 'em.
+
+@federalists_bribe
+subtitle: -2 resources.
+choose-if: fp_relations >= 40 and resources >= 2
+unavailable-subtitle: [? fp_relations < 40: Even money can't persuade them to our side. ?] [? resources < 2: Not enough resources. ?]
+on-arrival: resources -= 2; federalist_support = 1;
+
+Slimy? Yes. If found out about? Would probably ruin us. But we have the Federalists supporting [+ candidate +], so it's fine.
+
+- @choose_endorsement: Let's go find other endorsements.
+
+@federalist_yes
+on-arrival: federalist_support = 1;
+
+The Federalists have agreed to endorse us for the upcoming election, owing to our good relations.
+
+- @choose_endorsement: Let's go find other endorsements.
