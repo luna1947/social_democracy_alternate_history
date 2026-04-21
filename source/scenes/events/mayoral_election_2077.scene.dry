@@ -4,7 +4,19 @@ tags: event
 view-if: year = 2077 and month = 7
 priority: 2
 max-visits: 1
-on-arrival: federalist_support = 0; federalist_attempted = 0; communist_support = 0; communist_attempted = 0; devolutionist_support = 0; devolutionist_attempted = 0; libertarian_support = 0; libertarian_attempted = 0; ip_mayor_vote = ip_vote; fp_mayor_vote = fp_vote; dp_mayor_vote = dp_vote; lp_mayor_vote = lp_vote; cp_mayor_vote = cp_vote; nsnawp_mayor_vote = nsnawp_vote
+
+federalist_support = 0;
+federalist_attempted = 0;
+communist_support = 0;
+communist_attempted = 0;
+devolutionist_support = 0;
+devolutionist_attempted = 0;
+libertarian_support = 0;
+libertarian_attempted = 0;
+ip_mayor_vote = ip_vote;
+fp_mayor_vote = fp_vote;
+dp_mayor_vote = dp_vote;
+lp_mayor_vote = lp_vote; cp_mayor_vote = cp_vote; nsnawp_mayor_vote = nsnawp_vote
   
 The mayoral election is coming up due to the death of Mayor Rhyne in May. Since Rhyne's leadership was wildly popular among our base, we now stand to gain among the workers. While we stand to gain here, other parties such as the National Socialists and the Federalists stand to gain as well.
 
@@ -207,7 +219,10 @@ on-arrival: ip_mayor_vote += lp_mayor_vote; communist_support = 1
 The Communists have dropped Petrov, meaning we're gaining their support!
 
 @final_vote
-on-arrival: mayor = candidate; mayor_party = "Independent";
+on-arrival:{!
+Q.winner = Math.max(ip_mayor_vote, cp_mayor_vote, fp_mayor_vote, lp_mayor_vote, nsnawp_mayor_vote);
+!}
+go-to: ip_win if winner = ip_mayor_vote; cp_win if winner = cp_mayor_vote; fp_win if winner = fp_mayor_vote; nsnawp_win if winner = nsnawp_mayor_vote
 
 The results are in...
 
@@ -219,4 +234,29 @@ The results are in...
 
 [? if libertarian_support = 0: Ramsey ?]: [+ lp_mayor_vote +]%
 
-Petrov: [+ nsnawp_mayor_vote +]%
+Bauer: [+ nsnawp_mayor_vote +]%
+
+@ip_win
+on-arrival: mayor = candidate; mayor_party = "Independent"
+
+We've done it, we won! We'll now take the helm of the city.
+
+@cp_win
+on-arrival: mayor = Petrov; mayor_party = "Communist"
+
+Surprisingly, the Communists have won the elections! [? if socialist_strength > liberal_strength: This is a big win for us! ?][? if socialist_strength < liberal_strength: The majority of the party is angered by this, but there's not much we can do. ?]
+
+@fp_win
+on-arrival: mayor = "Peralez" ; mayor_party = "Federalist"
+
+The Federalists have won the election. Better than the Nazis, we suppose.
+
+@lp_win
+on-arrival: mayor = "Ramsey" ; mayor_party = "Libertarian"
+
+The Libertarians have won the election. Better than the Nazis, we suppose.
+
+@nsnawp_win
+on-arrival: mayor = "Bauer" ; mayor_party = "Nazi"
+
+The National Socialists have won the election. Literally the Nazis, we suppose.
