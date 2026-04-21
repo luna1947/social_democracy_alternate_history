@@ -85,14 +85,14 @@ The Federalists express no desire to work with us, on account of our poor relati
 subtitle: -2 resources.
 choose-if: fp_relations >= 40 and resources >= 2
 unavailable-subtitle: [? if fp_relations < 40: Even money can't persuade them to our side. ?] [? if resources < 2: Not enough resources. ?]
-on-arrival: resources -= 2; federalist_support = 1;
+on-arrival: resources -= 2; federalist_support = 1; ip_mayor_vote += fp_mayor_vote
 
 Slimy? Yes. If found out about? Would probably ruin us. But we have the Federalists supporting [+ candidate +], so it's fine.
 
 - @choose_endorsement: Let's go find other endorsements.
 
 @federalists_yes
-on-arrival: federalist_support = 1;
+on-arrival: federalist_support = 1; ip_mayor_vote += fp_mayor_vote
 
 The Federalists have agreed to endorse us for the upcoming election, owing to our good relations.
 
@@ -127,7 +127,7 @@ This harms our base with the working class, unsurprisingly, but corporate worker
 - @choose_endorsement: Let's go find other endorsements.
 
 @devolutionists_yes
-on-arrival: devolutionist_support = 1;
+on-arrival: devolutionist_support = 1; ip_mayor_vote += dp_mayor_vote
 
 The devolutionists have agreed to endorse us for the upcoming election, owing to our good relations.
 
@@ -170,12 +170,12 @@ Rather than turning out badly in our favor, the boys in the propaganda departmen
 @libertarians_bitchboy
 subtitle: -2 resources.
 choose-if: resources >= 2
-on-arrival: resources -= 2; libertarian_support = 1;
+on-arrival: resources -= 2; libertarian_support = 1; ip_mayor_vote += lp_mayor_vote
 
 We pay them off the extra money. We feel that this was a bad idea, but it's too late to go back. Unfortunate.
 
 @libertarians_yes
-on-arrival: federalist_support = 1;
+on-arrival: federalist_support = 1; ip_mayor_vote += lp_mayor_vote
 
 The Federalists have agreed to endorse us for the upcoming election, owing to our good relations.
 
@@ -202,10 +202,17 @@ choose-if: 1 = 2
 unavailable-subtitle: They wouldn't take our money if we tried. While they may be stubborn, they are ideologically strong.
 
 @communists_yes
+on-arrival: ip_mayor_vote += lp_mayor_vote; communist_support = 1
 
 The Communists have dropped Petrov, meaning we're gaining their support!
 
 @final_vote
 on-arrival: mayor = candidate; mayor_party = "Independent";
 
-placeholder
+The results are in...
+
+{? if first_election_choice > 2: [+ candidate +] ?]: [+ ip_mayor_vote +]%
+[? if communist_support = 0: Petrov ?]: [+ cp_mayor_vote +]%
+[? if federalist_support = 0: Peralez ?]: [+ fp_mayor_vote +]%
+[? if libertarian_support = 0: Ramsey ?]: [+ lp_mayor_vote +]%
+Petrov: [+ nsnawp_mayor_vote +]%
