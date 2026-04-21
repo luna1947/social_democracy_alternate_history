@@ -43,7 +43,7 @@ on-arrival: first_election_choice = 3; candidate = "Richter"
 
 We are choosing to run Johnathan Richter for this election. While the liberals would rather we support Peralez, they have no issue since we'll be running most of the government.
 
-- @choose_endorsements: Time for us to choose our endorsements.
+- @choose_endorsement: Time for us to choose our endorsements.
 
 @run_rovich
 subtitle: -2 resources.
@@ -53,9 +53,9 @@ on-arrival: first_election_choice = 4; green_dissent += 10; candidate = "Rovich"
 
 We are choosing to run Misha Rovich for this election. The green wing of our party is slightly annoyed, but they'll be fine.
 
-- @choose_endorsements: Time for us to choose our endorsements.
+- @choose_endorsement: Time for us to choose our endorsements.
 
-@choose_endorsements
+@choose_endorsement
 
 There are many other parties in Night City, meaning a lot of potential endorsements for [+ candidate +].
 
@@ -78,7 +78,7 @@ The Federalists are fielding their own candidate, Jefferson Peralez. Could they 
 The Federalists express no desire to work with us, on account of our poor relations.
 
 - @federalists_bribe: Can they be paid?
-- @choose_endorsements: Fuck 'em.
+- @choose_endorsement: Fuck 'em.
 
 @federalists_bribe
 subtitle: -2 resources.
@@ -111,7 +111,7 @@ The Devolutionists are currently not fielding their own candidate, intending to 
 The Devolutionists express no desire to work with us, on account of our poor relations.
 
 - @devolutionists_bribe: Can they be paid?
-- @choose_endorsements: Fuck 'em.
+- @choose_endorsement: Fuck 'em.
 
 @devolutionists_bribe
 subtitle: -2 resources.
@@ -146,7 +146,7 @@ The Libertarians are running their own candidate, Ronald Lamb. They don't have m
 The Libertarians express no desire to work with us, on account of our poor relations.
 
 - @libertarians_bribe: Can they be paid?
-- @choose_endorsements: Fuck 'em.
+- @choose_endorsement: Fuck 'em.
 
 @libertarians_bribe
 subtitle: -2 resources.
@@ -194,7 +194,7 @@ The communists are fielding their own candidate, Ivan Petrov.
 The Communists refuse to work with us, continuing the rhetoric that we're nothing but social fascists and "not a real party."
 
 - @communist_bribe: Can they be paid?
-- @choose_endorsements: Fuck 'em.
+- @choose_endorsement: Fuck 'em.
 
 @communist_bribe
 choose-if: 1 = 2
