@@ -104,7 +104,7 @@ Slimy? Yes. If found out about? Would probably ruin us. But we have the Federali
 
 - @choose_endorsement: Let's go find other endorsements.
 
-@federalist_yes
+@federalists_yes
 on-arrival: federalist_support = 1;
 
 The Federalists have agreed to endorse us for the upcoming election, owing to our good relations.
@@ -139,7 +139,7 @@ This harms our base with the working class, unsurprisingly, but corporate worker
 
 - @choose_endorsement: Let's go find other endorsements.
 
-@devolutionist_yes
+@devolutionists_yes
 on-arrival: devolutionist_support = 1;
 
 The devolutionists have agreed to endorse us for the upcoming election, owing to our good relations.
@@ -187,7 +187,7 @@ on-arrival: resources -= 2; libertarian_support = 1;
 
 We pay them off the extra money. We feel that this was a bad idea, but it's too late to go back. Unfortunate.
 
-@libertarian_yes
+@libertarians_yes
 on-arrival: federalist_support = 1;
 
 The Federalists have agreed to endorse us for the upcoming election, owing to our good relations.
