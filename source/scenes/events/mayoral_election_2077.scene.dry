@@ -83,7 +83,7 @@ The Federalists express no desire to work with us, on account of our poor relati
 @federalists_bribe
 subtitle: -2 resources.
 choose-if: fp_relations >= 40 and resources >= 2
-unavailable-subtitle: [? fp_relations < 40: Even money can't persuade them to our side. ?] [? resources < 2: Not enough resources. ?]
+unavailable-subtitle: [? if fp_relations < 40: Even money can't persuade them to our side. ?] [? if resources < 2: Not enough resources. ?]
 on-arrival: resources -= 2; federalist_support = 1;
 
 Slimy? Yes. If found out about? Would probably ruin us. But we have the Federalists supporting [+ candidate +], so it's fine.
@@ -116,7 +116,7 @@ The Devolutionists express no desire to work with us, on account of our poor rel
 @devolutionists_bribe
 subtitle: -2 resources.
 choose-if: dp_relations >= 40 and resources >= 2
-unavailable-subtitle: [? resources < 2: Not enough resources. ?]
+unavailable-subtitle: [? if resources < 2: Not enough resources. ?]
 on-arrival: resources -= 2; workers_ip -= 5; corpo_ip += 2; dp_relation -= 20
 
 This fucks us over. Badly. The Devolutionists, after taking our money, immediately run to the press to call us scum for trying to buy votes.
@@ -151,7 +151,7 @@ The Libertarians express no desire to work with us, on account of our poor relat
 @libertarians_bribe
 subtitle: -2 resources.
 choose-if: lp_relations >= 40 and resources >= 2
-unavailable-subtitle: [? lp_relations < 40: Even money can't persuade them to our side. ?] [? resources < 2: Not enough resources. ?]
+unavailable-subtitle: [? if lp_relations < 40: Even money can't persuade them to our side. ?] [? if resources < 2: Not enough resources. ?]
 on-arrival: resources -= 2; libertarian_support = 1;
 
 After we send them the money, they quickly turn around and demand even more cash or they'll spill the story of our bribery.
