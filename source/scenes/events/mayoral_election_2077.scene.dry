@@ -4,21 +4,7 @@ tags: event
 view-if: year = 2077 and month = 7
 priority: 2
 max-visits: 1
-
-federalist_support = 0;
-federalist_attempted = 0;
-communist_support = 0;
-communist_attempted = 0;
-devolutionist_support = 0;
-devolutionist_attempted = 0;
-libertarian_support = 0;
-libertarian_attempted = 0;
-ip_mayor_vote = ip_vote;
-fp_mayor_vote = fp_vote;
-dp_mayor_vote = dp_vote;
-lp_mayor_vote = lp_vote;
-cp_mayor_vote = cp_vote;
-nsnawp_mayor_vote = nsnawp_vote;
+on-arrival: federalist_support = 0; federalist_attempted = 0; communist_support = 0; communist_attempted = 0; devolutionist_support = 0; devolutionist_attempted = 0; libertarian_support = 0; libertarian_attempted = 0; ip_mayor_vote = ip_vote; fp_mayor_vote = fp_vote; dp_mayor_vote = dp_vote; lp_mayor_vote = lp_vote; cp_mayor_vote = cp_vote; nsnawp_mayor_vote = nsnawp_vote;
   
 The mayoral election is coming up due to the death of Mayor Rhyne in May. Since Rhyne's leadership was wildly popular among our base, we now stand to gain among the workers. While we stand to gain here, other parties such as the National Socialists and the Federalists stand to gain as well.
 
