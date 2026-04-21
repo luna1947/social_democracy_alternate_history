@@ -73,9 +73,43 @@ We are choosing to run Misha Rovich for this election. The green wing of our par
 
 There are many other parties in Night City, meaning a lot of potential endorsements for [+ candidate +].
 
+- @convince_federalists: Try convicing the Federalists to support us.
 - @convince_devolutionists: Try convicing the Devolutionists to support us.
 - @convince_libertarians: Try convicing the Libertarians to support us.
 - @convince_communists: Try convicing the Communists to support us.
+
+@convince_federalists
+on-arrival: federalist_attempted = 1
+choose-if: ip_votes > fp_votes
+unavailable_subtitle: Why would they work with us when they're more popular?
+view-if: federalist_attempted = 0
+go-to: federalists_no if fp_relation < 60 if fp_relation < 60; federalists_yes if fp_relation >= 60;
+
+The Federalists are fielding their own candidate, Jefferson Peralez. Could they be dissuaded?
+
+@federalists_no
+
+The Federalists express no desire to work with us, on account of our poor relations.
+
+- @federalists_bribe: Can they be paid?
+- @choose_endorsements: Fuck 'em.
+
+@federalists_bribe
+subtitle: -2 resources.
+choose-if: fp_relations >= 40 and resources >= 2
+unavailable-subtitle: [? fp_relations < 40: Even money can't persuade them to our side. ?] [? resources < 2: Not enough resources. ?]
+on-arrival: resources -= 2; federalist_support = 1;
+
+Slimy? Yes. If found out about? Would probably ruin us. But we have the Federalists supporting [+ candidate +], so it's fine.
+
+- @choose_endorsement: Let's go find other endorsements.
+
+@federalists_yes
+on-arrival: federalist_support = 1;
+
+The Federalists have agreed to endorse us for the upcoming election, owing to our good relations.
+
+- @choose_endorsement: Let's go find other endorsements.
 
 @convince_devolutionists
 on-arrival: devolutionist_attempted = 1
