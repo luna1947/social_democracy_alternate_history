@@ -215,7 +215,7 @@ go-to: ip_win if winner = ip_mayor_vote; cp_win if winner = cp_mayor_vote; fp_wi
 
 The results are in...
 
-[? if first_election_choice = 3[+ candidate +]: [+ ip_mayor_vote +]%
+[? if first_election_choice = 3: [+ candidate +]: [+ ip_mayor_vote +]%
 
 [? if communist_support = 0: Petrov: [+ cp_mayor_vote +]% ?]
 
