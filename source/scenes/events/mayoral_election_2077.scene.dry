@@ -203,3 +203,8 @@ unavailable-subtitle: They wouldn't take our money if we tried. While they may b
 @communists_yes
 
 The Communists have dropped Petrov, meaning we're gaining their support!
+
+@final_vote
+on-arrival: mayor = candidate; mayor_party = "Independent";
+
+placeholder
