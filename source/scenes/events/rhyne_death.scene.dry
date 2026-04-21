@@ -1,5 +1,5 @@
-title: Saburo Arasaka Dead
-subtitle: The end of an empire has come to a close.
+title: Lucius Rhyne Dead
+subtitle: Mayor Rhyne found dead in invitation-only sex club.
 view-if: year == 2077 and month == 5
 new-page: true
 max-visits: 1
@@ -7,4 +7,6 @@ tags: event
 
 = Lucius Rhyne Dead
 
-placeholder placeholder yap yap
+Mayor Rhyne has been found dead in an invitation-only sex club, seemingly due to his old organs not being able to withstand the braindance.
+
+New mayoral elections are scheduled for July. We need to prepare.
