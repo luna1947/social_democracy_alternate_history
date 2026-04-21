@@ -262,7 +262,7 @@ priority: 2
 There are enough votes for the National Socialists and the Federalists to form a council. [+ nsnawp_leader +] has made his participation in government contingent on being appointed chancellor. It is up to President [+ president +] to decide.
 
 @earth_council
-title: Earth council
+title: We can form an Earth council
 subtitle: Independent + Devolutionists ([+ earth_council +]%)
 view-if: earth_council >= 50
 
@@ -416,7 +416,7 @@ The third option is to have new elections.
 title: Independent majority alone
 subtitle: Independent: [+ ip_r +]%
 view-if: ip_r >= 50
-on-arrival: chancellor = "Empty"; chancellor_party = "Independent"; ip_in_government = 1; in_ip_majority = 1; pro_republic += 5; foreign_minister_party = "Independent"; foreign_minister = "Breitscheid"; interior_minister_party = "Independent"; interior_minister = "Severing"; justice_minister_party = "Independent"; justice_minister = "Radbruch"; labor_minister_party = "Independent"; labor_minister = "Wissell"; reichswehr_minister_party = "Independent"; reichswehr_minister = "Leber"; economic_minister_party = "Independent"; economic_minister = "Schmidt"; finance_minister_party = "Independent"; finance_minister = "Hilferding"; agriculture_minister_party = "Independent"; agriculture_minister = "Baade"; reichswehr_loyalty -= 0.05; 
+on-arrival: chancellor = "Empty"; chancellor_party = "Independent"; ip_in_government = 1; in_ip_majority = 1; pro_republic += 5; foreign_minister_party = "Independent"; foreign_minister = "Breitscheid"; interior_minister_party = "Independent"; interior_minister = "Al-Haddad"; justice_minister_party = "Independent"; justice_minister = "Mantalos"; labor_minister_party = "Independent"; labor_minister = "Rovich"; corporate_minister_party = "Independent"; corporate_minister = "Ramsey"; finance_minister_party = "Independent"; finance_minister = "O'Connel"; defense_minister_party = "Independent"; defense_minister = "Staffer";
 achievement: majority_party
 
 Finally, we can govern alone! Our long campaign of electioneering has paid off. We do not need to worry about council government; anything is possible. 
@@ -928,7 +928,7 @@ subtitle: The Corporate Ministry controls contracts with corporations and relati
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 10 
-view-if: reichswehr_minister_party != "Independent"
+view-if: corporate_minister_party != "Independent"
 on-arrival: leverage -= 10; corporate_minister_party = "Independent"; corporate_minister = "Ramsey"
 go-to: ministries
 
@@ -946,42 +946,42 @@ This council arrangement is tolerable to all.
 @drop_labor
 title: Drop the Labor Ministry.
 view-if: labor_minister_party = "Independent"
-on-arrival: labor_minister_party = "Federalist"; labor_minister = "Swanson"; leverage += 5;
+on-arrival: labor_minister_party = "Devolutionist"; labor_minister = "Swanson"; leverage += 5; labor_minister_party = "Libertarian" if in_lithuania_council or in_grand_council; labor_minister = "Rammond" if in_lithuania_council or in_grand_council;
 tags: drop_mins_1928
 go-to: ministries
 
 @drop_interior
 title: Drop the Interior Ministry.
 view-if: interior_minister_party = "Independent"
-on-arrival: interior_minister_party = "Federalist"; interior_minister = "Ackerman"; leverage += 5;
+on-arrival: interior_minister_party = "Devolutionist"; interior_minister = "Ackerman"; leverage += 5; interior_minister_party = "Libertarian" if in_lithuania_council or in_grand_council; interior_minister = "Donaldson" if in_lithuania_council or in_grand_council;
 tags: drop_mins_1928
 go-to: ministries
 
 @drop_finance
 title: Drop the Finance Ministry.
 view-if: finance_minister_party = "Independent"
-on-arrival: finance_minister_party = "Federalist"; finance_minister = "Racker"; leverage += 10; finance_minister_party = "Z" if in_weimar_council or in_popular_front; finance_minister = "Köhler" if in_weimar_council or in_popular_front
+on-arrival: finance_minister_party = "Devolutionist"; finance_minister = "Racker"; leverage += 10; finance_minister_party = "Z" if in_weimar_council or in_popular_front; finance_minister = "Köhler" if in_weimar_council or in_popular_front
 tags: drop_mins_1928
 go-to: ministries
 
 @drop_defense
 title: Drop the Defense Ministry.
 view-if: defense_minister_party = "Independent"
-on-arrival: defense_minister_party = "Federalist"; defense_minister = "Caesar"; leverage += 10; defense_minister_party = "Devolutionist" if in_left_council or in_earth_council; defense_minister = "Fawlter" if in_lithuania_council or in_earth_council;
+on-arrival: defense_minister_party = "Devolutionist"; defense_minister = "Caesar"; leverage += 10;  defense_minister_party = "Federalist" if in_lithuania_council or in_grand_council; defense_minister = "Afton" if in_lithuania_council or in_grand_council;
 tags: drop_mins_1928
 go-to: ministries
 
 @drop_justice
 title: Drop the Justice Ministry.
 view-if: justice_minister_party = "Independent"
-on-arrival: justice_minister_party = "Devolutionist"; justice_minister = "Richter"; leverage += 10;
+on-arrival: justice_minister_party = "Devolutionist"; justice_minister = "Richter"; leverage += 10; justice_minister_party = "Libertarian" if in_lithuania_council or in_grand_council; justice_minister = "Rophach" if in_lithuania_council or in_grand_council;
 tags: drop_mins_1928
 go-to: ministries
 
 @drop_foreign
 title: Drop the Foreign Ministry.
 view-if: foreign_minister_party = "Independent"
-on-arrival: foreign_minister_party = "Federalist"; foreign_minister = "Jorgensen"; leverage += 10; foreign_minister_party = "Libertarian" if in_lithuania_council or in_grand_front; foreign_minister = "Luger" if in_lithuania_council or in_grand_front;
+on-arrival: foreign_minister_party = "Devolutionist"; foreign_minister = "Jorgensen"; leverage += 10; foreign_minister_party = "Libertarian" if in_lithuania_council or in_grand_council; foreign_minister = "Luger" if in_lithuania_council or in_grand_council;
 tags: drop_mins_1928
 go-to: ministries
 
