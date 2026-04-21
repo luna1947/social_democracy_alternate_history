@@ -211,7 +211,7 @@ on-arrival: mayor = candidate; mayor_party = "Independent";
 
 The results are in...
 
-{? if first_election_choice > 2: + candidate + ?]: [+ ip_mayor_vote +]%
+{? if first_election_choice > 2: candidate ?]: [+ ip_mayor_vote +]%
 [? if communist_support = 0: Petrov ?]: [+ cp_mayor_vote +]%
 [? if federalist_support = 0: Peralez ?]: [+ fp_mayor_vote +]%
 [? if libertarian_support = 0: Ramsey ?]: [+ lp_mayor_vote +]%
