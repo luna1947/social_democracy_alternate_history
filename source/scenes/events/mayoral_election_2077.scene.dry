@@ -78,13 +78,12 @@ There are many other parties in Night City, meaning a lot of potential endorseme
 - @convince_libertarians: Try convicing the Libertarians to support us.
 - @convince_communists: Try convicing the Communists to support us.
 
-
 @federalists_convince
 on-arrival: federalist_attempted = 1
 choose-if: ip_votes > fp_votes
 unavailable_subtitle: Why would they work with us when they're more popular?
 view-if: federalist_attempted = 0
-go-to: federalists_no; federalists_yes if fp_relation >= 60;
+go-to: federalists_no if fp_relation < 60 if fp_relation < 60; federalists_yes if fp_relation >= 60;
 
 The Federalists are fielding their own candidate, Jefferson Peralez. Could they be dissuaded?
 
@@ -117,7 +116,7 @@ on-arrival: devolutionist_attempted = 1
 choose-if: ip_votes > dp_votes
 unavailable_subtitle: Why would they work with us when they're more popular?
 view-if: devolutionist_attempted = 0
-go-to: devolutionists_no; devolutionists_yes if dp_relation >= 45;
+go-to: devolutionists_no if dp_relation < 60; devolutionists_yes if dp_relation >= 45;
 
 The Devolutionists are currently not fielding their own candidate, intending to support Ronald Lamb of the Libertarian Party.
 
@@ -152,7 +151,7 @@ on-arrival: libertarian_attempted = 1
 choose-if: ip_votes > lp_votes
 unavailable_subtitle: Why would they work with us when they're more popular?
 view-if: libertarian_attempted = 0
-go-to: libertarians_no; libertarians_yes if lp_relation >= 40;
+go-to: libertarians_no if lp_relation < 60; libertarians_yes if lp_relation >= 40;
 
 The Libertarians are running their own candidate, Ronald Lamb. They don't have much hope in him, maybe we could take advantage of that.
 
@@ -200,7 +199,7 @@ on-arrival: communists_attempted = 1
 choose-if: ip_votes > cp_votes
 unavailable_subtitle: Why would they work with us when they're more popular?
 view-if: communists_attempted = 0
-go-to: communists_no; communists_yes if cp_relation >= 40;
+go-to: communists_no if cp_relation < 60; communists_yes if cp_relation >= 40;
 
 The communists are fielding their own candidate, Ivan Petrov.
 
