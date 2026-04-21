@@ -63,6 +63,7 @@ There are many other parties in Night City, meaning a lot of potential endorseme
 - @convince_devolutionists: Try convicing the Devolutionists to support us.
 - @convince_libertarians: Try convicing the Libertarians to support us.
 - @convince_communists: Try convicing the Communists to support us.
+- @final_vote: The final vote...
 
 @convince_federalists
 on-arrival: federalist_attempted = 1
