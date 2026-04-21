@@ -73,12 +73,12 @@ We are choosing to run Misha Rovich for this election. The green wing of our par
 
 There are many other parties in Night City, meaning a lot of potential endorsements for [+ candidate +].
 
-- @federalists_convince: Try convicing the Federalists to support us.
+- @convince_federalists: Try convicing the Federalists to support us.
 - @convince_devolutionists: Try convicing the Devolutionists to support us.
 - @convince_libertarians: Try convicing the Libertarians to support us.
 - @convince_communists: Try convicing the Communists to support us.
 
-@federalists_convince
+@convince_federalists
 on-arrival: federalist_attempted = 1
 choose-if: ip_votes > fp_votes
 unavailable_subtitle: Why would they work with us when they're more popular?
