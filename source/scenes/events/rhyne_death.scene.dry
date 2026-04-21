@@ -1,6 +1,7 @@
 title: Lucius Rhyne Dead
 subtitle: Mayor Rhyne found dead in invitation-only sex club.
 view-if: year == 2077 and month == 5
+on-arrival: mayor = "None"; mayor_party = "None"
 new-page: true
 max-visits: 1
 tags: event
