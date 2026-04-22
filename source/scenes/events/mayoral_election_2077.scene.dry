@@ -10,6 +10,8 @@ The mayoral election is coming up due to the death of Mayor Rhyne in May. Since 
 
 Some in our party (primarily the socialists and the industrialists) call for us to run Johnathan Richter or Misha Rovich for mayor. It's up to us to decide if we listen.
 
+(WIP, please just run a candidate, IP is guaranteed to win)
+
 - @support_peralez: Support Jefferson Peralez of the Federalist Party
 - @support_petrov: Support Ivan Petrov of the Communist Party
 - @run_richter: Run Johnathan Richter
@@ -210,8 +212,7 @@ The Communists have dropped Petrov, meaning we're gaining their support!
 on-arrival:{!
 Q.winner = Math.max(ip_mayor_mayor_vote, cp_mayor_vote, fp_mayor_vote, lp_mayor_vote, nsnawp_mayor_vote);
 !}
-go-to: ip_win if winner = ip_mayor_mayor_vote; cp_win if winner = cp_mayor_vote; fp_win if winner = fp_mayor_vote; nsnawp_win if winner = nsnawp_mayor_vote
-
+go-to: ip_win
 The results are in...
 
 [? if first_election_choice < 2: [+ candidate +]: [+ ip_mayor_mayor_vote +]% ?]
