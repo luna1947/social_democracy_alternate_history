@@ -12,7 +12,7 @@ max-visits: 6
 
 The 6th Street Gang is a gang that prowls the streets of Night City, bearing the colors of the old United States. In the political scene, it acts as a protection force for rallies and demonstrations. It is officially associated with the center-left, meaning us and the Devolutionists, but by far they are more loyal to us than the DP.
 
-[? if workers_ip < 46 or workers_ip < workers_nsnawp or workers_ip < workers_cp : The Reichsbanner is having a more difficult time recruiting, as the ip is no longer the dominant party among the workers. Many of its members have left. ?]
+[? if workers_ip < 46 or workers_ip < workers_nsnawp or workers_ip < workers_cp : 6th Street is having a more difficult time recruiting, as the Independent Party is no longer the dominant party among the workers. Many of its members have left. ?]
 
 - @militant: Fund more military-style training and equipment for 6th Street.
 - @militant_2: Use our existing resources to support more training for 6th Street.
@@ -27,14 +27,14 @@ The 6th Street Gang is a gang that prowls the streets of Night City, bearing the
 choose-if: resources >= str_militarization_cost
 unavailable-subtitle: Not enough resources ([+ str_militarization_cost +] needed).
 subtitle: -[+ str_militarization_cost +] resources
-on-arrival: resources -= str_militarization_cost; str_investment += 1; str_strength += 100; str_militancy += 0.05; left_strength += 2; left_dissent -= 2; reformist_dissent += 5; ip_militancy += 0.05; workers_ip += 2*(1-dissent); unemployed_ip += 2*(1-dissent); z_relation -= 5 if historical_mode 
+on-arrival: resources -= str_militarization_cost; str_investment += 1; str_strength += 100; str_militancy += 0.05; left_strength += 2; left_dissent -= 2; reformist_dissent += 5; str_militancy += 0.05; workers_ip += 2*(1-dissent); unemployed_ip += 2*(1-dissent); str_support += 1;
 
 Some in our party decry the increasing militarization of 6th Street. They say it is emulating the right-wing nationalists or the communists, and risks alienating our allies in the centrist parties. On the other hand, more left-leaning radicals are being lured to our organizations, away from the communists.
 
 
 @militant_2
 view-if: funded_reichsbanner >= 1
-on-arrival: str_militancy += 0.02; funded_reichsbanner -= 1
+on-arrival: str_militancy += 0.02; funded_reichsbanner -= 1;
 
 As we have already funded resources towards 6th Street, we can invest in building up their militancy.
 
@@ -48,6 +48,6 @@ As we have already funded resources towards 6th Street, we can invest in buildin
 
 @cut_str
 subtitle: +1 resources
-on-arrival: resources += 1; str_strength -= 100; str_militancy -= 0.05; left_strength -= 2; left_dissent -= 2; ip_militancy -= 0.05; workers_cp += 2; unemployed_cp += 2
+on-arrival: resources += 1; str_strength -= 100; str_militancy -= 0.05; socialist_strength -= 2; socialist_dissent -= 2; str_militancy -= 0.05; workers_cp += 2; unemployed_cp += 2; str_support -= 1;
 
 Cutting resources to the Reichsbanner causes a drop in the membership, and leads some would-be members to join the Communists instead.
