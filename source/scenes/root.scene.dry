@@ -1,5 +1,7 @@
 title: Root Scene
 new-page: true
+set-bg: img/map_2.jpg
+new-page: true
 go-to: post_event if started = 1; start_menu if started = 0
 
 @start_menu
@@ -495,9 +497,6 @@ Q.ramsey_advisor = 0; //Johnathan Ramsey
 Q.staffer_advisor = 0; //Thomas Staffer
 Q.mantalos_advisor = 0; //Dimitri Mantalos
 !}
-
-set-bg: img/map_2.jpg
-new-page: true
 
 > *"Not Askin' You To Never Give Up. Sometimes You Gotta Let Go... Just Don't Let Anyone Change Who You Are."*
 
