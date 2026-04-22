@@ -1,0 +1,11 @@
+title: 6th Street Leaves
+new-page: true 
+subtitle: 6th Street has become annoyed with the budget cuts.
+tags: event
+view-if: str_support = 0
+on-arrival: str_split = 1;
+max-visits: 1
+
+= 6th street leaves
+
+Our budget choices have angered 6th Street. They have formally split with the party.
