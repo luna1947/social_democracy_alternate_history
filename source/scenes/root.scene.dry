@@ -254,6 +254,22 @@ Q.old_fp_r = 17;
 Q.old_lp_r = 6;
 Q.old_dp_r = 10;
 
+// mayoral election variables
+Q.federalist_support = 0;
+Q.federalist_attempted = 0;
+Q.communist_support = 0;
+Q.communist_attempted = 0;
+Q.devolutionist_support = 0;
+Q.devolutionist_attempted = 0;
+Q.libertarian_support = 0;
+Q.libertarian_attempted = 0;
+Q.ip_mayor_vote = ip_vote;
+Q.fp_mayor_vote = fp_vote;
+Q.dp_mayor_vote = dp_vote;
+Q.lp_mayor_vote = lp_vote;
+Q.cp_mayor_vote = cp_vote;
+Q.nsnawp_mayor_vote = nsnawp_vote
+
 // array of objects of the form {date: Date(), ip: 10, cp: 12, ...} for each election
 Q.election_records = [];
 // party support records for every month
