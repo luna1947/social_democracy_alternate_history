@@ -4,9 +4,23 @@ tags: event
 view-if: year = 2077 and month = 7
 priority: 2
 max-visits: 1
-on-arrival: federalist_support = 0; federalist_attempted = 0; communist_support = 0; communist_attempted = 0; devolutionist_support = 0; devolutionist_attempted = 0; libertarian_support = 0; libertarian_attempted = 0; ip_mayor_vote = ip_vote; fp_mayor_vote = fp_vote; dp_mayor_vote = dp_vote; lp_mayor_vote = lp_vote; cp_mayor_vote = cp_vote; nsnawp_mayor_vote = nsnawp_vote
+on-arrival:{!
+Q.federalist_support = 0;
+Q.federalist_attempted = 0;
+Q.communist_support = 0;
+Q.communist_attempted = 0;
+Q.devolutionist_support = 0;
+Q.devolutionist_attempted = 0;
+Q.libertarian_support = 0;
+Q.libertarian_attempted = 0;
+Q.ip_mayor_vote = ip_vote;
+Q.fp_mayor_vote = fp_vote;
+Q.dp_mayor_vote = dp_vote;
+Q.lp_mayor_vote = lp_vote;
+Q.cp_mayor_vote = cp_vote;
+Q.nsnawp_mayor_vote = nsnawp_vote
+!}
 
-  
 The mayoral election is coming up due to the death of Mayor Rhyne in May. Since Rhyne's leadership was wildly popular among our base, we now stand to gain among the workers. While we stand to gain here, other parties such as the National Socialists and the Federalists stand to gain as well.
 
 Some in our party (primarily the socialists and the industrialists) call for us to run Johnathan Richter or Misha Rovich for mayor. It's up to us to decide if we listen.
@@ -203,7 +217,7 @@ choose-if: 1 = 2
 unavailable-subtitle: They wouldn't take our money if we tried. While they may be stubborn, they are ideologically strong.
 
 @communists_yes
-on-arrival: ip_mayor_vote += lp_mayor_vote; communist_support = 1
+on-arrival: ip_mayor_vote += cp_mayor_vote; communist_support = 1
 
 The Communists have dropped Petrov, meaning we're gaining their support!
 
@@ -215,7 +229,7 @@ go-to: ip_win if winner = ip_mayor_vote; cp_win if winner = cp_mayor_vote; fp_wi
 
 The results are in...
 
-[? if first_election_choice = 3: [+ candidate +]: [+ ip_mayor_vote +]% ?]
+[? if first_election_choice < 2: [+ candidate +]: [+ ip_mayor_vote +]% ?]
 
 [? if communist_support = 0: Petrov: [+ cp_mayor_vote +]% ?]
 
