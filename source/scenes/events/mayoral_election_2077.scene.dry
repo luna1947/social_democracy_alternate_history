@@ -213,6 +213,7 @@ on-arrival:{!
 Q.winner = Math.max(ip_mayor_mayor_vote, cp_mayor_vote, fp_mayor_vote, lp_mayor_vote, nsnawp_mayor_vote);
 !}
 go-to: ip_win
+
 The results are in...
 
 [? if first_election_choice < 2: [+ candidate +]: [+ ip_mayor_mayor_vote +]% ?]
