@@ -10,7 +10,7 @@ The mayoral election is coming up due to the death of Mayor Rhyne in May. Since 
 
 Some in our party (primarily the socialists and the industrialists) call for us to run Johnathan Richter or Misha Rovich for mayor. It's up to us to decide if we listen.
 
-(WIP, please just run a candidate, IP is guaranteed to win)
+WIP, please just run a candidate, IP is guaranteed to win and it doesn't cost anything contrary to the subtitles
 
 - @support_peralez: Support Jefferson Peralez of the Federalist Party
 - @support_petrov: Support Ivan Petrov of the Communist Party
@@ -39,7 +39,6 @@ We are choosing to support Ivan Petrov for this election. The liberals are extre
 
 @run_richter
 subtitle: -2 resources.
-choose-if: resources >= 2
 unavailable-subtitle: Not enough resources.
 on-arrival: first_election_choice = 3; candidate = "Richter"
 
@@ -49,7 +48,6 @@ We are choosing to run Johnathan Richter for this election. While the liberals w
 
 @run_rovich
 subtitle: -2 resources.
-choose-if: resources >= 2
 unavailable-subtitle: Not enough resources.
 on-arrival: first_election_choice = 4; green_dissent += 10; candidate = "Rovich"
 
