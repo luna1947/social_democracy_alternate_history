@@ -6,8 +6,6 @@ title: Campaigning (People's Party)
 - @campaign_corpo
 - @campaign_nomad
 - @campaign_unemployed
-- @campaign_women
-- @campaign_catholics
 
 @campaign_workers
 title: Campaign among the workers, to assuage their doubts about our changes.
@@ -16,13 +14,13 @@ on-arrival: workers_ip += 5*(1-dissent);
 The workers are still a key part of our constituency, and we must not alienate them in the transformation of our party.
 
 @campaign_corpo
-title: Campaign among the corporations.
+title: Campaign among the corporation workers.
 on-arrival: corpo_ip += 5*(1-dissent);
 
 As a people's party, we represent the corporate workers of the city, and they are becoming receptive to our messages.
 
 @campaign_nomad
-title: Campaign in nomad areas.
+title: Campaign among the nomads.
 choose-if: nomad_policy > 0
 unavailable-subtitle: We have not enacted any nomad policies yet.
 on-arrival: nomad_ip += 6*(1-dissent)
