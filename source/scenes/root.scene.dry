@@ -58,10 +58,13 @@ Q.liberal_strength = 20;
 Q.liberal_dissent = 10;
 
 // secret events...
-Q.unions_independent = 0;
-Q.centrists_resign = 0;
+Q.industrialists_walk_out = 0;
+Q.socialists_resigned = 0;
 Q.green_split = 0;
 Q.liberals_resigned = 0;
+Q.str_split = 0;
+// did the eurodollar crisis happen
+Q.eurodollar_crisis_seen = 0;
 // crisis_urgency indicates how seriously the ip is taking the economic crisis - scale from 0 to 10.
 Q.federalist_urgency = 0;
 // nazi_urgency indicates how seriously the ip takes the nazis - scale from 0 to 10.
@@ -95,7 +98,6 @@ Q.moderate_plan_adopted = 0;
 Q.mt_affiliation = "Federalists";
 Q.arasaka_affiliation = "None";
 Q.str_support = 5;
-Q.str_split = 0;
 
 // organizations
 
