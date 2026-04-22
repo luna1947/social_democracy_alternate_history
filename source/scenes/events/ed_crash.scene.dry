@@ -3,7 +3,7 @@ subtitle: Money is losing value...
 new-page: true
 on-arrival: eurodollar_crisis_seen = 1; workers_cp += 5; workers_nsnawp += 3; corpo_nsnawp += 4; nomad_nsnawp += 5; unemployed_nsnawp += 5; unemployed_nsnawp += 2; budget -= 1 if budget > 0; dues -= 1 if dues > 2; inflation -= 1; economic_growth -= 1;
 tags: event
-view-if: year = 2078 and month >= 10
+view-if: year == 2078 and month >= 10
 max-visits: 1
 face-image: img/bankrun.jpg
 
