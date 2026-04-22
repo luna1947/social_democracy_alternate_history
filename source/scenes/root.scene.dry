@@ -91,8 +91,11 @@ Q.nationalization_adopted = 0;
 // moderate economic plan
 Q.moderate_plan_support = 0;
 Q.moderate_plan_adopted = 0;
-//militech affiliation
+//non-party affiliation
 Q.mt_affiliation = "Federalists";
+Q.arasaka_affiliation = "None";
+Q.str_support = 5;
+Q.str_split = 0;
 
 // organizations
 
