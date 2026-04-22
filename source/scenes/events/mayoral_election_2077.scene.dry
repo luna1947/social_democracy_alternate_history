@@ -14,6 +14,11 @@ Q.devolutionist_attempted = 0;
 Q.libertarian_support = 0;
 Q.libertarian_attempted = 0;
 Q.ip_mayor_vote = ip_vote;
+Q.fp_mayor_vote = fp_vote;
+Q.dp_mayor_vote = dp_vote;
+Q.lp_mayor_vote = lp_vote;
+Q.cp_mayor_vote = cp_vote;
+Q.nsnawp_mayor_vote = nsnawp_vote
 !}
 
 The mayoral election is coming up due to the death of Mayor Rhyne in May. Since Rhyne's leadership was wildly popular among our base, we now stand to gain among the workers. While we stand to gain here, other parties such as the Federalists and the *snicker* National Socialists stand to gain as well.
@@ -33,7 +38,7 @@ on-arrival: first_election_choice = 1; socialist_dissent += 5; industrialist_dis
 
 We are choosing to support Jefferson Peralez for this election. The socialists and industrialists are miffed, but they'll get over it.
 
-- @final_vote: The final vote...
+- @final_mayor_vote: The final vote...
   
 @support_petrov
 subtitle: This will likely invoke the ire of the liberals.
@@ -43,7 +48,7 @@ on-arrival: first_election_choice = 2; liberal_dissent += 20; cp_relation += 10;
 
 We are choosing to support Ivan Petrov for this election. The liberals are extremely angry with us for this, and are considering splitting to the Libertarians.
 
-- @final_vote: The final vote...
+- @final_mayor_vote: The final vote...
 
 @run_richter
 subtitle: -2 resources.
@@ -73,11 +78,11 @@ There are many other parties in Night City, meaning a lot of potential endorseme
 - @convince_devolutionists: Try convicing the Devolutionists to support us.
 - @convince_libertarians: Try convicing the Libertarians to support us.
 - @convince_communists: Try convicing the Communists to support us.
-- @final_vote: The final vote...
+- @final_mayor_vote: The final vote...
 
 @convince_federalists
 on-arrival: federalist_attempted = 1
-choose-if: ip_mayor_votes > fp_votes
+choose-if: ip_mayor_mayor_votes > fp_mayor_votes
 unavailable-subtitle: Why would they work with us when they're more popular?
 view-if: federalist_attempted = 0
 go-to: federalists_no if fp_relation < 60 if fp_relation < 60; federalists_yes if fp_relation >= 60
@@ -95,14 +100,14 @@ The Federalists express no desire to work with us, on account of our poor relati
 subtitle: -2 resources.
 choose-if: fp_relations >= 40 and resources >= 2
 unavailable-subtitle: [? if fp_relations < 40: Even money can't persuade them to our side. ?] [? if resources < 2: Not enough resources. ?]
-on-arrival: resources -= 2; federalist_support = 1; ip_mayor_vote += fp_vote
+on-arrival: resources -= 2; federalist_support = 1; ip_mayor_mayor_vote += fp_mayor_vote
 
 Slimy? Yes. If found out about? Would probably ruin us. But we have the Federalists supporting [+ candidate +], so it's fine.
 
 - @choose_endorsement: Let's go find other endorsements.
 
 @federalists_yes
-on-arrival: federalist_support = 1; ip_mayor_vote += fp_vote
+on-arrival: federalist_support = 1; ip_mayor_mayor_vote += fp_mayor_vote
 
 The Federalists have agreed to endorse us for the upcoming election, owing to our good relations.
 
@@ -110,7 +115,7 @@ The Federalists have agreed to endorse us for the upcoming election, owing to ou
 
 @convince_devolutionists
 on-arrival: devolutionist_attempted = 1
-choose-if: ip_mayor_votes > dp_votes
+choose-if: ip_mayor_mayor_votes > dp_mayor_votes
 unavailable-subtitle: Why would they work with us when they're more popular?
 view-if: devolutionist_attempted = 0
 go-to: devolutionists_no if dp_relation < 60; devolutionists_yes if dp_relation >= 45
@@ -137,7 +142,7 @@ This harms our base with the working class, unsurprisingly, but corporate worker
 - @choose_endorsement: Let's go find other endorsements.
 
 @devolutionists_yes
-on-arrival: devolutionist_support = 1; ip_mayor_vote += dp_vote
+on-arrival: devolutionist_support = 1; ip_mayor_mayor_vote += dp_mayor_vote
 
 The devolutionists have agreed to endorse us for the upcoming election, owing to our good relations.
 
@@ -145,7 +150,7 @@ The devolutionists have agreed to endorse us for the upcoming election, owing to
 
 @convince_libertarians
 on-arrival: libertarian_attempted = 1
-choose-if: ip_mayor_votes > lp_votes
+choose-if: ip_mayor_mayor_votes > lp_mayor_votes
 unavailable-subtitle: Why would they work with us when they're more popular?
 view-if: libertarian_attempted = 0
 go-to: libertarians_no if lp_relation < 60; libertarians_yes if lp_relation >= 40
@@ -180,12 +185,12 @@ Rather than turning out badly in our favor, the boys in the propaganda departmen
 @libertarians_bitchboy
 subtitle: -2 resources.
 choose-if: resources >= 2
-on-arrival: resources -= 2; libertarian_support = 1; ip_mayor_vote += lp_vote
+on-arrival: resources -= 2; libertarian_support = 1; ip_mayor_mayor_vote += lp_mayor_vote
 
 We pay them off the extra money. We feel that this was a bad idea, but it's too late to go back. Unfortunate.
 
 @libertarians_yes
-on-arrival: libertarian_support = 1; ip_mayor_vote += lp_vote
+on-arrival: libertarian_support = 1; ip_mayor_mayor_vote += lp_mayor_vote
 
 The Federalists have agreed to endorse us for the upcoming election, owing to our good relations.
 
@@ -193,7 +198,7 @@ The Federalists have agreed to endorse us for the upcoming election, owing to ou
 
 @convince_communists
 on-arrival: communists_attempted = 1
-choose-if: ip_mayor_votes > cp_votes
+choose-if: ip_mayor_mayor_votes > cp_mayor_votes
 unavailable-subtitle: Why would they work with us when they're more popular?
 view-if: communists_attempted = 0
 go-to: communists_no if cp_relation < 60; communists_yes if cp_relation >= 40
@@ -212,27 +217,27 @@ choose-if: 1 = 2
 unavailable-subtitle: They wouldn't take our money if we tried. While they may be stubborn, they are ideologically strong.
 
 @communists_yes
-on-arrival: ip_mayor_vote += cp_vote; communist_support = 1
+on-arrival: ip_mayor_mayor_vote += cp_mayor_vote; communist_support = 1
 
 The Communists have dropped Petrov, meaning we're gaining their support!
 
-@final_vote
+@final_mayor_vote
 on-arrival:{!
-Q.winner = Math.max(ip_mayor_vote, cp_vote, fp_vote, lp_vote, nsnawp_vote);
+Q.winner = Math.max(ip_mayor_mayor_vote, cp_mayor_vote, fp_mayor_vote, lp_mayor_vote, nsnawp_mayor_vote);
 !}
-go-to: ip_win if winner = ip_mayor_vote; cp_win if winner = cp_vote; fp_win if winner = fp_vote; nsnawp_win if winner = nsnawp_vote
+go-to: ip_win if winner = ip_mayor_mayor_vote; cp_win if winner = cp_mayor_vote; fp_win if winner = fp_mayor_vote; nsnawp_win if winner = nsnawp_mayor_vote
 
 The results are in...
 
-[? if first_election_choice < 2: [+ candidate +]: [+ ip_mayor_vote +]% ?]
+[? if first_election_choice < 2: [+ candidate +]: [+ ip_mayor_mayor_vote +]% ?]
 
-[? if communist_support = 0: Petrov: [+ cp_vote +]% ?]
+[? if communist_support = 0: Petrov: [+ cp_mayor_vote +]% ?]
 
-[? if federalist_support = 0: Peralez: [+ fp_vote +]% ?]
+[? if federalist_support = 0: Peralez: [+ fp_mayor_vote +]% ?]
 
-[? if libertarian_support = 0: Ramsey: [+ lp_vote +]% ?]
+[? if libertarian_support = 0: Ramsey: [+ lp_mayor_vote +]% ?]
 
-Bauer: [+ nsnawp_vote +]%
+Bauer: [+ nsnawp_mayor_vote +]%
 
 @ip_win
 on-arrival: mayor = candidate; mayor_party = "Independent"
