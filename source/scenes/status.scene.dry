@@ -89,6 +89,9 @@ if (Q.mt_strength) {
 if (Q.rf_strength) {
     Q.rf_strength_2 = Q.rf_strength.toFixed(1);
 }
+if (Q.sa_strength) {
+    Q.sa_strength_2 = Q.sa_strength.toFixed(1);
+}
 !}
 
 = Paramilitaries
@@ -108,6 +111,10 @@ Militech Militarization: [+ mt_militancy : militancy +]
 {!<span class="tooltip-text" title="The Red Front is the Communist paramilitary.">Red Front</span>!} Strength: [+ rf_strength_2 +] thousand
 
 Red Front Militarization: [+ rf_militancy : militancy +]
+
+{!<span class="tooltip-text" title="The Storm Workers are the National Socialist paramilitary.">Storm Workers</span>!} Strength: [+ sa_strength_2 +] thousand
+
+Storm Workers Militarization: [+ sa_militancy : militancy +]
 
 = Official Government Fighters
 
