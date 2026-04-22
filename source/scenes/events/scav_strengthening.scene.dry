@@ -2,7 +2,7 @@ title: Scavs strengthening
 new-page: true 
 subtitle: Scavs around Night City are becoming stronger...
 tags: event
-view-if: str_split == 1; year > 2077
+view-if: str_split == 1 and year > 2077
 on-arrival: sv_militancy += 0.2; sv_strength = 200 workers_ip -= 4; unemployed_ip -= 8; workers_nsnawp += 3; unemployed_nsnawp += 5
 max-visits: 1
 
