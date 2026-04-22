@@ -46,10 +46,10 @@ on-arrival: workers_nsnawp += 3; str_strength -= 50
 Unfortunately, the Reichsbanner was not able to hold back the SA mob. The Nazis have won this show of strength.
 
 @both_protect
-view-if: ip_prussia
+view-if: interior_minister_party == "Independent"
 choose-if: prussian_police_training > 0
 unavailable-subtitle: The loyal sections of the police have never coordinated with the Reichsbanner before.
-on-arrival: str_success = str_strength*str_militancy - sa_strength*sa_militancy + prussian_police_loyalty*prussian_police_militancy*prussian_police_strength*2; strife += 1
+on-arrival: str_success = str_strength*str_militancy - sa_strength*sa_militancy + ncpd_loyalty*ncpd_militancy*ncpd_strength*2; strife += 1
 go-to: both_protect_win if str_success >= 0; both_protect_lose if str_success < 0
 
 @both_protect_win
@@ -73,7 +73,7 @@ The SA have won this show of strength.
 Mass rallies are a common feature of social democratic life, especially in the lead-up to an election. What is the primary theme of this rally?
 
 - @class_struggle: The class struggle of the proletariat against the bourgeoisie.
-- @welfare: Sozialpolitik - the maintenance and expansion of social welfare programs.
+- @welfare: The maintenance and expansion of social welfare programs.
 - @democracy: Expanding our nascent democracy and defending it against dictatorship and fascism.
 - @pacifism: Opposing war, nationalism, and militarism at all costs.
 - @local: A mixture of various local and national concerns that resonate most with the audience.
