@@ -124,7 +124,7 @@ Q.hindenburg_enabled = 0;
 
 // The array of forces - paramilitary groups
 // Number of members in 1928 (in thousands)
-// 6th Street, Scav, Militech, Red Front
+// 6th Street, Scav, Militech, Red Front, Storm Workers
 Q.str_strength = 300;
 Q.str_militancy = 0.4;
 Q.str_banned = 0;
@@ -136,7 +136,8 @@ Q.mt_militancy = 0.7;
 Q.mt_banned = 0;
 Q.rf_strength = 130;
 Q.rf_militancy = 0.5;
-
+Q.sa_strength = 250;
+Q.sa_militancy = 0.3
 
 // strength includes actual military and de facto reserves?
 Q.ncpd_strength = 100;
