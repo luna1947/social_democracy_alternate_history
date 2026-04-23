@@ -255,7 +255,7 @@ Q.merc_ip = 7;
 Q.merc_cp = 13;
 Q.merc_fp = 40;
 Q.merc_lp = 23;
-Q.merc_dp = 6f;
+Q.merc_dp = 6;
 Q.merc_nsnawp = 7;
 
 
