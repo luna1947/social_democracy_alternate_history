@@ -12,9 +12,11 @@ tags: party_affairs
 Whether or not we are in an electoral campaign, the party is always trying to broaden its voter base. Who should we focus our campaign efforts on?
 
 - @workers: The urban working class, our usual campaign targets.
-- @corpo: The growing population of corporate workers.
+- @corpo: The growing population of corporate workers, who aren't part of our usual campaign targets.
 - @nomad: Nomads and other people living in the badlands, who have felt neglected by us in the past.
 - @unemployed: The unemployed.
+- @pink: 
+- @merc
 - @root: We either don't want to or cannot campaign right now.
 - @easy_discard
 
@@ -49,3 +51,17 @@ unavailable-subtitle: Not enough resources.
 on-arrival: unemployed_ip += 6*(1-dissent); resources -= 1; unemployed_ip -= 3 if welfare < 0; unemployed_ip += 6*(1-dissent) if wtb_adopted = 1; unemployed_ip += 3*(1-dissent) if welfare >= 2;
 
 We have increased our campaigning among the unemployed. [? if welfare < 0: The welfare cuts and resultant poverty make our campaign more difficult, since we are associated with the government that enacted these cuts, and our campaign may even backfire. ?][? if wtb_adopted = 1 : Adopting the WTB plan gives us a new rallying point around which to attract support from the unemployed. ?]
+
+@pink
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: pink_ip += 6*(1-dissent); pink_ip -= 2 if unemployed >= 15; pink_ip -= 2 if unemployed >= 25; pink_ip += 6*(1-dissent) if wtb_adopted = 1; resources -= 1; pink_ip += 3*(1-dissent) if nationalization_progress >= 1;
+
+We have increased our campaigning among pink-collar workers.
+
+@mercs
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: merc_ip += 6*(1-dissent); merc_ip -= 4 if socialism <= 49 and peoples_party == 0; resources -= 1; peoples_party_support += 1;
