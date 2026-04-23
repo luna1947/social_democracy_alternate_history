@@ -1,0 +1,27 @@
+on-arrival: {!
+// set up the infrastructure
+Q.iwpp_formed = 1;
+Q.parties.push('iwpp');
+
+Q.workers_iwpp = 10;
+Q.workers_ip -= 3;
+Q.corpo_iwpp = 1;
+Q.pink_iwpp = 0;
+Q.nomad_iwpp = 0;
+Q.unemployed_iwpp = 2;
+Q.merc_iwpp = 0;
+
+if (Q.unions_independent) {
+    Q.workers_iwpp += 8;
+}
+
+// update all records
+Q.iwpp_r = 0;
+Q.old_iwpp_r = 0;
+for (var record of Q.election_records) {
+    record['iwpp'] = 0;
+}
+for (var record of Q.party_support_records) {
+    record['iwpp'] = 0;
+}
+!}
