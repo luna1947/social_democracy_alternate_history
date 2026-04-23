@@ -63,6 +63,7 @@ Q.socialists_resigned = 0;
 Q.green_split = 0;
 Q.liberals_resigned = 0;
 Q.str_split = 0;
+Q.iwpp_formed = 0;
 // did the eurodollar crisis happen
 Q.eurodollar_crisis_seen = 0;
 // crisis_urgency indicates how seriously the ip is taking the economic crisis - scale from 0 to 10.
