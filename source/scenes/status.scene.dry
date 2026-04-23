@@ -30,11 +30,11 @@ Mayor: [+ mayor +] ([+ mayor_party +])
 
 Council composition:
 
-{!<span class="tooltip-text" title="Independent Party">IP</span>!}: [+ ip_r +]%
+{!<span class="tooltip-text" title="Independent Party of Night City">IPNC</span>!}: [+ ip_r +]%
 {!<span class="tooltip-text" title="Federalist Party">FP</span>!}: [+ fp_r +]%
-{!<span class="tooltip-text" title="Communist Party">CP</span>!}: [+ cp_r +]%
+{!<span class="tooltip-text" title="Night City Working People's Party">NCWPP</span>!}: [+ cp_r +]%
 {!<span class="tooltip-text" title="Devolutionst Party">DP</span>!}: [+ dp_r +]%
-{!<span class="tooltip-text" title="Libertarian Party">LP</span>!}: [+ lp_r +]%
+{!<span class="tooltip-text" title="Libertarian Party of Night City">LPNC</span>!}: [+ lp_r +]%
 {!<span class="tooltip-text" title="National Socialist New American Worker's Party">NSNAWP</span>!}: [+ lp_r +]%
 
 [? if ip_in_government = 1 : Budget: [+ budget +] ?]
@@ -49,13 +49,13 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 {!<span class="tooltip-text" title="Federalist Party">FP</span>!}: [+ fp_relation : relationships +]
 
-{!<span class="tooltip-text" title="Communist Party">CP</span>!}: [+ cp_relation : relationships +]
+{!<span class="tooltip-text" title="Night City Working People's Party">NCWPP</span>!}: [+ cp_relation : relationships +]
 
 {!<span class="tooltip-text" title="Devolutionist Party">DP</span>!}: [+ dp_relation : relationships +]
 
-{!<span class="tooltip-text" title="Libertarian Party">LP</span>!}: [+ lp_relation : relationships +]
+{!<span class="tooltip-text" title="Libertarian Party of Night City">LPNC</span>!}: [+ lp_relation : relationships +]
 
-= Internal Factions of the IPNUSA
+= Internal Factions of the IPNC
 
 {!<span class="tooltip-text" title="The Green faction is interested in policies that will lessen industrial impact on the environment. Many members of this faction have ties to Biotechnica.">Green</span>!} strength: [+ green_strength : strength +], dissent: [+ green_dissent : dissent +]
 
@@ -154,3 +154,7 @@ Corpos: IP: [+ corpo_ip_display +]%, FP: [+ corpo_dp_display +]%, CP: [+ corpo_c
 Nomad: IP: [+ nomads_ip_display +]%, FP: [+ nomads_fp_display +]%, CP: [+ nomads_cp_display +]%, DP: [+ nomads_dp_display +]%, LP: [+ nomads_lp_display +]%, NSNAWP: [+ nomads_nsnawp_display +]%;
 
 Unemployed: IP: [+ unemployed_ip_display +]%, FP: [+ unemployed_fp_display +]%, CP: [+ unemployed_cp_display +]%, DP: [+ unemployed_dp_display +]%, LP: [+ unemployed_lp_display +]%, NSNAWP: [+ unemployed_nsnawp +]%;
+
+Pink-Collar: IP: [+ pink_ip_display +]%, FP: [+ pink_fp_display +]%, CP: [+ pink_cp_display +]%, DP: [+ pink_dp_display +]%, LP: [+ pink_lp_display +]%, NSNAWP: [+ pink_nsnawp_display +]%;
+
+Mercenaries: IP: [+ merc_ip_display +]%, FP: [+ merc_fp_display +]%, CP: [+ merc_cp_display +]%, DP: [+ merc_dp_display +]%, LP: [+ merc_lp_display +]%, NSNAWP: [+ merc_nsnawp_display +]%;
