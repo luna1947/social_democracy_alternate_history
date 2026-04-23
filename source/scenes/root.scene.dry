@@ -211,7 +211,7 @@ Q.unemployed_qol = 100;
 Q.old_middle_qol = 100;
 Q.new_middle_qol = 100;
 
-Q.classes = ['workers', 'corpo', 'nomads', 'unemployed'];
+Q.classes = ['workers', 'corpo', 'nomads', 'unemployed', 'pink', 'merc'];
 Q.parties = ['ip', 'cp', 'fp', 'lp', 'dp', 'nsnawp'];
 
 // Support for party by social group
@@ -243,6 +243,20 @@ Q.unemployed_fp = 0;
 Q.unemployed_lp = 0;
 Q.unemployed_dp = 0;
 Q.unemployed_nsnawp = 0;
+
+Q.pink_ip = 39;
+Q.pink_cp = 4;
+Q.pink_fp = 24;
+Q.pink_lp = 14;
+Q.pink_dp = 16;
+Q.pink_nsnawp = 0;
+
+Q.merc_ip = 7;
+Q.merc_cp = 13;
+Q.merc_fp = 40;
+Q.merc_lp = 23;
+Q.merc_dp = 6f;
+Q.merc_nsnawp = 7;
 
 
 // Current Council composition
