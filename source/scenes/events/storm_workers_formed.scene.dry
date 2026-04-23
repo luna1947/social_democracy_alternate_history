@@ -1,0 +1,17 @@
+title: Storm Workers Formed!
+subtitle: The Nazis are militarizing!
+new-page: true
+on-arrival: sa_formed = 1; workers_nsnawp += 4; merc_nsnawp += 5; str_militancy += 0.1 if str_split = 0
+tags: event
+view-if: year == 2078 and month >= 3
+max-visits: 1
+face-image: img/bankrun.jpg
+
+= Storm Workers Formed
+
+The Nazis are gaining in power. [? if str_split = 0: In return, our leadership in 6th Street has began arming up in the event of street fights. ?]
+
+- @6street: We need to work with 6th Street further.
+- @root: Continue...
+
+
