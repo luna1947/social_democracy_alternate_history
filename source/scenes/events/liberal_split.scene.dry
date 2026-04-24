@@ -3,7 +3,7 @@ new-page: true
 subtitle: Centrist disagreements with our policies have grown too severe.
 tags: event
 view-if: liberal_dissent >= 60
-on-arrival: liberal_strength *= 0.3; workers_ip -= 5; n_advisors -= 1 if wels_advisor == 1; n_advisors -= 1 if hilferding_advisor == 1; n_advisors -= 1 if muller_advisor == 1; wels_advisor = 0; hilferding_advisor = 0; muller_advisor = 0; str_strength -= 100; centrists_resign = 1
+on-arrival: liberal_strength *= 0.3; workers_ip -= 5; n_advisors -= 1 if wels_advisor == 1; n_advisors -= 1 if hilferding_advisor == 1; n_advisors -= 1 if muller_advisor == 1; wels_advisor = 0; hilferding_advisor = 0; muller_advisor = 0; str_strength -= 100; liberals_resigned = 1
 go-to: iwpp_formed if industrialist_split = 1 and not iwpp_formed
 max-visits: 1
 
