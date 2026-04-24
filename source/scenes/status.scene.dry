@@ -114,9 +114,9 @@ Militech Militarization: [+ mt_militancy : militancy +]
 
 Red Front Militarization: [+ rf_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The Storm Workers are the National Socialist paramilitary.">Storm Workers</span>!} Strength: [+ sa_strength_2 +] thousand
+[? if sa_formed: {!<span class="tooltip-text" title="The Storm Workers are the National Socialist paramilitary.">Storm Workers</span>!} Strength: [+ sa_strength_2 +] thousand ?]
 
-Storm Workers Militarization: [+ sa_militancy : militancy +]
+[? if sa_formed: Storm Workers Militarization: [+ sa_militancy : militancy +] ?]
 
 = Official Government Fighters
 
