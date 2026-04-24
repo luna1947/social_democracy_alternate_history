@@ -1,0 +1,9 @@
+title: Roller Derby Riots
+new-page: true 
+subtitle: Riots have broken out in Arroyo.
+tags: event
+view-if: year = 2079 and month = 5 and sports_funded = 0
+on-arrival: riots_happening = 1
+max-visits: 1
+
+Due to rioting in Arroyo over the win of the Dockside Billhooks, the district has been locked off sans for government-approved militants to help quell the situation.
