@@ -15,7 +15,7 @@ In addition to being a political party, the Independent party contains a vast so
 - @newspapers: Fund more newspapers and medias.
 - @welfare: Fund more mutual aid programs.
 - @culture: Fund sports leagues, educational, and cultural programs.
-- @str: Fund the Reichsbanner, our self-defense organization.
+- @str: Fund the 6th Street Gang, our self-defense contractors.
 - @youth: We have the reputation of being a party for old men. Support the youth organizations.
 - @nothing: Do not increase funding for any program.
 - @easy_discard
@@ -42,7 +42,7 @@ We have increased funding to Workers' Welfare. [? if black_thursday_seen > 0 : I
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; cultural_organizations += 1; socialist_dissent -= 6; green_dissent -= 6; industrialist_dissent -= 6; liberal_dissent -= 6;
+on-arrival: resources -= 1; cultural_organizations += 1; socialist_dissent -= 6; green_dissent -= 6; industrialist_dissent -= 6; liberal_dissent -= 6; sports_funded = 1;
 
 It is not enough for us to solely be a political party. The Night City Performer's League, Worker's Sports, and our schools and libraries are crucial to our members' lives. Funding these organizations makes our members more committed to the party, even when our policies might not be to their liking.
 
