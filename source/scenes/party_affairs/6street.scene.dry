@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 tags: party_affairs
 view-if: str_timer <= 0
-card-image: img/reichsbanner.jpg
+card-image: img/6thstreet.jpg
 on-arrival: month_actions += 1; str_timer += 6; str_militarization_cost = 2 if str_militancy > 0.5 else str_militarization_cost = 1; str_militarization_cost = 3 if str_militancy > 0.7
 max-visits: 6
 #subtitle: Paramilitary organizing in defense of the republic.
