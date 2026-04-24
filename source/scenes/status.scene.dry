@@ -153,14 +153,14 @@ NSNCWP: [+ nsnawp_votes +]%
 
 **Detailed results for each demographic**
 
-Workers: IP: [+ workers_ip_display +]%, NCSDP: [+ workers_ncsdp_display +], FP: [+ workers_fp_display +]%, CP: [+ workers_cp_display +]%, DP: [+ workers_dp_display +]%, LP: [+ workers_lp_display +]%, NSNAWP: [+ workers_nsnawp_display +]%[? if iwpp_formed: , IWPP: [+ workers_iwpp_display +]% ?];
+Workers: IP: [+ workers_ip_display +]%, NCSDP: [+ workers_ncsdp_display +], FP: [+ workers_fp_display +]%, NCWPP: [+ workers_cp_display +]%, DP: [+ workers_dp_display +]%, LP: [+ workers_lp_display +]%, NSNAWP: [+ workers_nsnawp_display +]%[? if iwpp_formed: , IWPP: [+ workers_iwpp_display +]% ?]
 
-Corpos: IP: [+ corpo_ip_display +]%, NCSDP: [+ corpo_ncsdp_display +], FP: [+ corpo_dp_display +]%, CP: [+ corpo_cp_display +]%, DP: [+ corpo_dp_display +]%, LP: [+ corpo_lp_display +]%, NSNAWP: [+ corpo_nsnawp_display +]%[? if iwpp_formed: , IWPP: [+ corpo_iwpp_display +]% ?];
+Corpos: IP: [+ corpo_ip_display +]%, NCSDP: [+ corpo_ncsdp_display +], FP: [+ corpo_dp_display +]%, NCWPP: [+ corpo_cp_display +]%, DP: [+ corpo_dp_display +]%, LP: [+ corpo_lp_display +]%, NSNAWP: [+ corpo_nsnawp_display +]%[? if iwpp_formed: , IWPP: [+ corpo_iwpp_display +]% ?]
 
-Nomad: IP: [+ nomads_ip_display +]%, NCSDP: [+ nomad_ncsdp_display +], FP: [+ nomads_fp_display +]%, CP: [+ nomads_cp_display +]%, DP: [+ nomads_dp_display +]%, LP: [+ nomads_lp_display +]%, NSNAWP: [+ nomads_nsnawp_display +]%[? if iwpp_formed: , IWPP: [+ nomad_iwpp_display +]% ?];
+Nomad: IP: [+ nomads_ip_display +]%, NCSDP: [+ nomad_ncsdp_display +], FP: [+ nomads_fp_display +]%, NCWPP: [+ nomads_cp_display +]%, DP: [+ nomads_dp_display +]%, LP: [+ nomads_lp_display +]%, NSNAWP: [+ nomads_nsnawp_display +]%[? if iwpp_formed: , IWPP: [+ nomad_iwpp_display +]% ?]
 
-Unemployed: IP: [+ unemployed_ip_display +]%, NCSDP: [+ unemployed_ncsdp_display +], FP: [+ unemployed_fp_display +]%, CP: [+ unemployed_cp_display +]%, DP: [+ unemployed_dp_display +]%, LP: [+ unemployed_lp_display +]%, NSNAWP: [+ unemployed_nsnawp +]%[? if iwpp_formed: , IWPP: [+ unemployed_iwpp_display +]% ?];
+Unemployed: IP: [+ unemployed_ip_display +]%, NCSDP: [+ unemployed_ncsdp_display +], FP: [+ unemployed_fp_display +]%, NCWPP: [+ unemployed_cp_display +]%, DP: [+ unemployed_dp_display +]%, LP: [+ unemployed_lp_display +]%, NSNAWP: [+ unemployed_nsnawp +]%[? if iwpp_formed: , IWPP: [+ unemployed_iwpp_display +]% ?]
 
-Pink-Collar: IP: [+ pink_ip_display +]%, NCSDP: [+ pink_ncsdp_display +], FP: [+ pink_fp_display +]%, CP: [+ pink_cp_display +]%, DP: [+ pink_dp_display +]%, LP: [+ pink_lp_display +]%, NSNAWP: [+ pink_nsnawp_display +]%[? if iwpp_formed: , IWPP: [+ pink_iwpp_display +]% ?];
+Pink-Collar: IP: [+ pink_ip_display +]%, NCSDP: [+ pink_ncsdp_display +], FP: [+ pink_fp_display +]%, NCWPP: [+ pink_cp_display +]%, DP: [+ pink_dp_display +]%, LP: [+ pink_lp_display +]%, NSNAWP: [+ pink_nsnawp_display +]%[? if iwpp_formed: , IWPP: [+ pink_iwpp_display +]% ?]
 
-Mercenaries: IP: [+ merc_ip_display +]%, NCSDP: [+ merc_ncsdp_display +], FP: [+ merc_fp_display +]%, CP: [+ merc_cp_display +]%, DP: [+ merc_dp_display +]%, LP: [+ merc_lp_display +]%, NSNAWP: [+ merc_nsnawp_display +]%[? if iwpp_formed: , IWPP: [+ merc_iwpp_display +]% ?];
+Mercenaries: IP: [+ merc_ip_display +]%, NCSDP: [+ merc_ncsdp_display +], FP: [+ merc_fp_display +]%, NCWPP: [+ merc_cp_display +]%, DP: [+ merc_dp_display +]%, LP: [+ merc_lp_display +]%, NSNAWP: [+ merc_nsnawp_display +]%[? if iwpp_formed: , IWPP: [+ merc_iwpp_display +]% ?]
