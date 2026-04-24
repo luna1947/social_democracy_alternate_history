@@ -18,6 +18,7 @@ The 6th Street Gang is a gang that prowls the streets of Night City, bearing the
 - @militant_2: Use our existing resources to support more training for 6th Street.
 - @same: Don’t bother, they’ll acquire equipment on their own means.
 - @cut_str: Take funding from 6th Street.
+- @kill_the_bastards: Begin executing NSNCWP members on sight.
 - @easy_discard
 - @cancel_advisor_action
 
@@ -51,3 +52,12 @@ subtitle: +1 resources
 on-arrival: resources += 1; str_strength -= 100; str_militancy -= 0.05; socialist_strength -= 2; socialist_dissent -= 2; str_militancy -= 0.05; workers_cp += 2; unemployed_cp += 2; str_support -= 1;
 
 Cutting resources to the Reichsbanner causes a drop in the membership, and leads some would-be members to join the Communists instead.
+
+@kill_the_bastards
+subtitle: -1 resources. What are they going to do, fight back?
+view-if: nazi_alarm > 4
+choose-if: resources >= 1
+unavailable-subtitle: Not Enough Resources
+on-arrival: workers_nsnawp -= 3; corpo_nsnawp -= 3; merc_nsnawp -= 3; pink_nsnawp -= 3; unemployed_nsnawp -= 3; nomad_nsnawp -= 3
+
+After some careful negotiation (paying them), 6th Street has graciously agreed to our plans of "gently dissuading" people from joining the NSNCWP.
