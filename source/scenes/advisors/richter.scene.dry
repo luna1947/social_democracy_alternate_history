@@ -12,6 +12,7 @@ Johnathan Richter is a leading socialist political scientist in our party.
 - @build_socialist
 - @workers_campaign
 - @socialist_ideology
+- @force_iwpp
 - @root: Return to main
 
 @build_socialist
@@ -41,3 +42,10 @@ unavailable-subtitle: [? if advisor_action_timer >= 0 : [+ advisor_action_timer 
 on-arrival: advisor_action_timer = 6; ideology = "socialist"; socialist_strength += 10; socialist_dissent -= 5; lp_relation -= 3; fp_relation -= 5; cp_relation += 3
 
 The socialist wing of the party support this new ideology, and this may represent a partnership between us and the communists. This may also be detrimental towards any relations towards corporations.
+
+@force_iwpp
+title: Force the formation of the IWPP [!!DEBUG!!]
+subtitle: Crank dissent so high it forms the IWPP
+on-arrival: industrialist_dissent = 70; liberal_dissent = 70;
+
+Ok, cool, reap your rewards
