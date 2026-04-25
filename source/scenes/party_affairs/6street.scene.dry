@@ -19,6 +19,7 @@ The 6th Street Gang is a gang that prowls the streets of Night City, bearing the
 - @same: Don’t bother, they’ll acquire equipment on their own means.
 - @cut_str: Take funding from 6th Street.
 - @kill_the_bastards: Begin executing NSNCWP members on sight.
+- @disrupt: Disrupt and harass at our opponents' campaigning events.
 - @easy_discard
 - @cancel_advisor_action
 
@@ -61,3 +62,10 @@ unavailable-subtitle: Not Enough Resources
 on-arrival: workers_nsnawp -= 3; corpo_nsnawp -= 3; merc_nsnawp -= 3; pink_nsnawp -= 3; unemployed_nsnawp -= 3; nomad_nsnawp -= 3
 
 After some careful negotiation (paying them), 6th Street has graciously agreed to our plans of "gently dissuading" people from joining the NSNCWP.
+
+@disrupt
+subtitle: We'll lose some, they'll lose harder.
+view-if: enemies != 0
+on-arrival: merc_ip += 3*(1-dissent); workers_ip -= 3; workers_cp -= 4 if enemies == "anti-democratic parties" or "Communists"; workers_nsnawp -= 4 if enemies == "anti-democratic parties" or "National Socialists"; pink_cp -= 4 if enemies = "anti-democratic parties" or "Communists"; pink_nsnawp -= 4 if enemies = "anti-democratic parties" or "National Socialists"; unemployed_cp -= 4 if enemies = "anti-democratic parties" or "Communists"; unemployed_nsnawp -= 4 if enemies = "anti-democratic parties" or "National Socialists"; workers_fp -= 4 if enemies = "corporatist parties"; pink_fp -= 4 if enemies = "corporatist parties"; unemployed_fp -= 4 if enemies = "corporatist parties"; workers_lp -= 4 if enemies = "corporatist parties"; pink_lp -= 4 if enemies = "corporatist parties"; unemployed_lp -= 4 if enemies = "corporatist parties";
+
+We disrupt campaigning events from the [+ enemies +]. As expected, we lose some support among the workers, but surprisingly enough this gains us support from the mercenaries.
