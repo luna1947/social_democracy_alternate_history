@@ -18,6 +18,7 @@ We must do something to protect the workers against these predations.
 - @police_training: Use the NCPD to help train 6th Street.
 - @peace: Try to avoid all militant confrontations, as much as possible.
 - @truce_rfb: Try to make peace with the RFB.
+- @bomb_saka: Fuck it, bomb Arasaka Tower again.
 - @easy_discard
 
 @battle
@@ -58,4 +59,8 @@ view-if: cp_truce == 0
 unavailable-subtitle: The Communist party is not interested.
 on-arrival: cp_truce = 1; cp_relation += 5; rf_strength += 50; str_strength += 50; sa_strength += 50;
 
+
 We have made at least a temporary truce with the Communists, so that our respective paramilitaries will stop fighting.
+
+@bomb_saka
+view-if: mt_affiliation == "Independent" and (mt_militancy*mt_strength + str_strength*str_militancy) > 700
