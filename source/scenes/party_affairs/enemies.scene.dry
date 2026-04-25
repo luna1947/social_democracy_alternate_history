@@ -36,11 +36,11 @@ on-arrival: enemies = "National Socialists"; nazi_urgency += 1; workers_nsnawp -
 [? if nazi_urgency == 0 or nsnawp_r < 10 : The NSNAWP is a tiny party right now, with more bark than bite. Many in our party are questioning our choices. ?][? if nazi_urgency > 0 and nsnawp_r >= 10 : The Nazis are the most urgent problem for us to deal with. ?]
 
 @cp
-on-arrival: enemies = "Communssts"; industrialist_strength += 5; socialist_dissent += 8; industrialist_dissent -= 5; cp_relation -= 15; fp_relation += 5; lp_relation += 5; workers_cp -= 4;
+on-arrival: enemies = "Communists"; industrialist_strength += 5; socialist_dissent += 8; industrialist_dissent -= 5; cp_relation -= 15; fp_relation += 5; lp_relation += 5; workers_cp -= 4;
 
 Attacking the Communist Party is supported by all but the most left-wing socialists, and wins us some measure of approval among the corporatist parties. However, If we are to reconcile with the Communists, this may not be the best choice.
 
 @corporatist
-on-arrival: enemies = "bourgeois parties"; socialist_strength += 8; socialist_dissent -= 5; fp_relation -= 5; lp_relation -= 5; cp_relation += 5; industrialist_dissent += 8; workers_fp -= 3; coalition_dissent += 1
+on-arrival: enemies = "corporatist parties"; socialist_strength += 8; socialist_dissent -= 5; fp_relation -= 5; lp_relation -= 5; cp_relation += 5; industrialist_dissent += 8; workers_fp -= 3; coalition_dissent += 1
 
 Our anti-bourgeois rhetoric is popular among the socialists, but may make it harder to build the coalitions that are necessary for government in the future.
