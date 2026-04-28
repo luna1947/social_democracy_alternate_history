@@ -5,7 +5,7 @@ go-to: menu
 
 = The Library
 
-Herein contains relevant information about the government and politics of the German republic.
+Herein contains relevant information about the government and politics of Night City.
 
 @menu
 
@@ -23,13 +23,13 @@ Herein contains relevant information about the government and politics of the Ge
 @government
 go-to: menu
 
-The German Republic, called by some of our detractors as the "Weimar Republic", is a parliamentary republic with a somewhat weak president and a strong parliament, called the Reichstag. The Reichstag is responsible for governing, while the President has a largely ceremonial role but also has some important governing responsibilities.
+Night City is a parliamentary republic with a somewhat weak president and a strong parliament, called the City Council. The Council is responsible for governing, while the Mayor has a largely ceremonial role but also has some important governing responsibilities.
 
-The Reichstag is elected based on a proportional representation system, giving parties seats roughly proportional to their vote share in each electoral district. The Reichstag then elects the Chancellor and the cabinet by a majority vote, who are responsible for government. A majority vote-of-no-confidence can remove the current government.
+The Council is elected based on a proportional representation system, giving parties seats roughly proportional to their vote share in each district. A majority vote-of-no-confidence can remove the current government.
 
-The President is elected by a national direct vote, in two rounds. The second round is used if the first round does not result in a majority for one candidate; the candidate who receives a plurality in the second round becomes president (there is no obligation for weaker candidates to drop out). The role of the president is mostly to represent Germany, but he also has some crucial governing powers. The president and chancellor can together use emergency decrees to govern, bypassing the Reichstag. The president can also appoint or remove a chancellor when a parliamentary majority is unable to be established, and can thus influence the formation of a government.
+The Mayor is elected by a national direct vote, in one round. The role of the mayor is mostly to represent Night City, but he also has some crucial governing powers. The mayor can use emergency decrees to govern, bypassing the Council.
 
-Germany is divided into a number of states, each of which have their own governments with some responsibilities. By far the largest and most important state is Prussia.
+Germany is divided into a number of districts, each of which have their own governments with some responsibilities.
 
 @weimar_timeline
 go-to: menu
