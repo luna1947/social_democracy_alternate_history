@@ -11,8 +11,10 @@ O'Connel is the leading economic expert at the IPNC.
 
 - @worker_campaign
 - @communist_relations
-- @against_toleration
+- @fiscal_stuff
 - @root: Return to main
+
+# I literally can't call it fiscal_policy or else it'd conflict, sadge
 
 @worker_campaign
 title: Campaign among the workers.
@@ -32,7 +34,7 @@ on-arrival: advisor_action_timer = 6; socialist_strength += 5; cp_relation += 4*
 
 O'Connel works different people in worker's rights leagues, allowing us to contact the NCWPP more closely.
 
-@fiscal_policy
+@fiscal_stuff
 title: Fiscal Policy
 subtitle: O'Connel can help us set our fiscal policy.
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if finance_minister != "O'Connel" : O'Connel is not finance minister. ?]
