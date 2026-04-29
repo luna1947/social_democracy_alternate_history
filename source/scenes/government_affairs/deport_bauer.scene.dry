@@ -1,4 +1,4 @@
-title: We can deport Hitler.
+title: We can deport Bauer.
 subtitle: He is a foreign citizen and a criminal, after all.
 unavailable-subtitle: [? if judicial_reform < 2 : Unfortunately, the reactionary judiciary will not cooperate. ?] [? if presidential_election_seen == 1 : Hitler has already been made a citizen of Germany, in the run-up to the presidential election. ?] [? if not spd_prussia : We cannot do this without the cooperation of the Prussian police, who are not currently in our control. ?]
 view-if: nazi_urgency >= 3 and hitler_deported = 0 and chancellor != "Papen" and chancellor != "Schleicher" and investigate_far_right >= 2
@@ -14,16 +14,16 @@ go-to: deport_violence if sa_strength >= 200; deport_success if sa_strength < 20
 
 @deport_violence
 
-When the police approach, he is surrounded by his SA guards, preventing him from being extricated! We can attempt to force a confrontation, but that may have negative consequences. The Reichsbanner may also attempt to draw off the SA.
+When the police approach, he is surrounded by his Storm Worker guards, preventing him from being extricated! We can attempt to force a confrontation, but that may have negative consequences. 6th Street may also attempt to draw off the Storm Workers.
 
 - @force_approach: Force the approach!
 - @no_deport: Cancel the deportation.
 
 @force_approach
 on-arrival: {!
-var total_allied_strength = Q.rb_strength*Q.rb_militancy + Q.prussian_police_strength*Q.prussian_police_militancy*Q.prussian_police_loyalty;
+var total_allied_strength = Q.str_strength*Q.str_militancy + Q.ncpd_strength*Q.ncpd_militancy*Q.ncpd_loyalty;
 var enemy_strength = Q.sa_strength*Q.sa_militancy;
-console.log('Deporting Hitler - force approach');
+console.log('Deporting Bauer - force approach');
 console.log(total_allied_strength, enemy_strength);
 
 if (total_allied_strength > enemy_strength) {
@@ -35,12 +35,12 @@ if (total_allied_strength > enemy_strength) {
 go-to: force_fail if deportation_success == 0; force_success if deportation_success = 1
 
 @force_fail
-on-arrival: sa_strength += 50; workers_nsdap += 5; unemployed_nsdap += 5; new_middle_nsdap += 5; old_middle_nsdap += 5; rural_nsdap += 5; coup_progress += 3
+on-arrival: sa_strength += 50; workers_nsnawp += 5; unemployed_nsnawp += 5; new_middle_nsnawp += 5; old_middle_nsnawp += 5; rural_nsnawp += 5; coup_progress += 3
 
 Unfortunately, our forces fail to disloge the SA from their positions surrounding Hitler. He is seen as both a strong and powerful leader and a victim, further reinforcing his image. The Nazis are left stronger than ever.
 
 @force_success
-on-arrival: hitler_deported = 1; sa_strength = sa_strength/2; workers_nsdap -= 10; new_middle_nsdap -= 10; old_middle_nsdap -= 10; rural_nsdap -= 10; unemployed_nsdap -= 10; sa_banned = 1; coup_progress -= 2; nsdap_leader = "Goebbels"
+on-arrival: hitler_deported = 1; sa_strength = sa_strength/2; workers_nsnawp -= 10; new_middle_nsnawp -= 10; old_middle_nsnawp -= 10; rural_nsnawp -= 10; unemployed_nsnawp -= 10; sa_banned = 1; coup_progress -= 2; nsnawp_leader = "Goebbels"
 achievement: deport_hitler
 
 The confrontation ends with the police and Reichsbanner prevailing, capturing Hitler so he can be deported! This is a sign of weakness, and his physical distance makes organizing difficult, impeding the Nazi effort to win more votes.
@@ -48,7 +48,7 @@ The confrontation ends with the police and Reichsbanner prevailing, capturing Hi
 In Hitler's absence, Joseph Goebbels has become the temporary leader of the Nazi party, with substantial influence from Hermann Göring.
 
 @deport_success
-on-arrival: hitler_deported = 1; sa_strength = sa_strength/2; workers_nsdap -= 10; new_middle_nsdap -= 10; old_middle_nsdap -= 10; rural_nsdap -= 10; unemployed_nsdap -= 10; coup_progress -= 2; nsdap_leader = "Goebbels"
+on-arrival: hitler_deported = 1; sa_strength = sa_strength/2; workers_nsnawp -= 10; new_middle_nsnawp -= 10; old_middle_nsnawp -= 10; rural_nsnawp -= 10; unemployed_nsnawp -= 10; coup_progress -= 2; nsnawp_leader = "Goebbels"
 achievement: deport_hitler
 
 Somehow, the plan worked! There was minimal resistance to Hitler's deportation. This is a sign of weakness, and his physical distance makes organizing difficult, impeding the Nazi effort to win more votes.
