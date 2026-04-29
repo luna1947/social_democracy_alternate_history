@@ -120,7 +120,11 @@ Red Front Militarization: [+ rf_militancy : militancy +]
 
 = Official Government Fighters
 
-Night City Police Strength: [+ ncpd_strength +] thousand troops.
+Private Military Contractor Strength: [+ pmc_strength +] thousand troops.
+
+Private Military Contractor Loyalty: [+ pmc_loyalty +]
+
+Night City Police Strength: [+ ncpd_strength +] thousand officers.
 
 Night City Police Loyalty: [+ ncpd_loyalty : loyalty +]
 
