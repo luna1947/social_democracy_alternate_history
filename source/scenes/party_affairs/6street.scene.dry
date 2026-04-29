@@ -9,7 +9,7 @@ on-arrival: month_actions += 1; str_timer += 6; str_militarization_cost = 2 if s
 
 = 6th Street
 
-The 6th Street Gang is a gang that prowls the streets of Night City, bearing the colors of the old United States. In the political scene, it acts as a protection force for rallies and demonstrations. It is officially associated with the center-left, meaning us and the Devolutionists, but by far they are more loyal to us than the DP.
+6th Street is a gang that prowls the streets of Night City, bearing the colors of the old United States. In the political scene, it acts as a protection force for rallies and demonstrations. It is officially associated with the center-left, meaning us and the Devolutionists, but by far they are more loyal to us than the DP.
 
 [? if workers_ip < 46 or workers_ip < workers_nsnawp or workers_ip < workers_cp : 6th Street is having a more difficult time recruiting, as the Independent Party is no longer the dominant party among the workers. Many of its members have left. ?]
 
@@ -19,6 +19,7 @@ The 6th Street Gang is a gang that prowls the streets of Night City, bearing the
 - @cut_str: Take funding from 6th Street.
 - @kill_the_bastards: Begin executing NSNCWP members on sight.
 - @disrupt: Disrupt and harass at our opponents' campaigning events.
+- @assimilate: Fully militarize 6th Street into a paramilitary, and absorb them into the Independent Party.
 - @easy_discard
 - @cancel_advisor_action
 
@@ -63,8 +64,15 @@ on-arrival: workers_nsnawp -= 3; corpo_nsnawp -= 3; merc_nsnawp -= 3; pink_nsnaw
 After some careful negotiation (paying them), 6th Street has graciously agreed to our plans of "gently dissuading" people from joining the NSNCWP.
 
 @disrupt
-subtitle: We'll lose some, they'll lose harder.
 view-if: enemies != 0
 on-arrival: merc_ip += 3*(1-dissent); workers_ip -= 3; workers_cp -= 4 if enemies == "anti-democratic parties" or enemies == "Communists"; workers_nsnawp -= 4 if enemies == "anti-democratic parties" or enemies == "National Socialists"; pink_cp -= 4 if enemies == "anti-democratic parties" or enemies == "Communists"; pink_nsnawp -= 4 if enemies == "anti-democratic parties" or enemies == "National Socialists"; unemployed_cp -= 4 if enemies == "anti-democratic parties" or enemies == "Communists"; unemployed_nsnawp -= 4 if enemies == "anti-democratic parties" or enemies == "National Socialists"; workers_fp -= 4 if enemies == "corporatist parties"; pink_fp -= 4 if enemies == "corporatist parties"; unemployed_fp -= 4 if enemies == "corporatist parties"; workers_lp -= 4 if enemies == "corporatist parties"; pink_lp -= 4 if enemies == "corporatist parties"; unemployed_lp -= 4 if enemies == "corporatist parties";
 
 We disrupt campaigning events from the [+ enemies +]. As expected, we lose some support among the workers, but surprisingly enough this gains us support from the mercenaries.
+
+@assimilate
+view-if: str_support == 5; ipnc_para != "Night City Street Fighters' Front"; str_militancy == 0.5
+on-arrival: ipnc_para = "Night City Street Fighter's Front"; str_militancy += 0.1; str_strength += 400
+
+After some talks, we have entirely absorbed 6th Street and formed the Night City Street Fighter's Front, or NCSFF. Other paramilitaries see them as an actual force to be reckoned with.
+
+
