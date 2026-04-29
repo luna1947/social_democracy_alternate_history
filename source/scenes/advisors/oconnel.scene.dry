@@ -19,7 +19,7 @@ title: Campaign among the workers.
 subtitle: Increase campaigning among the workers
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 choose-if: advisor_action_timer = 0
-on-arrival: advisor_action_timer = 6; on-arrival: workers_ip += 6*(1-dissent); workers_ip -= 2 if unemployed >= 15; workers_ip -= 2 if unemployed >= 25; workers_ip += 6*(1-dissent) if wtb_adopted = 1; resources -= 1; workers_ip += 3*(1-dissent) if nationalization_progress >= 1;
+on-arrival: advisor_action_timer = 6; on-arrival: workers_ip += 6*(1-dissent); workers_ip -= 2 if unemployed >= 15; workers_ip -= 2 if unemployed >= 25; workers_ip += 6*(1-dissent) if wtb_adopted = 1; resources -= 1; workers_ip += 3*(1-dissent) if nationalization_progress >= 1
 
 We have increased our campaigning among the workers. [? if unemployed >= 15: The high levels of unemployment make our campaign more difficult. ?][? if wtb_adopted = 1 : Adopting the WTB plan gives us a new rallying point around which to attract workers. ?]
 
