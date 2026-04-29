@@ -2,7 +2,7 @@ title: 6th Street Leaves
 new-page: true 
 subtitle: 6th Street has become annoyed with the budget cuts.
 tags: event
-view-if: str_support = 0
+view-if: str_support = 0 and ipnc_para == "6th Street"
 on-arrival: str_split = 1;
 max-visits: 1
 
