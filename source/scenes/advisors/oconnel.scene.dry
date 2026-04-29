@@ -30,16 +30,13 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 choose-if: advisor_action_timer = 0
 on-arrival: advisor_action_timer = 6; socialist_strength += 5; cp_relation += 4*(1-dissent); liberal_dissent += 2;
 
-O'Connel 
+O'Connel works different people in worker's rights leagues, allowing us to contact the NCWPP more closely.
 
-@against_toleration
-title: Against toleration
-view-if: not constructive_vonc
-subtitle: Break our current toleration arrangement, and bring down the government via a no-confidence vote.
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if spd_toleration == 0 : The SPD is not currently in toleration. ?]
-choose-if: advisor_action_timer == 0 and spd_toleration
-on-arrival: advisor_action_timer = 6; next_election_time = time + 3 if next_election_time > time+3; next_election_month = month + 3 if next_election_time >= time + 3; next_election_year = year if next_election_time >= time + 3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; spd_toleration = 0; left_strength += 8; pro_republic -= 4; new_middle_spd -= 3; rural_spd -= 3; old_middle_spd -= 3; catholics_spd -= 3; reformist_dissent += 8
+@fiscal_policy
+title: Fiscal Policy
+subtitle: O'Connel can help us set our fiscal policy.
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if finance_minister != "O'Connel" : O'Connel is not finance minister. ?]
+choose-if: advisor_action_timer == 0 and finance_minister == "O'Connel"
+on-arrival: advisor_action_timer = 6
+go-to: fiscal_policy
 
-We have grown tired of the burdens of toleration, and have called a vote of no confidence in the current minority government.
-
-New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
