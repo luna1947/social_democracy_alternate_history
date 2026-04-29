@@ -76,10 +76,10 @@ We are choosing to run Misha Rovich for this election. The green wing of our par
 
 There are many other parties in Night City, meaning a lot of potential endorsements for [+ candidate +].
 
-- @convince_federalists: Try convicing the Federalists to support us.
-- @convince_devolutionists: Try convicing the Devolutionists to support us.
-- @convince_libertarians: Try convicing the Libertarians to support us.
-- @convince_communists: Try convicing the Communists to support us.
+- @convince_federalists: Try convincing the Federalists to support us.
+- @convince_devolutionists: Try convincing the Devolutionists to support us.
+- @convince_libertarians: Try convincing the Libertarians to support us.
+- @convince_communists: Try convincing the Communists to support us.
 - @final_mayor_vote: The final vote...
 
 @convince_federalists
@@ -182,7 +182,7 @@ on-arrival: workers_ip += 2; corpo_ip += 5; workers_lp -= 6; corpo_lp -= 4;
 
 We tell the Libertarians to go fuck themselves. Obviously, they immediately go with the press with our misdeeds.
 
-Rather than turning out badly in our favor, the boys in the propaganda department manage to twist this into painting the libertarians as the bad guys. Thank the powers that be for them, because that puts us in the good book with the workers AND the corpos. Haha, fuck you, Ron!
+Rather than turning out badly in our favor, the boys in the propaganda department manage to twist this into painting the libertarians as the bad guys. Thank the powers that be for them, because that puts us in the good book with the workers *AND* the corpos.
 
 @libertarians_bitchboy
 subtitle: -2 resources.
@@ -227,6 +227,8 @@ The Communists have dropped Petrov, meaning we're gaining their support!
 on-arrival:{!
 Q.winner = Math.max(ip_mayor_vote, cp_mayor_vote, fp_mayor_vote, lp_mayor_vote, nsnawp_mayor_vote);
 !}
+go-to: ip_win if winner = ip_mayor_vote; cp_win if winner = cp_mayor_vote; fp_win if winner = fp_mayor_vote; nsnawp_win if winner = nsnawp_mayor_vote
+
 go-to: ip_win
 
 The results are in...
@@ -242,15 +244,12 @@ The results are in...
 Bauer: [+ nsnawp_mayor_vote +]%
 
 @ip_win
-on-arrival:{!
-Q.winner = Math.max(ip_mayor_vote, cp_mayor_vote, fp_mayor_vote, lp_mayor_vote, nsnawp_mayor_vote);
-!}
-go-to: ip_win if winner = ip_mayor_vote; cp_win if winner = cp_mayor_vote; fp_win if winner = fp_mayor_vote; nsnawp_win if winner = nsnawp_mayor_vote
+on-arrival: mayor = [+ candidate +]; 
 
 We've done it, we won! We'll now take the helm of the city.
 
 @cp_win
-on-arrival: mayor = Petrov; mayor_party = "Communist"
+on-arrival: mayor = "Petrov"; mayor_party = "Communist"
 
 Surprisingly, the Communists have won the elections! [? if socialist_strength > liberal_strength: This is a big win for us! ?][? if socialist_strength < liberal_strength: The majority of the party is angered by this, but there's not much we can do. ?]
 
