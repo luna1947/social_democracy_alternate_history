@@ -70,7 +70,7 @@ on-arrival: merc_ip += 3*(1-dissent); workers_ip -= 3; workers_cp -= 4 if enemie
 We disrupt campaigning events from the [+ enemies +]. As expected, we lose some support among the workers, but surprisingly enough this gains us support from the mercenaries.
 
 @assimilate
-view-if: str_support == 5; ipnc_para != "Night City Street Fighters Front"; str_militancy >= 0.5
+view-if: str_support == 5 and ipnc_para != "Night City Street Fighters Front" and str_militancy >= 0.5
 on-arrival: ipnc_para = "Night City Street Fighter's Front"; str_militancy += 0.1; str_strength += 400
 
 After some talks, we have entirely absorbed 6th Street and formed the Night City Street Fighter's Front, or NCSFF. Other paramilitaries see them as an actual force to be reckoned with.
