@@ -239,9 +239,9 @@ if (Q.month_actions >= 1) {
             Q.economic_expansion += Q.economic_growth;
         }
     }
-    if (Q.economic_growth > 0 && Q.reparations <= -2 && Q.spd_in_government) {
+    if (Q.economic_growth > 0 && Q.reparations <= -2 && Q.ip_in_government) {
         Q.economic_expansion += Q.economic_growth;
-    } else if (Q.economic_growth > 0 && Q.spd_in_government) {
+    } else if (Q.economic_growth > 0 && Q.ip_in_government) {
         Q.economic_expansion += Q.economic_growth/2;
     }
     /////////////////////////////// update opinions based on economy
@@ -375,30 +375,30 @@ if (Q.month_actions >= 1) {
             Q.unemployed_nsnawp += 2/12;
             Q.merc_nsnawp += 2/12;
             Q.corpo_nsnawp += 2/12;
-            if (Q.spd_in_government) {
-                Q.workers_spd -= 4/12;
+            if (Q.ip_in_government) {
+                Q.workers_ip -= 4/12;
             }
         }
     }
     // prevent forever support if the economy is bad
-    if (Q.year >= 1934 && (Q.inflation >= 8 || Q.unemployed >= 20) && Q.pro_republic <= 45 && Q.spd_in_government) {
-        if (Q.workers_spd_normalized > 40) {
-            Q.workers_spd -= 6/12;
+    if (Q.year >= 1934 && (Q.inflation >= 8 || Q.unemployed >= 20) && Q.pro_republic <= 45 && Q.ip_in_government) {
+        if (Q.workers_ip_normalized > 40) {
+            Q.workers_ip -= 6/12;
         }
-        if (Q.unemployed_spd_normalized > 20) {
-            Q.unemployed_spd -= 6/12;
+        if (Q.unemployed_ip_normalized > 20) {
+            Q.unemployed_ip -= 6/12;
         }
-        if (Q.corpo_spd_normalized > 20) {
-            Q.corpo_spd -= 6/12;
+        if (Q.corpo_ip_normalized > 20) {
+            Q.corpo_ip -= 6/12;
         }
-        if (Q.merc_spd_normalized > 20) {
-            Q.merc_spd -= 6/12;
+        if (Q.merc_ip_normalized > 20) {
+            Q.merc_ip -= 6/12;
         }
-        if (Q.nomad_spd_normalized > 20) {
-            Q.nomad_spd -= 6/12;
+        if (Q.nomad_ip_normalized > 20) {
+            Q.nomad_ip -= 6/12;
         }
-        if (Q.catholics_spd_normalized > 20) {
-            Q.catholics_spd -= 6/12;
+        if (Q.catholics_ip_normalized > 20) {
+            Q.catholics_ip -= 6/12;
         }
     }
 }
