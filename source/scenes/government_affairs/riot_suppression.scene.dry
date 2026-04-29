@@ -1,0 +1,11 @@
+title: Riot Suppression
+new-page: true
+is-card: true
+on-arrival: month_actions += 1; str_militarization_cost = 2 if str_militancy > 0.1 else str_militarization_cost = 1; str_militarization_cost = 3 if str_militancy > 0.25; strife += 1
+view-if: riots_happening > 0 and ip_in_government and (interior_minister_party == "Independent" or defense_minister_party == "Independent")
+card-image: img/blutmai_2.jpg
+tags: party_affairs; antifascism
+
+= Riot Suppression
+
+Among others, we are part of the grounds allowed to be in the locked-down Arroyo district. This is due to our position in the [? if interior_minister_party == "Independent": Interior ministry ?] [? if defense_minister_party == "Independent": Defense ministry ?] 
