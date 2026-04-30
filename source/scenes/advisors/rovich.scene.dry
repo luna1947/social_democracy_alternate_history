@@ -1,0 +1,43 @@
+title: Misha Rovich
+is-pinned-card: true 
+tags: advisor, centrist
+card-image: img/portraits/BreitscheidRudolf.jpg
+new-page: true
+view-if: rovich_advisor = 1
+
+= Misha Rovich
+
+Rovich is a long-time IPNC leader, having been recruited at an event in Heywood in the 60s.
+
+- @breitscheid_foreign
+- @party_discipline
+- @snap_election
+- @root: Return to main
+
+@breitscheid_labor
+title: Foreign Policy
+subtitle: As Labor Minister, Rovich can set our labor policy.
+unavailable-subtitle: [? if not spd_in_government: The SPD is not in government. ?] [? if foreign_minister_party != "SPD" : The SPD does not control the Foreign Ministry. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer == 0 and spd_in_government and foreign_minister_party == "SPD"
+on-arrival: advisor_action_timer = 6; foreign_policy_timer -= 8; last_advisor_action = 1
+go-to: labor_rights
+
+
+@party_discipline
+title: Party Discipline
+subtitle: Reduce dissent across the party.
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; left_dissent -= 5; labor_dissent -= 10; center_dissent -= 10; reformist_dissent -= 10; neorevisionist_dissent -= 5
+
+We have enforced party discipline to reduce dissent across all factions.
+
+
+@snap_election
+title: Snap Election
+subtitle: Call a snap election.
+unavailable-subtitle: [? if mayor != "Rovich" : Rovich must be Mayor. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer == 0 and chancellor == "Rovich"
+on-arrival: advisor_action_timer = 6; next_election_time = time + 3 if next_election_time > time+3; next_election_month = month + 3 if next_election_time >= time + 3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12;
+
+We have called for new elections, set for [+ next_election_month : month +] [+ next_election_year +].
