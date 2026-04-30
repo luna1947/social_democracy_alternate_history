@@ -8,4 +8,76 @@ tags: party_affairs; antifascism
 
 = Riot Suppression
 
-Among others, we are part of the grounds allowed to be in the locked-down Arroyo district. This is due to our position in the [? if interior_minister_party == "Independent": Interior ministry ?] [? if defense_minister_party == "Independent": Defense ministry ?] 
+Among others, we are part of the grounds allowed to be in the locked-down Arroyo district. This is due to our position in the [? if interior_minister_party == "Independent": Interior ministry ?][? if defense_minister_party == "Independent": Defense ministry ?]
+
+- @str: Use [+ ipnc_para +] to suppress the riots.
+- @militech: Use our relations with Militech to suppress the riots.
+- @rally: ...Hold a rally?
+- @easy_discard
+
+@str
+choose-if: str_split == 0
+unavailable-subtitle: They left, remember?
+on-arrival: riot_rage -= 1
+
+We've quelled the riots somewhat. Our efforts are relatively nonviolent, though some force needed to be used.
+
+@militech
+view-if: mt_affiliation == "Independent"
+on-arrival: riot_rage -= 2; merc_ip += 4
+
+We've deployed Militech to the riots. Rather than persuing nonviolent efforts, they decided to kill every single rioter. While this would be detrimental in most cases, it actually makes the mercenaries of Night City look more highly on us.
+
+@rally
+subtitle: Are you sure about this?
+
+Really? You want to hold a rally in the middle of a pseudo-combat zone?
+
+- @rally_yes: Yes, I'm sure
+- @rally_no: No, I don't
+
+@rally_yes
+
+Alright, your call. What is the rally going to be about?
+
+- @class_struggle: The class struggle of the proletariat against the bourgeoisie.
+- @welfare: The maintenance and expansion of social welfare programs.
+- @democracy: Expanding our nascent democracy and defending it against dictatorship and fascism.
+- @pacifism: Opposing war, nationalism, and militarism at all costs.
+- @local: A mixture of various local and national concerns that resonate most with the audience.
+
+@class_struggle
+on-arrival: workers_ip += 4*(1-dissent); unemployed_ip += 3*(1-dissent) if socialist_strength > liberal_strength; workers_ip += 4*(1-dissent) if nationalization_progress > 0; unemployed_ip += 3*(1-dissent) if nationalization_progress > 0; socialist_strength += 5; socialist_dissent -= 5; corpo_ip -= 2;
+
+Our message of class struggle appeals to the left wing of the working class, while potentially alienating the middle class. [? if nationalization_progress > 0 : Our achievements in nationalization have assisted our messaging. ?]
+
+@welfare
+on-arrival: workers_ip += 3*(1-dissent); workers_ip += 3*(1-dissent) if welfare > 0; unemployed_ip += 3*(1-dissent) if welfare > 0; unemployed_ip += 4*(1-dissent) if welfare > 1; liberal_strength += 3; industrialist_strength += 4; liberal_dissent -= 3; industrialist_dissent -= 3;
+
+The liberal message appeals to the organized workers, whose benefits are the accomplishments of social democracy. [? if welfare > 1 : Our achievements in expanding welfare have made this message more effective. ?]
+
+@democracy
+on-arrival: democratization += 1; pro_republic += 2*(1 - dissent); workers_ip += 4*(1-dissent) if democratization >= 3; unemployed_ip += 3*(1-dissent) if democratization >= 3; pro_republic += 4*(1 - dissent) if democratization >= 3; corpo_ip += 4*(1-dissent) if democratization >= 3 
+
+Our speakers defend the republican system and rail against the monarchists and authoritarians who threaten it.
+
+[? if democratization < 3 : Talk of democracy does not excite the workers as much as more practical issues. But that may change; part of our job is to provide political education to the proletariat. ?]
+[? if democratization >= 3 : Since we have consistently made democratization a theme of our campaign, the workers are enthusiastic about our message. ?]
+
+@pacifism
+on-arrival: pacifism += 1; nationalism -= 2*(1 - dissent); workers_ip += 4*(1 - dissent) if pacifism >= 3; unemployed_ip += 3*(1-dissent) if pacifism >= 3; nationalism -= 3*(1-dissent) if pacifism >= 3; corpo_ip += 4*(1-dissent) if pacifism >= 3
+
+Our speakers denounce the military establishment and all the spending entering that black hole. Some adventurous speakers question the responsibility of the military elites in organizing the Great War.
+
+[? if pacifism < 3 : Given the volume of nationalist indoctrination in our society, it is difficult to argue so vehemently against the military. ?]
+[? if pacifism >= 3 : Since we have consistently made pacifism a theme of our campaign, the workers are enthusiastic about our message. ?]
+
+
+@local
+on-arrival: workers_ip += 3*(1-dissent); corpo_ip += 2*(1-dissent); unemployed_ip += 3*(1-dissent);
+
+Our speakers have gauged the mood and are speaking to the issues that seem to most affect the workers in this moment.
+
+@rally_no
+
+Good idea.
