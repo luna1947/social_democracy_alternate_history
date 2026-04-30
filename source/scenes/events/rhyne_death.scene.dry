@@ -1,13 +1,13 @@
 title: Lucius Rhyne Dead
 subtitle: Mayor Rhyne found dead in invitation-only sex club.
-view-if: year == 2077 and month == 5
-on-arrival: mayor = "None"; mayor_party = "None"
+view-if: year >= 2077 and month >= 5
+on-arrival: mayor = "Holt"; mayor_party = "Devolutionist"
 new-page: true
 max-visits: 1
 tags: event
 
 = Lucius Rhyne Dead
 
-Mayor Rhyne has been found dead in an invitation-only sex club, seemingly due to his old organs not being able to withstand the braindance.
+Mayor Rhyne has been found dead in an invitation-only sex club, seemingly due to his old organs not being able to withstand the braindance. His vice mayor Weldon Holt has been placed as interim mayor in the meantime.
 
 New mayoral elections are scheduled for July. We need to prepare.
