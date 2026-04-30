@@ -305,6 +305,24 @@ Q.dp_in_government = 0;
 Q.cp_in_government = 0;
 Q.nsnawp_in_government = 0;
 
+// election variables
+Q.federalist_support = 0;
+Q.federalist_attempted = 0;
+Q.communist_support = 0;
+Q.communist_attempted = 0;
+Q.devolutionist_support = 0;
+Q.devolutionist_attempted = 0;
+Q.libertarian_support = 0;
+Q.libertarian_attempted = 0;
+Q.socialist_support = 0;
+Q.socialist_attempted = 0;
+Q.ip_mayor_vote = ip_vote;
+Q.fp_mayor_vote = fp_vote;
+Q.dp_mayor_vote = dp_vote;
+Q.lp_mayor_vote = lp_vote;
+Q.cp_mayor_vote = cp_vote;
+Q.nsnawp_mayor_vote = nsnawp_vote;
+
 Q.in_right_coalition = 0;
 // Weimar coalition = ip + fp + lp
 Q.in_weimar_coalition = 0;
