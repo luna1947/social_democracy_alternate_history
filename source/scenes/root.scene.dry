@@ -337,14 +337,12 @@ Q.justice_minister = 'Hergt';
 Q.justice_minister_party = 'DNVP';
 Q.labor_minister = 'Brauns';
 Q.labor_minister_party = 'fp';
-Q.reichswehr_minister = 'Groener';
-Q.reichswehr_minister_party = 'I';
-Q.economic_minister = 'Curtius';
-Q.economic_minister_party = 'dp';
+Q.defense_minister = 'Groener';
+Q.defense_minister_party = 'I';
 Q.finance_minister = 'Köhler';
 Q.finance_minister_party = 'fp';
-Q.agriculture_minister = 'Schiele';
-Q.agriculture_minister_party = 'DNVP';
+Q.corporate_minister = 'Schiele';
+Q.corporate_minister_party = 'DNVP';
 
 // Events: what has occurred?
 Q.panzerkreuzer_seen = 0;
