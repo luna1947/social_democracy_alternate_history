@@ -21,7 +21,7 @@ How do we reduce tensions with the council?
 
 
 @promise_cuts
-on-arrival: workers_ip -= 5; unemployed_ip -= 6; workers_kpd += 5; unemployed_kpd += 3; unemployed_nsdap += 3; left_dissent += 10; labor_dissent += 5; welfare -= 1; budget += 1; council_dissent = 0
+on-arrival: workers_ip -= 5; unemployed_ip -= 6; workers_cp += 5; unemployed_cp += 3; unemployed_nsnawp += 3; socialist_dissent += 10; industrialist_dissent += 5; welfare -= 1; budget += 1; council_dissent = 0
 
 Fine. By cutting welfare, we have reduced dissent within the council.
 
@@ -39,9 +39,8 @@ No. We will not do this.
 
 @bring_down
 subtitle: Bring down this government before our opponents do.
-on-arrival: ip_in_government = 0; in_grand_council = 0; in_weimar_council = 0; chancellor = "Brüning"; next_election_time = time + 3 if next_election_time > time+3; next_election_month = month + 3 if next_election_time >= time+3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; ip_toleration = 0; left_strength += 8; pro_republic -= 5; new_middle_ip -= 3; rural_ip -= 3; old_middle_ip -= 3; catholics_ip -= 3; reformist_dissent += 5
+on-arrival: ip_in_government = 0; in_grand_council = 0; in_weimar_council = 0; next_election_time = time + 3 if next_election_time > time+3; next_election_month = month + 3 if next_election_time >= time+3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; ip_toleration = 0; left_strength += 8; pro_republic -= 5; corpo_ip -= 3; nomad_ip -= 3; pink_ip -= 3; merc_ip -= 3; socialist_dissent += 5
 
-We have called for a vote of no confidence in ourselves, and have brought down this government. Chancellor [+ chancellor +] currently rules as acting chancellor.
-
+We have called for a vote of no confidence in ourselves, and have brought down this government.
 New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
 
