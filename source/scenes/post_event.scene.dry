@@ -412,7 +412,7 @@ if (choices && choices[0].title != "Continue...") {
     has_event = 0;
 }
 // pre-load all of the event images
-if (this.ui && this.ui.svow_portraits) {
+if (this.ui && this.ui.show_portraits) {
     for (var choice of choices) {
         var cc = this.game.scenes[choice.id];
         if (cc.faceImage) {
