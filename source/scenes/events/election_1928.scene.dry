@@ -256,7 +256,7 @@ There are some potential council arrangements.
 title: Nazi council
 subtitle: National Socialists + Federalists ([+ nazi_council +]%)
 view-if: nazi_council >= 50
-go-to: @left_council
+go-to: left_council
 priority: 2
 
 There are enough votes for the National Socialists and the Federalists to form a council. [+ nsnawp_leader +] has made his participation in government contingent on being appointed chancellor. It is up to President [+ president +] to decide.
