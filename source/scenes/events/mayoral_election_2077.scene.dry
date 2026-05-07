@@ -207,11 +207,6 @@ on-arrival: ip_mayor_vote += cp_mayor_vote; communist_support = 1
 The Communists have dropped Petrov, meaning we're gaining their support!
 
 @final_mayor_vote
-on-arrival:{!
-winner = Math.max(ip_mayor_vote, cp_mayor_vote, fp_mayor_vote, lp_mayor_vote, nsnawp_mayor_vote);
-!}
-go-to: ip_win if winner = ip_mayor_vote; cp_win if winner = cp_mayor_vote; fp_win if winner = fp_mayor_vote; nsnawp_win if winner = nsnawp_mayor_vote
-
 go-to: ip_win
 
 The results are in...
