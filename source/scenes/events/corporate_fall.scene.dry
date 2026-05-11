@@ -1,0 +1,9 @@
+title: The Corporate Council has fallen.
+subtitle: The disillusionment of the masses has caught up to the people in power
+tags: event
+view-if: year == 2077 and month == 2
+on-arrival: workers_ip += 6*(1-dissent); unemployed_ip += 6*(1-dissent); pink_ip += 6*(1-dissent)
+
+= The Corporate Council has fallen
+
+After a series of protests and rallies in the city, the incumbent Corporate council has fallen. New elections are slated for November. We need to prepare.
