@@ -1,0 +1,444 @@
+title: Presidential Election
+subtitle: Holt runs for re-election...
+view-if: year = 2077 and (month = 7 or month = 8)
+frequency: 1000
+max-visits: 1
+new-page: true
+on-arrival: rovich_campaign = 0; richter_campaign = 0; bauer_support_holt = 0; presidential_election_seen = 1; nsdap_candidate = "Bauer" if bauer_deported == 0 else nsdap_candidate = "Göring";
+tags: event
+go-to: election_algorithm
+set-jump: pres_election
+face-image: img/holt_election.jpg
+
+@pres_election
+
+The presidential election is coming up soon. [? if ip_in_government = 0 : While the position of Chancellor is typically more important, recent governments have depended on the president's emergency decree powers, making the office vital. ?] [? if bauer_deported==0 : The Nazis will run Bauer, while the NCWPP will run Petrov. A victory for Bauer would mean the end of parliamentary democracy, and the beginning of an era of unspeakable horrors. ?][? if bauer_deported==1 : Since Bauer has been deported, the Nazis will run Hermann Göring in his stead. He is widely seen as a proxy for Bauer, who, despite his legal persecution, retains a popular base who wishes to see him returned to Germany. Meanwhile, the NCWPP will run Ivan Petrov. ?]
+[? if sapd_formed: The SAPD, our former leftists, are supporting Petrov of the NCWPP, and will likely share an endorsement with the Communists. ?]
+
+# if bauer is deported, who would nsdap run? Duesterberg? or Goering?
+# Goering runs, essentially as a proxy for Bauer, who is now stateless.
+
+Many are calling for us to support the incumbent emergency mayor Holt, despite his well-known reactionary tendencies. Is he truly the best bulwark against Bauer's ascension? On the other hand, many in our party are calling for Rovich or Richter to run.
+
+[? if cp_relation >= 50 : Another strange possibilty is an united front with the Communists, either to support Petrov or our own candidate. ?]
+
+
+- @support_holt: Support Welton Holt of the DP.
+- @support_rovich: Run Misha Rovich of the IPNC.
+- @support_richter: Run Johnathan Richter of the IPNC                                              
+- @support_petrov: Support Ivan Petrov of the NCWPP.
+
+@support_holt
+subtitle: This is the default option.
+
+Despite his known reactionary nature, Holt has at least been keeping the Nazis at bay. Thus, we must support him.
+
+- @final_election: The final vote...
+
+@support_rovich
+subtitle: This will cost us 2 resources.
+choose-if: resources >= 2
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 2; rovich_campaign = 1
+go-to: rovich_campaign
+
+It takes effort to run a somewhat unexpected campaign. First, Rovich has to be convinced to run. He himself had supported voting for Holt, and it takes a good deal of prodding to convince him of his destiny.
+
+@support_richter
+choose-if: 1 == 2
+unavailable-subtitle: In his sickly state, he cannot be expected to run.
+                                              
+@support_petrov
+choose-if: cp_relation >= 50 and reformist_strength < left_strength
+unavailable-subtitle: [? if cp_relation < 50 : We do not have good enough relations with the Communists, so they are not even willing to accept our support. ?] [? if liberal_strength >= socialist_strength : The libertarians are able to dissuade the party from supporting this arrangement. ?]
+
+Supporting Petrov is rather unpopular in our party, even if the Communists accept our support. Are we sure?
+
+- @support_petrov_2: Yes, we will support Petrov, despite the libertarians' pleas against it.
+- @support_rovich: Support Rovich instead.
+- @support_holt: Support Holt instead.
+
+@support_petrov_2
+on-arrival: ip_support_petrov = 1; reformist_dissent += 15; Federalists_dissent += 10; labor_dissent += 5; neorevisionist_dissent += 10; catholics_ip -= 5; workers_ip -= 3; cp_relation += 10; communist_coalition += 2; fp_relation -= 15; lp_relation -= 15; ddp_relation -= 10
+
+Fine. We have thrown our support to Chairman Petrov of the NCWPP.
+
+- @final_election: The final vote...
+
+@rovich_campaign
+
+- @convince_fp: Convince the Federalist Party.
+- @convince_cp: Convince the Communists.
+- @convince_libertarians: Convince the remaining libertarians, wherever they are.
+- @final_election: The final vote...
+
+@convince_fp
+choose-if: ip_votes >= fp_votes
+unavailable-subtitle: The Federalists knows that they are more popular than us; they do not see a reason to support our candidate.
+on-arrival: {!
+Q.fp_support_rovich = 0;
+if (Q.fp_relation >= 55 || (Q.fp_relation > 35 && Q.fp_party_leader == "Joos")) {
+    Q.fp_support_rovich = 1;
+} else if (Q.fp_relation <= 35) {
+    Q.fp_support_rovich = 0;
+} else {
+    Q.fp_support_rovich = 2;
+}
+!}
+go-to: fp_failed if fp_support_rovich = 0 or (fp_support_rovich == 2 and historical_mode); fp_success if fp_support_rovich = 1; fp_partial if fp_support_rovich = 2 and not historical_mode
+max-visits: 1
+
+We remind the Federalists leaders of Holt's anti-Catholicism, and try to convince them that Holt's path will eventually lead to Bauer. We also remind them of the successes they've had as part of the Weimar coalition in Prussia with Otto Rovich, and our support for the Federalists candidate Wilhelm Marx in the 1925 presidential election.
+
+@fp_success
+go-to: rovich_campaign
+
+The Federalists are convinced! They will be part of the Rovich coalition.
+
+@fp_partial
+
+The Federalists are not satisfied with our arguments, but they are open to being convinced. They are willing to run a joint campaign if we front the resources.
+
+- @pay_fp: Give them the resources they need.
+- @rovich_campaign: Forget about the Federalists.
+
+@pay_fp
+choose-if: resources >= 3
+subtitle: -3 resources
+unavailable-subtitle: Not enough resources (need 3)
+on-arrival: resources -= 3; fp_support_rovich = 1
+go-to: rovich_campaign
+
+With our resources, the Federalists are convinced to support Rovich over Holt.
+
+@fp_failed
+go-to: rovich_campaign
+
+Unfortunately, we fail to turn them away from Holt.
+
+@convince_cp
+choose-if: ip_votes >= cp_votes
+unavailable-subtitle: The NCWPP knows that they are more popular than us; they do not see a reason to support our candidate.
+max-visits: 1
+
+The NCWPP is supporting their own candidate, Ivan Petrov. [? if cp_relation >= 50 : However, they are willing to be convinced to drop their campaign and support Rovich; how do we convince them? ?][? if cp_relation < 50 or cp_party_leader != "Conciliators" : They do not seem willing to be convinced. ?]
+
+- @cp_resources: Use our resources.
+- @cp_relations: Use our good relations.
+- @rovich_campaign: Forget about the NCWPP.
+
+@cp_resources
+view-if: cp_relation >= 50 and not historical_mode
+choose-if: resources >= 3
+subtitle: -3 resources
+unavailable-subtitle: Not enough resources (need 3).
+on-arrival: resources -= 3; cp_support_rovich = 1
+go-to: rovich_campaign
+
+The NCWPP now endorses Rovich in the presidential election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters.
+
+@cp_relations
+view-if: cp_relation >= 60 or (cp_party_leader == "Conciliators" and cp_relation >= 45)
+unavailable-subtitle: Our relations are not good enough.
+on-arrival: cp_support_rovich = 1
+go-to: rovich_campaign
+
+The NCWPP now endorses Rovich in the presidential election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters.
+
+@convince_libertarians
+max-visits: 1
+go-to: convince_libertarians_success if lp_relation >= 50; convince_libertarians_fail if lp_relation < 50
+
+The libertarian vote is relatively miniscule, so they will probably be of minimal help to us. For what it's worth, they *do* have major support among nomads.
+
+@convince_libertarians_success
+on-arrival: lp_support_rovich = 1
+go-to: rovich_campaign
+
+Thanks to our good relations, the LPNC has promised to support Rovich in the election.
+
+@convince_libertarians_fail
+on-arrival: lp_support_rovich = 0
+go-to: rovich_campaign
+
+We failed to convince the LPNC to support Rovich.
+
+
+
+@final_election
+on-arrival: election_round = 0
+go-to: election_algorithm
+set-jump: post_election
+
+
+@post_election
+on-arrival: {!
+Q.rovich_votes = 0;
+Q.holt_votes = 0;
+Q.bauer_votes = 0;
+Q.petrov_votes = 0;
+
+// initial phase:
+Q.bauer_votes += Q.nsdap_normalized;
+Q.holt_votes += Q.other_normalized;
+Q.holt_votes += Q.dnvp_normalized;
+
+if (Q.rovich_campaign) {
+    Q.rovich_votes += Q.ip_normalized;
+    Q.rovich_votes += Q.ddp_normalized;
+    if (Q.fp_support_rovich && Q.fp_support_rovich == 1) {
+        Q.rovich_votes += Q.fp_normalized;
+    } else {
+        Q.holt_votes += Q.fp_normalized;
+    }
+    if (Q.cp_support_rovich) {
+        Q.rovich_votes += Q.cp_normalized;
+        if (Q.sapd_formed && Q.sapd_votes) {
+            Q.rovich_votes += Q.sapd_normalized;
+        }
+    } else {
+        Q.petrov_votes += Q.cp_normalized;
+        if (Q.sapd_formed && Q.sapd_votes) {
+            Q.petrov_votes += Q.sapd_normalized;
+        }
+    }
+    if (Q.lp_support_rovich) {
+        Q.rovich_votes += Q.lp_normalized;
+    } else {
+        Q.holt_votes += Q.lp_normalized;
+    }
+} else if (Q.ip_support_petrov) {
+    Q.petrov_votes += Q.cp_normalized;
+    Q.petrov_votes += Q.ip_normalized;
+    Q.holt_votes += Q.fp_normalized;
+    Q.holt_votes += Q.ddp_normalized;
+    Q.holt_votes += Q.lp_normalized;
+} else {
+    Q.holt_votes += Q.ip_normalized;
+    Q.holt_votes += Q.fp_normalized;
+    Q.holt_votes += Q.ddp_normalized;
+    Q.holt_votes += Q.lp_normalized;
+    Q.petrov_votes += Q.cp_normalized;
+}
+if (Q.bauer_support_holt) {
+    Q.bauer_votes -= Q.nsdap_normalized;
+    Q.holt_votes += Q.nsdap_normalized;
+}
+
+if (Q.holt_to_rovich_bonus) {
+    Q.holt_votes -= Q.holt_to_rovich_bonus;
+    Q.rovich_votes += Q.holt_to_rovich_bonus;
+}
+if (Q.petrov_to_rovich_bonus) {
+    Q.petrov_votes -= Q.petrov_to_rovich_bonus;
+    Q.rovich_votes += Q.petrov_to_rovich_bonus;
+}
+
+// check for majority
+Q.holt_votes = Math.round(Q.holt_votes*1000)/10;
+Q.rovich_votes = Math.round(Q.rovich_votes*1000)/10;
+Q.bauer_votes = Math.round(Q.bauer_votes*1000)/10;
+Q.petrov_votes = Math.round(Q.petrov_votes*1000)/10;
+
+Q.holt_majority = (Q.holt_votes >= 50);
+Q.petrov_majority = (Q.petrov_votes >= 50);
+Q.bauer_majority = (Q.bauer_votes >= 50);
+Q.rovich_majority = (Q.rovich_votes >= 50);
+Q.any_majority = Q.holt_majority | Q.petrov_majority | Q.bauer_majority | Q.rovich_majority;
+
+// check for plurality
+Q.holt_plurality = (Q.holt_votes >= Q.bauer_votes && Q.holt_votes >= Q.rovich_votes && Q.holt_votes >= Q.petrov_votes);
+Q.petrov_plurality = (Q.petrov_votes >= Q.holt_votes && Q.petrov_votes >= Q.rovich_votes && Q.petrov_votes >= Q.bauer_votes);
+Q.bauer_plurality = (Q.bauer_votes >= Q.holt_votes && Q.bauer_votes >= Q.rovich_votes && Q.bauer_votes >= Q.petrov_votes);
+Q.rovich_plurality = (Q.rovich_votes >= Q.holt_votes && Q.rovich_votes >= Q.bauer_votes && Q.rovich_votes >= Q.petrov_votes);
+// If no candidate gets above 50%, then there's a second round. In the second round, a plurality wins. 
+Q.election_round += 1;
+
+// making the vote numbers nicer for the display
+Q.holt_votes_disp = Q.holt_votes.toFixed(1);
+Q.rovich_votes_disp = Q.rovich_votes.toFixed(1);
+Q.bauer_votes_disp = Q.bauer_votes.toFixed(1);
+Q.petrov_votes_disp = Q.petrov_votes.toFixed(1);
+!}
+go-to: holt_wins if holt_majority == 1; petrov_wins if petrov_majority == 1; bauer_wins if bauer_majority == 1; rovich_wins if rovich_majority == 1; no_majority_round1 if any_majority == 0 and election_round == 1; round2_results if election_round >= 2
+
+Results:
+
+Holt - [+ holt_votes_disp +]%
+
+[+ nsdap_candidate +] - [+ bauer_votes_disp +]%
+
+[? if cp_support_rovich == 0 : Petrov - [+ petrov_votes_disp +]% ?]
+
+[? if rovich_campaign > 0 : Rovich - [+ rovich_votes_disp +]% ?]
+
+@no_majority_round1
+on-arrival: bauer_support_holt = 1 if (rovich_plurality or petrov_plurality)
+go-to: round2_menu
+
+There is no majority in this round. In the second round, any candidate who wins a plurality will win overall. What should we do?
+
+[? if rovich_plurality or petrov_plurality : In order to consolidate the vote for the Right, and to prevent a socialist from becoming president, [+ nsdap_candidate +] is no longer running in the second round, and has switched his endorsement to Holt. ?]
+
+
+@round2_menu
+
+- @round2_convince_fp: Convince the Federalists to switch their support to us.
+- @round2_convince_cp: Convince the NCWPP to switch their support to us. 
+- @round2_holt: Switch our support to Holt.
+- @round2_petrov: Switch our support to Petrov of the NCWPP.
+- @round2_vote: Let the second round voting begin.
+
+
+@round2_convince_fp
+view-if: rovich_campaign > 0 and fp_support_rovich != 1 
+choose-if: ip_votes >= fp_votes
+unavailable-subtitle: The Federalists know that they are more popular than us; they do not see a reason to support our candidate.
+on-arrival: {!
+Q.fp_support_rovich = 0;
+// if Holt support is greater than Bauer and Rovich support, this should be much harder
+
+if ((Q.fp_relation >= 55 && Q.rovich_votes >= Q.holt_votes) || (Q.fp_relation > 35 && Q.fp_party_leader == "Joos")) {
+    Q.fp_support_rovich = 1;
+    if (Q.bauer_support_holt) {
+        Q.holt_to_rovich_bonus += Q.other_normalized/2;
+    }
+} else if (Q.fp_relation >= 50 && Q.bauer_support_holt) {
+    Q.fp_support_rovich = 1;
+    Q.holt_to_rovich_bonus += Q.other_normalized/2;
+} else if (Q.fp_relation <= 35 || (Q.fp_relation <= 45 && Q.rovich_votes < Q.holt_votes && Q.holt_votes > Q.bauer_votes && Q.difficulty >= 0)) {
+    Q.fp_support_rovich = 0;
+} else {
+    Q.fp_support_rovich = 2;
+}
+!}
+go-to: r2_fp_failed if fp_support_rovich = 0 or (fp_support_rovich = 2 and historical_mode); r2_fp_success if fp_support_rovich = 1; r2_fp_partial if fp_support_rovich = 2 and not historical_mode
+max-visits: 1
+
+@r2_fp_success
+go-to: round2_menu
+on-departure: bauer_support_holt = 1 if rovich_votes + fp_votes > bauer_votes
+
+[? if bauer_support_holt : The Federalists's opinion is affected by the Nazis' support of Holt, and is willing to turn away from him. ?] The Federalists are convinced! They will be part of the Rovich coalition. [? if bauer_support_holt : In addition, they will also bring in some minor parties who will support us. ?]
+
+[? if not bauer_support_holt and rovich_votes + fp_votes > bauer_votes: With the Federalist Party supporting Rovich, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Holt to prevent a socialist from becoming president. ?]
+
+@r2_fp_partial
+
+The Federalists are not satisfied with our arguments, but they are open to being convinced[? if bauer_support_holt: , especially given the Nazis' support for Holt. ?]. They are willing to run a joint campaign if we front the resources.
+
+- @r2_pay_fp: Give them the resources they need.
+- @round2_menu: Forget about the Federalists.
+
+@r2_pay_fp
+choose-if: resources >= 2
+subtitle: -2 resources
+unavailable-subtitle: Not enough resources (need 2)
+on-arrival: resources -= 2; fp_support_rovich = 1
+on-departure: bauer_support_holt = 1 if rovich_votes + fp_votes > bauer_votes
+go-to: round2_menu
+
+With our resources, the Federalists are convinced to support Rovich over Holt.
+
+[? if not bauer_support_holt and rovich_votes + fp_votes > bauer_votes: With the Federalist Party supporting Rovich, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Holt to prevent a socialist from becoming president. ?]
+
+@r2_fp_failed
+go-to: round2_menu
+
+Unfortunately, we fail to turn them away from Holt. [? if holt_votes > rovich_votes : Given that Holt received more votes than Rovich, they believe that we should turn to Holt, not the other way around. ?]
+
+
+
+
+@round2_convince_cp
+choose-if: ip_votes >= cp_votes
+unavailable-subtitle: The NCWPP knows that they are more popular than us; they do not see a reason to support our candidate.
+view-if: rovich_campaign > 0 and cp_support_rovich == 0 
+max-visits: 1
+
+The NCWPP is committed to supporting Ivan Petrov. [? if cp_relation >= 45 : However, the Nazi-Holt coalition worries them enough that they are willing to be convinced to drop their campaign and support Rovich. ?][? if cp_relation < 45 : They do not seem willing to be convinced. ?]
+
+- @r2_cp_resources: Use our resources.
+- @r2_cp_relations: Use our good relations.
+- @round2_menu: Forget about the NCWPP.
+
+@r2_cp_resources
+view-if: cp_relation >= 45 and not historical_mode
+choose-if: resources >= 3
+subtitle: -3 resources
+unavailable-subtitle: Not enough resources (need 3).
+on-arrival: resources -= 3; cp_support_rovich = 1
+go-to: round2_menu
+
+The NCWPP now endorses Rovich in the presidential election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters.
+
+@r2_cp_relations
+view-if: cp_relation >= 60 or (cp_party_leader == "Conciliators" and cp_relation >= 45)
+unavailable-subtitle: Our relations are not good enough.
+on-arrival: cp_support_rovich = 1
+go-to: round2_menu
+
+The NCWPP now endorses Rovich in the presidential election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters. 
+
+@round2_petrov
+view-if: ip_support_petrov == 0 and cp_support_rovich == 0
+choose-if: cp_relation >= 50 and left_strength > reformist_strength 
+unavailable-subtitle: [? if cp_relation < 50 : We do not have good enough relations with the Communists, so they are not even willing to accept our support. ?] [? if reformist_strength >= left_strength : The reformist faction is able to dissuade the party from supporting this bizarre arrangement. ?]
+max-visits: 1
+
+Supporting Petrov is rather unpopular in our party, even if the Communists accept our support. Are we sure?
+
+- @round2_petrov_2: Yes, we will support Petrov, despite the reformists' pleas against it.
+- @round2_menu: Never mind.
+
+@round2_petrov_2
+on-arrival: rovich_campaign = 0; ip_support_petrov = 1; reformist_dissent += 15; Federalists_dissent += 10; labor_dissent += 5; neorevisionist_dissent += 10; catholics_ip -= 5; workers_ip -= 3; cp_relation += 10; communist_coalition += 2; fp_relation -= 15; lp_relation -= 15
+on-departure: fp_support_rovich = 0; cp_support_rovich = 0;
+
+Fine. We have thrown our support to Chairman Petrov of the NCWPP.
+
+[? if fp_support_rovich : The Federalist Party is confused at our capricious behavior, and have switched their support to Holt. ?]
+
+- @round2_vote: Let the second round voting begin.
+
+@round2_holt
+view-if: rovich_campaign > 0 or ip_support_petrov > 0
+on-arrival: rovich_campaign = 0; ip_support_petrov = 0
+
+We have switched our support to Holt.
+
+- @round2_vote: Let the second round voting begin.
+
+@round2_vote
+go-to: election_algorithm
+set-jump: post_election
+
+@round2_results
+go-to: holt_wins if holt_plurality == 1; petrov_wins if petrov_plurality == 1; rovich_wins if rovich_plurality == 1; bauer_wins if bauer_plurality == 1
+
+
+@holt_wins
+on-arrival: president = "Holt"
+
+As expected, the incumbent Holt wins the presidency. Let's hope he continues to keep the Nazis out of power.
+
+@petrov_wins
+on-arrival: president = "Petrov"; cp_relation = 80;
+
+Ivan Petrov of the NCWPP has won the presidency. Immediately, the far-right launches a coup attempt against the government. We have no choice but to unite with the NCWPP against the fascists...
+
+- @civil_war: This is civil war.
+
+@bauer_wins
+on-arrival: president = nsdap_candidate; chancellor = "Bauer"; chancellor_party = "NSNCWP"
+
+[? if nsdap_candidate == "Bauer" : Rudolf Bauer of the NSNCWP has won the presidency. He wastes no time in consolidating power. ?]
+[? if nsdap_candidate != "Bauer" : The NSNCWP candidate [+ president +] has won. The first action President [+ president +] takes is inviting Bauer back into Germany, and appointing him chancellor. The Nazis waste no time in consolidating power. ?]
+
+- @bauer_takes_power: What do we do now?
+
+
+@rovich_wins
+on-arrival: president = "Rovich"; reformist_dissent -= 15; Federalists_dissent -= 15; labor_dissent -= 15; left_dissent -= 5; workers_ip += 8*(1-dissent); old_middle_ip += 5*(1-dissent); new_middle_ip += 5*(1-dissent); rural_ip += 5*(1-dissent); unemployed_ip += 5*(1-dissent);
+
+Otto Rovich of the ip has won the presidency! This is a moment of celebration for our party, and his victory is able to bolster our support.
