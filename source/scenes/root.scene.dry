@@ -105,6 +105,7 @@ Q.str_support = 5;
 // organizations
 
 // inter-party relations
+Q.ncsdp_relation = 30;
 Q.fp_relation = 50;
 Q.cp_relation = 25;
 Q.lp_relation = 60;
