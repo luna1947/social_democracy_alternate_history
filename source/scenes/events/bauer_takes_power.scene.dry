@@ -1,0 +1,33 @@
+title: Bauer takes power.
+subtitle: The beginning of the end.
+view-if: mayor == "Bauer" or mayor_party == "NSNCWP"
+on-arrival: spd_in_government = 0
+tags: event
+new-page: true
+
+[? if bauer_deported and president != "Bauer" and mayor != "Bauer": The first act that Mayor [+ mayor +] takes upon assuming office is bringing Rudolf Bauer back to Germany, and giving him citizenship and an official cabinet position. ?]
+
+Bauer has promised a campaign of revenge against his opposition, and the Nazis have already spilled much blood on the streets. In his published manifesto, he promises a campaign of unspeakable horror against our Muslims, and endless wars of violent expansion that will ruin all of North America.
+
+What are we to do now?
+
+- @fight: We will fight on the streets to prevent Bauer from taking power.
+- @give_up: We will vote against the Nazis in the City Council.
+
+
+@fight
+
+Do we realize that this means civil war, against the full force of the state?
+
+- @civil_war: Yes.
+- @give_up: We are not ready for war. Instead, we will vote against the nazis in the Reichstag.
+
+@give_up
+
+Speeches are made. Votes are held. Bullets fly in the streets. Some politicians are killed or jailed. Others flee the city. What can votes even do at this juncture?
+
+The Reichstag is burned, ostensibly by a foreign communist. In the wake, the Nazis pass decrees giving them unlimited power. They will win a majority at the next elections.
+
+Night City is lost.
+
+- @game_over: Game over.
