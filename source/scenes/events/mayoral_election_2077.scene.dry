@@ -18,7 +18,7 @@ The mayorial election is coming up soon. [? if ip_in_government = 0 : While the 
 # if bauer is deported, who would nsnawp run? Duesterberg? or Goering?
 # Goering runs, essentially as a proxy for Bauer, who is now stateless.
 
-Many are calling for us to support the incumbent emergency mayor Holt, despite his well-known reactionary tendencies. Is he truly the best bulwark against Bauer's ascension? On the other hand, many in our party are calling for Rovich or Richter to run.
+Many are calling for us to support the incumbent emergency mayor Holt, despite his well-known corporatist tendencies. Is he truly the best bulwark against Bauer's ascension? On the other hand, many in our party are calling for Rovich or Richter to run.
 
 [? if cp_relation >= 50 : Another strange possibilty is an united front with the Communists, either to support Petrov or our own candidate. ?]
 
@@ -31,7 +31,7 @@ Many are calling for us to support the incumbent emergency mayor Holt, despite h
 @support_holt
 subtitle: This is the default option.
 
-Despite his known reactionary nature, Holt has at least been keeping the Nazis at bay. Thus, we must support him.
+Despite his known corporatist nature, Holt has at least been keeping the Nazis at bay. Thus, we must support him.
 
 - @final_election: The final vote...
 
@@ -59,7 +59,7 @@ Supporting Petrov is rather unpopular in our party, even if the Communists accep
 - @support_holt: Support Holt instead.
 
 @support_petrov_2
-on-arrival: ip_support_petrov = 1; reformist_dissent += 15; Federalists_dissent += 10; labor_dissent += 5; neorevisionist_dissent += 10; catholics_ip -= 5; workers_ip -= 3; cp_relation += 10; communist_coalition += 2; fp_relation -= 15; lp_relation -= 15; ddp_relation -= 10
+on-arrival: ip_support_petrov = 1; reformist_dissent += 15; Federalists_dissent += 10; labor_dissent += 5; neorevisionist_dissent += 10; catholics_ip -= 5; workers_ip -= 3; cp_relation += 10; communist_coalition += 2; fp_relation -= 15; lp_relation -= 15; dp_relation -= 10
 
 Fine. We have thrown our support to Chairman Petrov of the NCWPP.
 
@@ -191,14 +191,8 @@ if (Q.rovich_campaign) {
     }
     if (Q.cp_support_rovich) {
         Q.rovich_votes += Q.cp_normalized;
-        if (Q.sapd_formed && Q.sapd_votes) {
-            Q.rovich_votes += Q.sapd_normalized;
-        }
     } else {
         Q.petrov_votes += Q.cp_normalized;
-        if (Q.sapd_formed && Q.sapd_votes) {
-            Q.petrov_votes += Q.sapd_normalized;
-        }
     }
     if (Q.lp_support_rovich) {
         Q.rovich_votes += Q.lp_normalized;
@@ -209,12 +203,12 @@ if (Q.rovich_campaign) {
     Q.petrov_votes += Q.cp_normalized;
     Q.petrov_votes += Q.ip_normalized;
     Q.holt_votes += Q.fp_normalized;
-    Q.holt_votes += Q.ddp_normalized;
+    Q.holt_votes += Q.dp_normalized;
     Q.holt_votes += Q.lp_normalized;
 } else {
     Q.holt_votes += Q.ip_normalized;
     Q.holt_votes += Q.fp_normalized;
-    Q.holt_votes += Q.ddp_normalized;
+    Q.holt_votes += Q.dp_normalized;
     Q.holt_votes += Q.lp_normalized;
     Q.petrov_votes += Q.cp_normalized;
 }
