@@ -51,33 +51,39 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 = Inter-party Relations
 
+[? if not usp_formed: {!<span class="tooltip-text" title="Night City Social Democratic Party">NCSDP</span>!}: [+ ncsdp_relation : relationships +] ?]
+
 {!<span class="tooltip-text" title="Federalist Party">FP</span>!}: [+ fp_relation : relationships +]
 
-{!<span class="tooltip-text" title="Night City Working People's Party">NCWPP</span>!}: [+ cp_relation : relationships +]
+[? if not usp_formed: {!<span class="tooltip-text" title="Night City Working People's Party">NCWPP</span>!}: [+ cp_relation : relationships +] ?]
+
+[? if usp_formed: {!<span class="tooltip-text" title="United Socialist Party">USP</span>!}: [+ usp_relation : relationships +] ?]
 
 {!<span class="tooltip-text" title="Devolutionist Party">DP</span>!}: [+ dp_relation : relationships +]
 
 {!<span class="tooltip-text" title="Libertarian Party of Night City">LPNC</span>!}: [+ lp_relation : relationships +]
 
+{!<span class="tooltip-text" title="National Socialist Night City Worker's Party">NSNCWP</span>!}: hostile
+
 = Internal Factions of the IPNC
 
-{!<span class="tooltip-text" title="The Green faction is interested in policies that will lessen industrial impact on the environment. Many members of this faction have ties to Biotechnica.">Green</span>!} strength: [+ green_strength : strength +], dissent: [+ green_dissent : dissent +]
+{!<span class="tooltip-text" title="The Radicals are a group of revolutionary socialists who work to revolt Night City into a dictatorship of the people. The reason that they didn't simply join the NCWPP is often simply due to ideological differences.">Radical</span>!} strength: [+ radical_strength : strength +], dissent: [+ radical_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The Industrialists are a faction of individuals that push for more industrial production in the New United States. Many members of this faction are industrial workers.">Industrialist</span>!} strength: [+ industrialist_strength : strength +], dissent: [+ industrialist_dissent : dissent +]
+{!<span class="tooltip-text" title="The Industrialists are a faction of individuals that push for more industrial production in the Night City. Many members of this faction are industrial workers.">Industrialist</span>!} strength: [+ industrialist_strength : strength +], dissent: [+ industrialist_dissent : dissent +]
 
 {!<span class="tooltip-text" title="The Socialist faction is mostly committed to a policy of social democracy, welfare, and fair taxes.">Socialist</span>!} strength: [+ socialist_strength : strength +], dissent: [+ socialist_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The Liberals are primarily dedicated to maintaining the fiscally conservative economy of the New United States.">Liberal</span>!} strength: [+ liberal_strength : strength +], dissent: [+ liberal_dissent : dissent +]
+{!<span class="tooltip-text" title="The Liberals are primarily dedicated to maintaining the fiscally conservative economy of Night City.">Liberal</span>!} strength: [+ liberal_strength : strength +], dissent: [+ liberal_dissent : dissent +]
 
 = Corporate Support
 
-Militech: [+ militech_favor : relationships +]
+Militech: [+ militech_favor : favor +]
 
-Arasaka: [+ arasaka_favor : relationships +]
+Arasaka: [+ arasaka_favor : favor +]
 
-Biotechnica: [+ biotechnica_favor : relationships +]
+Biotechnica: [+ biotechnica_favor : favor +]
 
-Nightcorp: [+ nightcorp_favor : relationships +]
+Nightcorp: [+ nightcorp_favor : favor +]
 
 @paramilitaries
 on-arrival: {!
