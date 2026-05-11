@@ -11,10 +11,6 @@ Q.nomad_iwpp = 0;
 Q.unemployed_iwpp = 2;
 Q.merc_iwpp = 0;
 
-if (Q.unions_independent) {
-    Q.workers_iwpp += 8;
-}
-
 // update all records
 Q.iwpp_r = 0;
 Q.old_iwpp_r = 0;
