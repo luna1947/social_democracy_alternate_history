@@ -545,7 +545,7 @@ go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
 
 It’s a good day for Night City’s democracy. After recovering from the Unification War, an autocoup leading to our independence, and 4 corporate wars, we are better than ever in terms of economy.
 
-Now, the task of the Independent party is to prepare for the next election in November. The current Conservative council is wildly unpopular among most of Night City, and therefore we stand to gain.
+Now, the task of the Independent party is to prepare for the next election in November. The current Corporate council is wildly unpopular among most of Night City, and therefore we stand to gain.
 
 @election_simulation
 go-to:election_simulation
