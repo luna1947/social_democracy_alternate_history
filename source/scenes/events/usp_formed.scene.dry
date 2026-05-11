@@ -1,0 +1,50 @@
+on-arrival: {!
+
+Q.usp_formed = 1;
+Q.parties.push('usp');
+Q.parties_graph.push('usp');
+
+Q.workers_usp = Q.workers_cp + Q.workers_ncsdp
+
+Q.corpo_usp = Q.corpo_cp + Q.corpo_ncsdp
+
+Q.pink_usp = Q.pink_cp + Q.pink_ncsdp
+
+Q.nomad_usp = Q.nomad_cp + Q.nomad_ncsdp
+
+Q.unemployed_usp = Q.unemployed_cp + Q.unemployed_ncsdp
+
+Q.mercs_usp = Q.mercs_cp + Q.mercs_ncsdp
+
+if (Q.electoral_threshold < 5) {
+    Q.corpo_usp += 4
+    Q.pink_usp += 4
+    Q.nomad_usp += 4
+}
+
+Q.usp_r = Math.round((Q.cp_r + Q.ncsdp_r) * 10) / 10;
+Q.usp_relation = Math.round((Q.cp_relation + Q.ncsdp_relation) / 2)
+Q.usp_left = Q.cp_left + Q.ncsdp_left;
+Q.usp_right = Q.cp_right + Q.ncsdp_right;
+Q.usp_left *= 0.5;
+Q.usp_right *= 0.5;
+Q.usp_leader = "Luther";
+Q.usp_ideology = "Moderate";
+
+Q.cp_r = 0;
+Q.ncsdp_r = 0;
+Q.liberal_parliament = 0;
+Q.ncsdp_votes = 0;
+Q.cp_votes = 0;
+Q.ncsdp_normalized = 0;
+Q.cp_normalized = 0;
+Q.bourgeois_parliament_cp = 0;
+
+
+for (var record of Q.election_records) {
+    record['usp'] = 0;
+}
+for (var record of Q.party_support_records) {
+    record['usp'] = 0;
+}
+!}
