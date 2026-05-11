@@ -46,10 +46,10 @@ Q.dissent = 0.05;
 Q.dissent_percent = 5;
 
 // factions
-Q.factions = ['green', 'industrialist', 'socialist', 'liberal'];
+Q.factions = ['radical', 'industrialist', 'socialist', 'liberal'];
 // should this be normalized to 100%?
-Q.green_strength = 15;
-Q.green_dissent = 20;
+Q.radical_strength = 15;
+Q.radical_dissent = 20;
 Q.industrialist_strength = 20;
 Q.industrialist_dissent = 10;
 Q.socialist_strength = 30;
@@ -60,7 +60,7 @@ Q.liberal_dissent = 10;
 // secret events...
 Q.industrialists_walk_out = 0;
 Q.socialists_resigned = 0;
-Q.green_split = 0;
+Q.radical_split = 0;
 Q.liberals_resigned = 0;
 Q.str_split = 0;
 Q.iwpp_formed = 0;
@@ -83,7 +83,7 @@ Q.democratization = 0;
 // Support for a communist coalition relative to 1928
 Q.communist_coalition = 0;
 // economic_plan: have we adopted *any* economic plan?
-// 1 - RKR plan, 2 - liberal plan, 3 - radical plan (mass nationalization of industries)
+// 1 - RKR plan, 2 - liberal plan, 3 - socialization plan (mass nationalization of industries)
 Q.economic_plan = 0;
 // have we officially adopted the RKR plan?
 Q.rkr_adopted = 0;
@@ -502,7 +502,7 @@ Q.sh_ban_timer = 0;
 Q.cp_ultimatum_timer = 0;
 Q.march_on_berlin_timer = 0;
 
-//green advisors
+//radical advisors
 Q.sandberg_advisor = 0; //Walter Sandberg
 
 //industrialist advisors
