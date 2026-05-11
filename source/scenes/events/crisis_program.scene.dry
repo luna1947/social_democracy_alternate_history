@@ -1,0 +1,93 @@
+title: The Economic Crisis
+new-page: true
+is-card: true
+view-if: crisis_urgency >= 1 and crisis_program_timer = 0 and economic_plan = 0 and eurodollar_crisis_seen == 1
+frequency: 200
+on-arrival: month_actions += 1; crisis_program_timer = 5
+card-image: img/bankrun.jpg
+tags: party_affairs, govt_affairs
+
+= Addressing the Economic Crisis
+
+Our party is wracked as to how to deal with the economic crisis. From the green faction, Sandberg argues that the economic crisis must be allowed to play out for at least 2 years as to weaken corporations enough such that their environmental impact is lessened heavily
+
+From the industrialists, the economist Johnathan Kennedy argues that we must pursue a massive public works program to reduce unemployment and stimulate demand, perhaps including deficit spending. His opponents, like Sandberg, argue that this plan will further crash the economy, making the crisis affect the workers even more than it already is rather than solely hurting the corporations, and that it would not even help the economy. In addition, according to Sandberg, Kennedy's plan would drive Night City into anarchy.
+
+The RKR plan, after its chief drafter Rovich, Kennedy, and Ramsey, is receiving more attention within the party.
+
+However, socialistists in the party argue that the RKR plan is merely a bandage over the fundamental flaws of the city's late-stage capitalism. They argue that the crisis is an opportunity to end the superiority of corporations through massive nationalizations of industry, and finally bring our city to more market-oriented socialism.
+
+Meanwhile, liberals draw up proposals for a limited plan of job creation through public works, funded through taxes, that does not involve deficit spending or large-scale restructuring of the economy. The industrialists argue that the plan is inadequate in its scale and ambition.
+
+- @support_green: Support the Green view.
+- @support_industrialist: Support the Industrialist view.
+- @support_socialist: Support the Socialist view.
+- @support_liberal: Support the Liberal view.
+- @defer: Defer making a decision until we have more information.
+
+@support_green
+subtitle: Let the crisis play itself out.
+on-arrival: green_strength += 5; green_dissent -= 5; industrialist_dissent += 10; _support -= 1; socialist_dissent += 10;
+
+Kennedy and the trade unions vehemently criticize the greens for their policy. The workers are starving; are we going to callously abandon them? On the other hand, the greens criticize Kennedy for promising the workers false hope; their position is that nothing can be done to alleviate the depression. They also speak of the fear of another round of hyperinflation that may result from deficit spending.
+
+Our policy course is currently that nothing can be done to alleviate the depression.
+
+
+@support_industrialist
+subtitle: Call for increased public works and fiscal stimulus.
+unavailable-subtitle: The Industrialist faction is not strong enough.
+choose-if: historical_mode == 0 or (industrialist_strength >= socialist_strength and industrialist_strength >= green_strength and industrialist_strength >= liberal_strength)
+on-arrival: green_dissent += 10; socialist_dissent += 5; industrialist_strength += 5; wtb_support += 1;
+go-to: plan_adopted if wtb_support >= 3; plan_support if wtb_support < 3
+
+@plan_support
+
+Our support of the WTB plan alienates the hands-off approach of many in the Green faction, and faces both opposition and support from a variety of sources across the spectrum. Leftists argue that the plan is flawed because it leaves capitalism intact, while some liberals are cautiously optimistic.
+
+We have not yet convinced the party to formally adopt the plan. More work needs to be done.
+
+@plan_adopted
+on-arrival: wtb_adopted = 1; industrialist_dissent -= 15; liberal_dissent -= 10; industrialist_strength += 10; green_strength -= 10; green_dissent += 20; socialist_dissent += 5; economic_plan = 1
+
+With our hard work, we have finally convinced the majority of the party to adopt the WTB plan! [? if spd_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Finance minsistry. ?][? if spd_in_government = 0 : We should emphasize the plan in our electoral propaganda. ?]
+
+@support_socialist
+subtitle: Call for mass nationalizations and the transformation of the economy.
+unavailable-subtitle: The Socialist faction is not strong enough.
+choose-if: historical_mode == 0 or (socialist_strength >= industrialist_strength and socialist_strength >= green_strength and socialist_strength >= liberal_strength)
+on-arrival: socialist_strength += 10; liberal_dissent += 5; industrialist_dissent += 5; nationalization_support += 2
+go-to: support_socialist_progress if nationalization_support < 3; adopt_socialist if nationalization_support >= 3
+
+@support_socialist_progress
+
+We attempt to convince the party to support a program of mass nationalizations in response to the economic crisis. Leftists argue that this policy is in accordance with our long-standing socialist platform, while liberals and some trade unionists argue that the plan is unrealistic, and that we need to focus on more immediate improvements to workers' lives.
+
+We have not yet formally adopted the plan. More work needs to be done.
+
+@adopt_socialist
+on-arrival: socialist_strength += 15; socialist_dissent -= 10; liberal_dissent += 10; industrialist_dissent += 6; nationalization_adopted = 1; coup_progress += 1; economic_plan = 3; cp_relation += 5*(1-dissent)
+
+With our hard work, we have convinced the majority of the party to adopt the socialist economic plan! [? if spd_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Finance minsistry. ?] Corporate opposition is likely to be fierce. [? if spd_in_government == 0 : It might be difficult to enact the plan, given present conditions. ?]
+
+@support_moderate
+subtitle: Call for a limited program of job creation without deficit spending.
+unavailable-subtitle: The Liberal faction is not strong enough.
+choose-if: historical_mode == 0 or (liberal_strength >= socialist_strength and liberal_strength >= green_strength and liberal_strength >= industrialist_strength)
+on-arrival: moderate_plan_support += 1; liberal_strength += 8; liberal_dissent -= 5; socialist_dissent += 6; industrialist_dissent += 5
+go-to: adopt_moderate if moderate_plan_support >= 2; support_moderate_progress if moderate_plan_support < 2
+
+@support_moderate_progress
+
+We attempt to convince the party to support a moderate program of job creation without deficit spending. Advocates of the moderate plan argue that this plan is most likely to receive support from the bourgeois parties, and most practical in the immediate term. Opponents in the socialist and industrialist factions criticize the plan for being inadequate in its ambition.
+
+We have not yet adopted the plan. More work needs to be done.
+
+@adopt_moderate
+on-arrival: liberal_strength += 10; liberal_dissent -= 10; socialist_dissent += 8; industrialist_dissent += 6; moderate_plan_adopted = 1; economic_plan = 2; coalition_dissent -= 1 if unemployed > 15; fp_relation += 5;
+
+With our hard work, we have convinced the majority of the party to adopt the moderate job creation plan! [? if spd_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Finance ministry. ?]
+
+@defer
+
+We hold off on making a decision on economic policy, awaiting more information. Woytinsky and his supporters argue that inaction is a form of action of its own. 
