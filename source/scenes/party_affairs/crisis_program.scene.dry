@@ -70,23 +70,23 @@ on-arrival: socialist_strength += 15; socialist_dissent -= 10; liberal_dissent +
 
 With our hard work, we have convinced the majority of the party to adopt the socialist economic plan! [? if spd_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Finance minsistry. ?] Corporate opposition is likely to be fierce. [? if spd_in_government == 0 : It might be difficult to enact the plan, given present conditions. ?]
 
-@support_moderate
+@support_liberal
 subtitle: Call for a limited program of job creation without deficit spending.
 unavailable-subtitle: The Liberal faction is not strong enough.
 choose-if: historical_mode == 0 or (liberal_strength >= socialist_strength and liberal_strength >= green_strength and liberal_strength >= industrialist_strength)
-on-arrival: moderate_plan_support += 1; liberal_strength += 8; liberal_dissent -= 5; socialist_dissent += 6; industrialist_dissent += 5
-go-to: adopt_moderate if moderate_plan_support >= 2; support_moderate_progress if moderate_plan_support < 2
+on-arrival: liberal_plan_support += 1; liberal_strength += 8; liberal_dissent -= 5; socialist_dissent += 6; industrialist_dissent += 5
+go-to: adopt_liberal if liberal_plan_support >= 2; support_liberal_progress if liberal_plan_support < 2
 
-@support_moderate_progress
+@support_liberal_progress
 
-We attempt to convince the party to support a moderate program of job creation without deficit spending. Advocates of the moderate plan argue that this plan is most likely to receive support from the bourgeois parties, and most practical in the immediate term. Opponents in the socialist and industrialist factions criticize the plan for being inadequate in its ambition.
+We attempt to convince the party to support a liberal program of job creation without deficit spending. Advocates of the liberal plan argue that this plan is most likely to receive support from the bourgeois parties, and most practical in the immediate term. Opponents in the socialist and industrialist factions criticize the plan for being inadequate in its ambition.
 
 We have not yet adopted the plan. More work needs to be done.
 
-@adopt_moderate
-on-arrival: liberal_strength += 10; liberal_dissent -= 10; socialist_dissent += 8; industrialist_dissent += 6; moderate_plan_adopted = 1; economic_plan = 2; coalition_dissent -= 1 if unemployed > 15; fp_relation += 5;
+@adopt_liberal
+on-arrival: liberal_strength += 10; liberal_dissent -= 10; socialist_dissent += 8; industrialist_dissent += 6; liberal_plan_adopted = 1; economic_plan = 2; coalition_dissent -= 1 if unemployed > 15; fp_relation += 5;
 
-With our hard work, we have convinced the majority of the party to adopt the moderate job creation plan! [? if spd_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Finance ministry. ?]
+With our hard work, we have convinced the majority of the party to adopt the liberal job creation plan! [? if spd_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Finance ministry. ?]
 
 @defer
 
