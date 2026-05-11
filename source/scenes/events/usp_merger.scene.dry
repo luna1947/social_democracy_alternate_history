@@ -1,6 +1,6 @@
 title: Socialist Congress
 subtitle: The future of the greater Night City socialist movement will be decided here.
-view-if: cp_radicalization == ncsdp_radicalization and year >= 2078 and month >= 6
+view-if: cp_radicalization == ncsdp_radicalization
 max-visits: 1
 tags: event
 face-image: img/dvp.jpg
