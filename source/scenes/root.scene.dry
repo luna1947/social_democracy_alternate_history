@@ -74,8 +74,8 @@ Q.federalist_urgency = 0;
 Q.nazi_urgency = 0;
 // radicalization indicates how radical the ip's rhetoric is - scale from 0 to 10.
 Q.radicalization = 0;
-// Support for the WTB plan and proto-Keynesian works creation plans in general
-Q.wtb_support = 0;
+// Support for the RKR plan and proto-Keynesian works creation plans in general
+Q.rkr_support = 0;
 // Support for Pacifism within the ip relative to 1928
 Q.pacifism = 0;
 // Support for democratic reform within the ip relative to 1928
@@ -83,10 +83,10 @@ Q.democratization = 0;
 // Support for a communist coalition relative to 1928
 Q.communist_coalition = 0;
 // economic_plan: have we adopted *any* economic plan?
-// 1 - WTB plan, 2 - AfA-bund plan, 3 - radical plan (mass nationalization of industries)
+// 1 - RKR plan, 2 - liberal plan, 3 - radical plan (mass nationalization of industries)
 Q.economic_plan = 0;
-// have we officially adopted the WTB plan?
-Q.wtb_adopted = 0;
+// have we officially adopted the RKR plan?
+Q.rkr_adopted = 0;
 // have we formed the iron front?
 Q.iron_front_formed = 0;
 // people's party support
@@ -375,9 +375,9 @@ Q.welfare = 0;
 // level of support for farmers
 Q.agricultural_policy = 0;
 Q.land_reform = 0;
-// works-creation programs (i.e. WTB-plan) - how much have they implemented?
+// works-creation programs (i.e. RKR-plan) - how much have they implemented?
 Q.works_program = 0;
-Q.wtb_implemented = 0;
+Q.rkr_implemented = 0;
 // Relations with the Western countries (France, UK).
 Q.west_relation = 0;
 // Relations with the Eastern countries (Poland, Czechoslovakia)
