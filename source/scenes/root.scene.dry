@@ -109,6 +109,12 @@ Q.lp_relation = 60;
 Q.dp_relation = 35;
 Q.nsnawp_relation = 0;
 
+// party positions
+Q.lp_left_right = 4;
+Q.cp_auth_lib = 6;
+Q.cp_radicalization = 6;
+Q.ncsdp_radicalization = 3;
+
 //corporate support
 Q.militech_favor = 3;
 Q.arasaka_favor = 5;
