@@ -1,0 +1,21 @@
+title: Socialist Congress
+subtitle: The future of the greater Night City socialist movement will be decided here.
+view-if: cp_radicalization == ncsdp_radicalization and year >= 2078 and month >= 6
+max-visits: 1
+tags: event
+face-image: img/dvp.jpg
+new-page: true
+
+= Socialist Congress
+
+Talks between the NCWPP and NCSDP over the years have been strained, to say the least. Hushed talks of a united socialist front have been brewing for years among the party's [? if cp_radicalization > 5: radicals][? if cp_radicalization < 6: moderates], but now those plans are finally coming to fruition.
+
+The [? if cp_radicalization > 5: moderates ?][? if cp_radicalization < 6: radicals ?] of the [? if cp_radicalization > 5: NCSDP ?][? if cp_radicalization < 6: NCWPP ?] are the only stumbling block of this merger. Will they prove to be too problematic?
+
+- @usp_formed: The party votes...
+
+@usp_formed
+on-arrival: usp_formed = 1
+face-image: img/weimar_coalition_3.jpg
+
+The momentum towards socialist unity has proven too great for the few holdouts within the [? if cp_radicalization > 5: NCSDP ?][? if cp_radicalization < 6: NCWPP ?]'s [? if cp_radicalization > 5: moderates ?][? if cp_radicalization < 6: radicals ?]. The parties have officially voted to approve the merger, as the United Socialist Party (USP) comes to fruition.
