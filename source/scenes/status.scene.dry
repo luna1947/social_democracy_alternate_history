@@ -32,9 +32,11 @@ Council composition:
 
 {!<span class="tooltip-text" title="Independent Party of Night City">IPNC</span>!}: [+ ip_r +]%
 [? if iwpp_formed and iwpp_r > 0: IWPP: [+ iwpp_r +]% ?]
-{!<span class="tooltip-text" title="Night City Social Democratic Party">NCSDP</span>!}: [+ ip_r +]%
+[? if usp_formed and usp_r > 0: USP: [+ usp_r +]% ?]
+[? if ncaf_formed and ncaf_r > 0: NCAF: [+ ncaf_r +]% ?]
+[? if not usp_formed: {!<span class="tooltip-text" title="Night City Social Democratic Party">NCSDP</span>!}: [+ ncsdp_r +]% ?]
 {!<span class="tooltip-text" title="Federalist Party">FP</span>!}: [+ fp_r +]%
-{!<span class="tooltip-text" title="Night City Working People's Party">NCWPP</span>!}: [+ cp_r +]%
+[? if not usp_formed: {!<span class="tooltip-text" title="Night City Working People's Party">NCWPP</span>!}: [+ cp_r +]% ?]
 {!<span class="tooltip-text" title="Devolutionst Party">DP</span>!}: [+ dp_r +]%
 {!<span class="tooltip-text" title="Libertarian Party of Night City">LPNC</span>!}: [+ lp_r +]%
 {!<span class="tooltip-text" title="National Socialist Night City Worker's Party">NSNAWP</span>!}: [+ lp_r +]%
@@ -143,11 +145,15 @@ IP: [+ ip_votes +]%
 
 [? if iwpp_formed: IWPP: [+ iwpp_votes +]% ?]
 
-NCSDP: [+ ncsdp_votes +]%
+[? if not usp_formed: NCSDP: [+ ncsdp_votes +]% ?]
 
 FP: [+ fp_votes +]%
 
-NCWPP: [+ cp_votes +]%
+[? if not usp_formed: NCWPP: [+ cp_votes +]% ?]
+
+[? if usp_formed: USP: [+ usp_votes +]% ?]
+
+[? if ncaf_formed: NCAF: [+ ncaf_votes +]% ?]
 
 DP: [+ dp_votes +]%
 
