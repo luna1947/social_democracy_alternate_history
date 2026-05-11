@@ -5,19 +5,14 @@ Q.parties.push('usp');
 Q.parties_graph.push('usp');
 
 Q.workers_usp = Q.workers_cp + Q.workers_ncsdp
-
 Q.corpo_usp = Q.corpo_cp + Q.corpo_ncsdp
-
 Q.pink_usp = Q.pink_cp + Q.pink_ncsdp
-
-Q.nomad_usp = Q.nomad_cp + Q.nomad_ncsdp
-
+Q.nomads_usp = Q.nomads_cp + Q.nomads_ncsdp
 Q.unemployed_usp = Q.unemployed_cp + Q.unemployed_ncsdp
-
-Q.mercs_usp = Q.mercs_cp + Q.mercs_ncsdp
+Q.merc_usp = Q.merc_cp + Q.merc_ncsdp
 
 if (Q.electoral_threshold < 5) {
-    Q.corpo_usp += 4
+    Q.workers_usp += 4
     Q.pink_usp += 4
     Q.nomad_usp += 4
 }
