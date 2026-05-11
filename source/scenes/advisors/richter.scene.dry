@@ -13,6 +13,8 @@ Johnathan Richter is a leading socialist political scientist in our party.
 - @workers_campaign
 - @socialist_ideology
 - @force_iwpp
+- @force_usp_radical
+- @force_usp_moderate
 - @root: Return to main
 
 @build_socialist
@@ -47,5 +49,19 @@ The socialist wing of the party support this new ideology, and this may represen
 title: Force the formation of the IWPP [!!DEBUG!!]
 subtitle: Crank dissent so high it forms the IWPP
 on-arrival: industrialist_dissent = 70; liberal_dissent = 70;
+
+Ok, cool, reap your rewards
+
+@force_usp_radical
+title: Force the formation of the radical USP [!!DEBUG!!]
+subtitle: change some variables
+on-arrival: cp_radicalization = 10; ncsdp_radicalization = 10
+
+Ok, cool, reap your rewards
+
+@force_usp_moderate
+title: Force the formation of the moderate USP [!!DEBUG!!]
+subtitle: change some variables
+on-arrival: cp_radicalization = 1; ncsdp_radicalization = 1
 
 Ok, cool, reap your rewards
