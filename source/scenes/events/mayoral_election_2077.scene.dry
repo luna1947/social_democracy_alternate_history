@@ -4,7 +4,7 @@ view-if: year = 2077 and (month = 7 or month = 8)
 frequency: 1000
 max-visits: 1
 new-page: true
-on-arrival: rovich_campaign = 0; richter_campaign = 0; bauer_support_holt = 0; presidential_election_seen = 1; nsdap_candidate = "Bauer" if bauer_deported == 0 else nsdap_candidate = "Göring";
+on-arrival: rovich_campaign = 0; richter_campaign = 0; bauer_support_holt = 0; presidential_election_seen = 1; nsnawp_candidate = "Bauer" if bauer_deported == 0 else nsnawp_candidate = "Göring";
 tags: event
 go-to: election_algorithm
 set-jump: pres_election
@@ -15,7 +15,7 @@ face-image: img/holt_election.jpg
 The presidential election is coming up soon. [? if ip_in_government = 0 : While the position of Chancellor is typically more important, recent governments have depended on the president's emergency decree powers, making the office vital. ?] [? if bauer_deported==0 : The Nazis will run Bauer, while the NCWPP will run Petrov. A victory for Bauer would mean the end of parliamentary democracy, and the beginning of an era of unspeakable horrors. ?][? if bauer_deported==1 : Since Bauer has been deported, the Nazis will run Hermann Göring in his stead. He is widely seen as a proxy for Bauer, who, despite his legal persecution, retains a popular base who wishes to see him returned to Germany. Meanwhile, the NCWPP will run Ivan Petrov. ?]
 [? if sapd_formed: The SAPD, our former leftists, are supporting Petrov of the NCWPP, and will likely share an endorsement with the Communists. ?]
 
-# if bauer is deported, who would nsdap run? Duesterberg? or Goering?
+# if bauer is deported, who would nsnawp run? Duesterberg? or Goering?
 # Goering runs, essentially as a proxy for Bauer, who is now stateless.
 
 Many are calling for us to support the incumbent emergency mayor Holt, despite his well-known reactionary tendencies. Is he truly the best bulwark against Bauer's ascension? On the other hand, many in our party are calling for Rovich or Richter to run.
@@ -179,9 +179,7 @@ Q.bauer_votes = 0;
 Q.petrov_votes = 0;
 
 // initial phase:
-Q.bauer_votes += Q.nsdap_normalized;
-Q.holt_votes += Q.other_normalized;
-Q.holt_votes += Q.dnvp_normalized;
+Q.bauer_votes += Q.nsnawp_normalized;
 
 if (Q.rovich_campaign) {
     Q.rovich_votes += Q.ip_normalized;
@@ -221,8 +219,8 @@ if (Q.rovich_campaign) {
     Q.petrov_votes += Q.cp_normalized;
 }
 if (Q.bauer_support_holt) {
-    Q.bauer_votes -= Q.nsdap_normalized;
-    Q.holt_votes += Q.nsdap_normalized;
+    Q.bauer_votes -= Q.nsnawp_normalized;
+    Q.holt_votes += Q.nsnawp_normalized;
 }
 
 if (Q.holt_to_rovich_bonus) {
@@ -266,7 +264,7 @@ Results:
 
 Holt - [+ holt_votes_disp +]%
 
-[+ nsdap_candidate +] - [+ bauer_votes_disp +]%
+[+ nsnawp_candidate +] - [+ bauer_votes_disp +]%
 
 [? if cp_support_rovich == 0 : Petrov - [+ petrov_votes_disp +]% ?]
 
@@ -278,7 +276,7 @@ go-to: round2_menu
 
 There is no majority in this round. In the second round, any candidate who wins a plurality will win overall. What should we do?
 
-[? if rovich_plurality or petrov_plurality : In order to consolidate the vote for the Right, and to prevent a socialist from becoming president, [+ nsdap_candidate +] is no longer running in the second round, and has switched his endorsement to Holt. ?]
+[? if rovich_plurality or petrov_plurality : In order to consolidate the vote for the Right, and to prevent a socialist from becoming president, [+ nsnawp_candidate +] is no longer running in the second round, and has switched his endorsement to Holt. ?]
 
 
 @round2_menu
@@ -321,7 +319,7 @@ on-departure: bauer_support_holt = 1 if rovich_votes + fp_votes > bauer_votes
 
 [? if bauer_support_holt : The Federalists's opinion is affected by the Nazis' support of Holt, and is willing to turn away from him. ?] The Federalists are convinced! They will be part of the Rovich coalition. [? if bauer_support_holt : In addition, they will also bring in some minor parties who will support us. ?]
 
-[? if not bauer_support_holt and rovich_votes + fp_votes > bauer_votes: With the Federalist Party supporting Rovich, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Holt to prevent a socialist from becoming president. ?]
+[? if not bauer_support_holt and rovich_votes + fp_votes > bauer_votes: With the Federalist Party supporting Rovich, [+ nsnawp_candidate +] has dropped out of the race, and the Nazis have endorsed Holt to prevent a socialist from becoming president. ?]
 
 @r2_fp_partial
 
@@ -340,7 +338,7 @@ go-to: round2_menu
 
 With our resources, the Federalists are convinced to support Rovich over Holt.
 
-[? if not bauer_support_holt and rovich_votes + fp_votes > bauer_votes: With the Federalist Party supporting Rovich, [+ nsdap_candidate +] has dropped out of the race, and the Nazis have endorsed Holt to prevent a socialist from becoming president. ?]
+[? if not bauer_support_holt and rovich_votes + fp_votes > bauer_votes: With the Federalist Party supporting Rovich, [+ nsnawp_candidate +] has dropped out of the race, and the Nazis have endorsed Holt to prevent a socialist from becoming president. ?]
 
 @r2_fp_failed
 go-to: round2_menu
@@ -430,10 +428,10 @@ Ivan Petrov of the NCWPP has won the presidency. Immediately, the far-right laun
 - @civil_war: This is civil war.
 
 @bauer_wins
-on-arrival: president = nsdap_candidate; chancellor = "Bauer"; chancellor_party = "NSNCWP"
+on-arrival: president = nsnawp_candidate; chancellor = "Bauer"; chancellor_party = "NSNCWP"
 
-[? if nsdap_candidate == "Bauer" : Rudolf Bauer of the NSNCWP has won the presidency. He wastes no time in consolidating power. ?]
-[? if nsdap_candidate != "Bauer" : The NSNCWP candidate [+ president +] has won. The first action President [+ president +] takes is inviting Bauer back into Germany, and appointing him chancellor. The Nazis waste no time in consolidating power. ?]
+[? if nsnawp_candidate == "Bauer" : Rudolf Bauer of the NSNCWP has won the presidency. He wastes no time in consolidating power. ?]
+[? if nsnawp_candidate != "Bauer" : The NSNCWP candidate [+ president +] has won. The first action President [+ president +] takes is inviting Bauer back into Germany, and appointing him chancellor. The Nazis waste no time in consolidating power. ?]
 
 - @bauer_takes_power: What do we do now?
 
