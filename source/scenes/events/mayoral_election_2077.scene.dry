@@ -421,7 +421,7 @@ on-arrival: mayor = "Holt"; mayor_party = "DP"
 As expected, the incumbent Holt wins the presidency. Let's hope he continues to keep the Nazis out of power.
 
 @petrov_wins
-on-arrival: mayor = "Petrov"; mayor_party = "NCWPP" cp_relation = 80;
+on-arrival: mayor = "Petrov"; mayor_party = "NCWPP"; cp_relation = 80;
 
 Ivan Petrov of the NCWPP has won the presidency. Immediately, the far-right launches a coup attempt against the government. We have no choice but to unite with the NCWPP against the fascists...
 
