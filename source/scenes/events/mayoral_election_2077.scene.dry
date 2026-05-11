@@ -4,7 +4,7 @@ view-if: year = 2077 and (month = 7 or month = 8)
 frequency: 1000
 max-visits: 1
 new-page: true
-on-arrival: rovich_campaign = 0; richter_campaign = 0; bauer_support_holt = 0; presidential_election_seen = 1; nsnawp_candidate = "Bauer" if bauer_deported == 0 else nsnawp_candidate = "Göring";
+on-arrival: rovich_campaign = 0; richter_campaign = 0; bauer_support_holt = 0; mayorial_election_seen = 1; nsnawp_candidate = "Bauer" if bauer_deported == 0 else nsnawp_candidate = "Göring";
 tags: event
 go-to: election_algorithm
 set-jump: pres_election
@@ -12,9 +12,9 @@ face-image: img/holt_election.jpg
 
 @pres_election
 
-The presidential election is coming up soon. [? if ip_in_government = 0 : While the position of Chancellor is typically more important, recent governments have depended on the president's emergency decree powers, making the office vital. ?] [? if bauer_deported==0 : The Nazis will run Bauer, while the NCWPP will run Petrov. A victory for Bauer would mean the end of parliamentary democracy, and the beginning of an era of unspeakable horrors. ?][? if bauer_deported==1 : Since Bauer has been deported, the Nazis will run Hermann Göring in his stead. He is widely seen as a proxy for Bauer, who, despite his legal persecution, retains a popular base who wishes to see him returned to Germany. Meanwhile, the NCWPP will run Ivan Petrov. ?]
+The mayorial election is coming up soon. [? if ip_in_government = 0 : While the position of Chancellor is typically more important, recent governments have depended on the mayor's emergency decree powers, making the office vital. ?] [? if bauer_deported==0 : The Nazis will run Bauer, while the NCWPP will run Petrov. A victory for Bauer would mean the end of parliamentary democracy, and the beginning of an era of unspeakable horrors. ?][? if bauer_deported==1 : Since Bauer has been deported, the Nazis will run Hermann Göring in his stead. He is widely seen as a proxy for Bauer, who, despite his legal persecution, retains a popular base who wishes to see him returned to Germany. Meanwhile, the NCWPP will run Ivan Petrov. ?]
 [? if sapd_formed: The SAPD, our former leftists, are supporting Petrov of the NCWPP, and will likely share an endorsement with the Communists. ?]
-
+ 
 # if bauer is deported, who would nsnawp run? Duesterberg? or Goering?
 # Goering runs, essentially as a proxy for Bauer, who is now stateless.
 
@@ -88,7 +88,7 @@ if (Q.fp_relation >= 55 || (Q.fp_relation > 35 && Q.fp_party_leader == "Joos")) 
 go-to: fp_failed if fp_support_rovich = 0 or (fp_support_rovich == 2 and historical_mode); fp_success if fp_support_rovich = 1; fp_partial if fp_support_rovich = 2 and not historical_mode
 max-visits: 1
 
-We remind the Federalists leaders of Holt's anti-Catholicism, and try to convince them that Holt's path will eventually lead to Bauer. We also remind them of the successes they've had as part of the Weimar coalition in Prussia with Otto Rovich, and our support for the Federalists candidate Wilhelm Marx in the 1925 presidential election.
+We remind the Federalists leaders of Holt's anti-Catholicism, and try to convince them that Holt's path will eventually lead to Bauer. We also remind them of the successes they've had as part of the Weimar coalition in Prussia with Misha Rovich, and our support for the Federalists candidate Wilhelm Marx in the 1925 mayorial election.
 
 @fp_success
 go-to: rovich_campaign
@@ -135,7 +135,7 @@ unavailable-subtitle: Not enough resources (need 3).
 on-arrival: resources -= 3; cp_support_rovich = 1
 go-to: rovich_campaign
 
-The NCWPP now endorses Rovich in the presidential election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters.
+The NCWPP now endorses Rovich in the mayorial election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters.
 
 @cp_relations
 view-if: cp_relation >= 60 or (cp_party_leader == "Conciliators" and cp_relation >= 45)
@@ -143,7 +143,7 @@ unavailable-subtitle: Our relations are not good enough.
 on-arrival: cp_support_rovich = 1
 go-to: rovich_campaign
 
-The NCWPP now endorses Rovich in the presidential election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters.
+The NCWPP now endorses Rovich in the mayorial election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters.
 
 @convince_libertarians
 max-visits: 1
@@ -183,7 +183,7 @@ Q.bauer_votes += Q.nsnawp_normalized;
 
 if (Q.rovich_campaign) {
     Q.rovich_votes += Q.ip_normalized;
-    Q.rovich_votes += Q.ddp_normalized;
+    Q.rovich_votes += Q.dp_normalized;
     if (Q.fp_support_rovich && Q.fp_support_rovich == 1) {
         Q.rovich_votes += Q.fp_normalized;
     } else {
@@ -276,7 +276,7 @@ go-to: round2_menu
 
 There is no majority in this round. In the second round, any candidate who wins a plurality will win overall. What should we do?
 
-[? if rovich_plurality or petrov_plurality : In order to consolidate the vote for the Right, and to prevent a socialist from becoming president, [+ nsnawp_candidate +] is no longer running in the second round, and has switched his endorsement to Holt. ?]
+[? if rovich_plurality or petrov_plurality : In order to consolidate the vote for the Right, and to prevent a socialist from becoming mayor, [+ nsnawp_candidate +] is no longer running in the second round, and has switched his endorsement to Holt. ?]
 
 
 @round2_menu
@@ -319,7 +319,7 @@ on-departure: bauer_support_holt = 1 if rovich_votes + fp_votes > bauer_votes
 
 [? if bauer_support_holt : The Federalists's opinion is affected by the Nazis' support of Holt, and is willing to turn away from him. ?] The Federalists are convinced! They will be part of the Rovich coalition. [? if bauer_support_holt : In addition, they will also bring in some minor parties who will support us. ?]
 
-[? if not bauer_support_holt and rovich_votes + fp_votes > bauer_votes: With the Federalist Party supporting Rovich, [+ nsnawp_candidate +] has dropped out of the race, and the Nazis have endorsed Holt to prevent a socialist from becoming president. ?]
+[? if not bauer_support_holt and rovich_votes + fp_votes > bauer_votes: With the Federalist Party supporting Rovich, [+ nsnawp_candidate +] has dropped out of the race, and the Nazis have endorsed Holt to prevent a socialist from becoming mayor. ?]
 
 @r2_fp_partial
 
@@ -338,7 +338,7 @@ go-to: round2_menu
 
 With our resources, the Federalists are convinced to support Rovich over Holt.
 
-[? if not bauer_support_holt and rovich_votes + fp_votes > bauer_votes: With the Federalist Party supporting Rovich, [+ nsnawp_candidate +] has dropped out of the race, and the Nazis have endorsed Holt to prevent a socialist from becoming president. ?]
+[? if not bauer_support_holt and rovich_votes + fp_votes > bauer_votes: With the Federalist Party supporting Rovich, [+ nsnawp_candidate +] has dropped out of the race, and the Nazis have endorsed Holt to prevent a socialist from becoming mayor. ?]
 
 @r2_fp_failed
 go-to: round2_menu
@@ -368,7 +368,7 @@ unavailable-subtitle: Not enough resources (need 3).
 on-arrival: resources -= 3; cp_support_rovich = 1
 go-to: round2_menu
 
-The NCWPP now endorses Rovich in the presidential election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters.
+The NCWPP now endorses Rovich in the mayorial election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters.
 
 @r2_cp_relations
 view-if: cp_relation >= 60 or (cp_party_leader == "Conciliators" and cp_relation >= 45)
@@ -376,7 +376,7 @@ unavailable-subtitle: Our relations are not good enough.
 on-arrival: cp_support_rovich = 1
 go-to: round2_menu
 
-The NCWPP now endorses Rovich in the presidential election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters. 
+The NCWPP now endorses Rovich in the mayorial election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters. 
 
 @round2_petrov
 view-if: ip_support_petrov == 0 and cp_support_rovich == 0
@@ -416,27 +416,27 @@ go-to: holt_wins if holt_plurality == 1; petrov_wins if petrov_plurality == 1; r
 
 
 @holt_wins
-on-arrival: president = "Holt"
+on-arrival: mayor = "Holt"; mayor_party = "DP"
 
 As expected, the incumbent Holt wins the presidency. Let's hope he continues to keep the Nazis out of power.
 
 @petrov_wins
-on-arrival: president = "Petrov"; cp_relation = 80;
+on-arrival: mayor = "Petrov"; mayor_party = "NCWPP" cp_relation = 80;
 
 Ivan Petrov of the NCWPP has won the presidency. Immediately, the far-right launches a coup attempt against the government. We have no choice but to unite with the NCWPP against the fascists...
 
 - @civil_war: This is civil war.
 
 @bauer_wins
-on-arrival: president = nsnawp_candidate; chancellor = "Bauer"; chancellor_party = "NSNCWP"
+on-arrival: mayor = nsnawp_candidate; mayor_party = "NSNCWP"
 
 [? if nsnawp_candidate == "Bauer" : Rudolf Bauer of the NSNCWP has won the presidency. He wastes no time in consolidating power. ?]
-[? if nsnawp_candidate != "Bauer" : The NSNCWP candidate [+ president +] has won. The first action President [+ president +] takes is inviting Bauer back into Germany, and appointing him chancellor. The Nazis waste no time in consolidating power. ?]
+[? if nsnawp_candidate != "Bauer" : The NSNCWP candidate [+ mayor +] has won. The first action Mayor [+ mayor +] takes is inviting Bauer back into Germany, and handing him the position. The Nazis waste no time in consolidating power. ?]
 
 - @bauer_takes_power: What do we do now?
 
 
 @rovich_wins
-on-arrival: president = "Rovich"; reformist_dissent -= 15; Federalists_dissent -= 15; labor_dissent -= 15; left_dissent -= 5; workers_ip += 8*(1-dissent); old_middle_ip += 5*(1-dissent); new_middle_ip += 5*(1-dissent); rural_ip += 5*(1-dissent); unemployed_ip += 5*(1-dissent);
+on-arrival: mayor = "Rovich"; reformist_dissent -= 15; Federalists_dissent -= 15; labor_dissent -= 15; left_dissent -= 5; workers_ip += 8*(1-dissent); old_middle_ip += 5*(1-dissent); new_middle_ip += 5*(1-dissent); rural_ip += 5*(1-dissent); unemployed_ip += 5*(1-dissent);
 
-Otto Rovich of the ip has won the presidency! This is a moment of celebration for our party, and his victory is able to bolster our support.
+Misha Rovich of the ip has won the presidency! This is a moment of celebration for our party, and his victory is able to bolster our support.
