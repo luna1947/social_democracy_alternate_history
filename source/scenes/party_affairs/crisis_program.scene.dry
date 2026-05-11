@@ -27,7 +27,7 @@ Meanwhile, liberals draw up proposals for a limited plan of job creation through
 
 @support_green
 subtitle: Let the crisis play itself out.
-on-arrival: green_strength += 5; green_dissent -= 5; industrialist_dissent += 10; _support -= 1; socialist_dissent += 10;
+on-arrival: green_strength += 5; green_dissent -= 5; industrialist_dissent += 10; socialist_dissent += 10;
 
 Kennedy and the trade unions vehemently criticize the greens for their policy. The workers are starving; are we going to callously abandon them? On the other hand, the greens criticize Kennedy for promising the workers false hope; their position is that nothing can be done to alleviate the depression. They also speak of the fear of another round of hyperinflation that may result from deficit spending.
 
@@ -38,19 +38,19 @@ Our policy course is currently that nothing can be done to alleviate the depress
 subtitle: Call for increased public works and fiscal stimulus.
 unavailable-subtitle: The Industrialist faction is not strong enough.
 choose-if: historical_mode == 0 or (industrialist_strength >= socialist_strength and industrialist_strength >= green_strength and industrialist_strength >= liberal_strength)
-on-arrival: green_dissent += 10; socialist_dissent += 5; industrialist_strength += 5; wtb_support += 1;
-go-to: plan_adopted if wtb_support >= 3; plan_support if wtb_support < 3
+on-arrival: green_dissent += 10; socialist_dissent += 5; industrialist_strength += 5; rkr_support += 1;
+go-to: plan_adopted if rkr_support >= 3; plan_support if rkr_support < 3
 
 @plan_support
 
-Our support of the WTB plan alienates the hands-off approach of many in the Green faction, and faces both opposition and support from a variety of sources across the spectrum. Leftists argue that the plan is flawed because it leaves capitalism intact, while some liberals are cautiously optimistic.
+Our support of the RKR plan alienates the hands-off approach of many in the Green faction, and faces both opposition and support from a variety of sources across the spectrum. Leftists argue that the plan is flawed because it leaves capitalism intact, while some liberals are cautiously optimistic.
 
 We have not yet convinced the party to formally adopt the plan. More work needs to be done.
 
 @plan_adopted
-on-arrival: wtb_adopted = 1; industrialist_dissent -= 15; liberal_dissent -= 10; industrialist_strength += 10; green_strength -= 10; green_dissent += 20; socialist_dissent += 5; economic_plan = 1
+on-arrival: rkr_adopted = 1; industrialist_dissent -= 15; liberal_dissent -= 10; industrialist_strength += 10; green_strength -= 10; green_dissent += 20; socialist_dissent += 5; economic_plan = 1
 
-With our hard work, we have finally convinced the majority of the party to adopt the WTB plan! [? if spd_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Finance minsistry. ?][? if spd_in_government = 0 : We should emphasize the plan in our electoral propaganda. ?]
+With our hard work, we have finally convinced the majority of the party to adopt the RKR plan! [? if spd_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Finance minsistry. ?][? if spd_in_government = 0 : We should emphasize the plan in our electoral propaganda. ?]
 
 @support_socialist
 subtitle: Call for mass nationalizations and the transformation of the economy.
