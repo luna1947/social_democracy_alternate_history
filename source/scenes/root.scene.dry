@@ -223,51 +223,51 @@ Q.parties = ['ip', 'ncsdp', 'cp', 'fp', 'lp', 'dp', 'nsnawp'];
 // Support for party by social group
 // they don't have to sum to 100 since the electoral calculations will be normalized.
 Q.workers_ip = 25;
-Q.workers_ncsdp = 20;
+Q.workers_ncsdp = 3;
 Q.workers_cp = 5;
-Q.workers_fp = 30;
+Q.workers_fp = 44;
 Q.workers_lp = 0;
-Q.workers_dp = 35;
-Q.workers_nsnawp = 5;
+Q.workers_dp = 23;
+Q.workers_nsnawp = 4;
 
-Q.corpo_ip = 10;
+Q.corpo_ip = 8;
 Q.corpo_ncsdp = 0;
 Q.corpo_cp = 0;
-Q.corpo_fp = 50;
+Q.corpo_fp = 60;
 Q.corpo_lp = 0;
-Q.corpo_dp = 35;
-Q.corpo_nsnawp = 5;
+Q.corpo_dp = 32;
+Q.corpo_nsnawp = 4;
 
-Q.nomads_ip = 20;
-Q.nomads_ncsdp = 12;
-Q.nomads_cp = 10;
-Q.nomads_fp = 10;
+Q.nomads_ip = 10;
+Q.nomads_ncsdp = 0;
+Q.nomads_cp = 8;
+Q.nomads_fp = 26;
 Q.nomads_lp = 30;
-Q.nomads_dp = 30;
-Q.nomads_nsnawp = 0;
+Q.nomads_dp = 26;
+Q.nomads_nsnawp = 4;
 
 Q.unemployed_ip = 40;
-Q.unemployed_ncsdp = 40;
-Q.unemployed_cp = 20;
-Q.unemployed_fp = 0;
+Q.unemployed_ncsdp = 4;
+Q.unemployed_cp = 8;
+Q.unemployed_fp = 22;
 Q.unemployed_lp = 0;
-Q.unemployed_dp = 0;
-Q.unemployed_nsnawp = 0;
+Q.unemployed_dp = 30;
+Q.unemployed_nsnawp = 4;
 
-Q.pink_ip = 39;
-Q.pink_ncsdp = 32;
+Q.pink_ip = 0;
+Q.pink_ncsdp = 3;
 Q.pink_cp = 4;
-Q.pink_fp = 24;
-Q.pink_lp = 14;
-Q.pink_dp = 16;
+Q.pink_fp = 30;
+Q.pink_lp = 0;
+Q.pink_dp = 53;
 Q.pink_nsnawp = 0;
 
-Q.merc_ip = 7;
-Q.merc_ncsdp = 22;
-Q.merc_cp = 13;
-Q.merc_fp = 40;
-Q.merc_lp = 23;
-Q.merc_dp = 6;
+Q.merc_ip = 13;
+Q.merc_ncsdp = 0;
+Q.merc_cp = 0;
+Q.merc_fp = 50;
+Q.merc_lp = 30;
+Q.merc_dp = 0;
 Q.merc_nsnawp = 7;
 
 
