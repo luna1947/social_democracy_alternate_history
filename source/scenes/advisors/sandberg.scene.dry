@@ -1,0 +1,32 @@
+title: Walter Sandberg
+is-pinned-card: true
+tags: advisor, left
+card-image: img/portraits/CrispienArthur.jpg
+view-if: sandberg_advisor = 1
+new-page: true 
+
+= Walter Sandberg
+
+Sandberg is a former NCWPP member that left over their extremely violent idea of revolution.
+
+- @building_the_radicals
+- @ncwpp_cooperation
+- @root: Return to main
+
+@building_the_radicals
+title: Building the Radicals
+subtitle: Push the IPNC towards radicalism.
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer = 0
+on-arrival: advisor_action_timer = 6; left_strength += 10; left_dissent -= 8; reformist_dissent += 3
+
+We have increased the strength of the radical faction within the IPNC. This raises concern among the moderate liberals and socialists in the party.
+
+@ncwpp_cooperation
+title: Cooperation with the NCWPP
+subtitle: Any cooperation between the parties requires compromise from the NCWPP as well as the IPNC.
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer = 0
+on-arrival: advisor_action_timer = 6; left_strength += 5; cp_relation += 6*(1-dissent); reformist_dissent += 3; communist_coalition += 1 if cp_cooperation_seen <= 1; cp_cooperation_seen += 1
+
+Sandberg attempts to reach out to his former colleagues to dissuade the NCWPP from their current extreme revolutionary path. Some concessions are extracted.
