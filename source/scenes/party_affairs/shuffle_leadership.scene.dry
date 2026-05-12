@@ -21,7 +21,7 @@ Removing advisors will increase dissent from their faction of the party, while s
 
 @rm_main
 title: Remove advisors.
-tags: center_advisor, left_advisor, reformist_advisor, labor_advisor, neorev_advisor, nonfactional_advisor 
+tags: radical_advisor, socialist_advisor, industrialist_advisor, liberal_advisor, neorev_advisor, nonfactional_advisor 
 frequency: 1
 
 - #remove_advisor
@@ -32,10 +32,11 @@ title: Stop changing advisors.
 go-to: root
 tags: remove_advisor
 
+# radicals
 
-@remove_hilferding
-title: Remove Hilferding
-view-if: hilferding_advisor = 1
+@remove_sandberg
+title: Remove Sandberg
+view-if: sandberg_advisor = 1
 on-arrival: hilferding_advisor = 0; center_dissent += 5; n_advisors -= 1
 tags: remove_advisor
 go-to: rm_main
@@ -70,8 +71,7 @@ go-to: rm_main
 
 Breitscheid has been removed as an advisor. The Centrist faction disapproves.
 
-# reformists
-
+# industrialists
 
 @remove_severing
 title: Remove Severing
@@ -110,7 +110,7 @@ go-to: rm_main
 Pfülf has been removed as an advisor. The Reformist faction disapproves.
 
 
-# labor
+# socialist
 
 @remove_leipart
 title: Remove Leipart
@@ -149,7 +149,7 @@ go-to: rm_main
 
 Woytinsky has been removed as an advisor. The Labor faction disapproves.
 
-# left
+# liberal
 
 @remove_levi
 title: Remove Levi
@@ -286,57 +286,53 @@ go-to: advisor_menu
 
 @advisor_menu
 title: Add other advisors.
-tags: center_advisor, left_advisor, reformist_advisor, labor_advisor, neorev_advisor, nonfactional_advisor
+tags: radical_advisor, socialist_advisor, industrialist_advisor, liberal_advisor, nonfactional_advisor
 frequency: 1
 
 
-- @centrist: Add Centrists
-- @left: Add Leftists
-- @reformist: Add Reformists
-- @labor: Add Labor
-- @neorev: Add Neorevisionists
+- @radical: Add Radicals
+- @industrialist: Add Industrialists
+- @socialist: Add Socialists
+- @liberal: Add Liberals
 - @nonfactional: Add non-factional advisors
 - @rm_main: Remove advisors instead.
 - @remove_none: Stop changing advisors.
 
-@centrist
+@radical
 view-if: n_advisors < 3
 
-- #center_advisor
+- #radical_advisor
 
-@reformist
+@industrialist
 view-if: n_advisors < 3
 
-- #reformist_advisor
+- #industrialist_advisor
 
-@left
+@socialist
 view-if: n_advisors < 3
 
-- #left_advisor
+- #socialist_advisor
 
-@labor
+@liberal
 view-if: n_advisors < 3
 
-- #labor_advisor
-
-@neorev
-view-if: neorevisionism > 0 and n_advisors < 3
-
-- #neorev_advisor
+- #liberal_advisor
 
 @nonfactional
 view-if: n_advisors < 3
 
 - #nonfactional_advisor
 
-@add_hilferding
-title: Rudolf Hilferding
+# radical
+
+@add_sandberg
+title: Walter Sandberg
 subtitle: Rudolf Hilferding is an economist and one of our chief Marxist theoreticians. {!<br><br>!}[? if difficulty < 0 : Actions - Against Right and Left, Defending Toleration, Fiscal Policy, Economic Democracy ?]
 is-card: true
 card-image: img/portraits/HilferdingRudolf.jpg
-tags: center_advisor
-view-if: hilferding_advisor = 0 and n_advisors < 3 and centrists_resign = 0
-on-arrival: hilferding_advisor = 1; n_advisors += 1
+tags: radical_advisor
+view-if: sandberg_advisor = 0 and n_advisors < 3 and radicals_split = 0
+on-arrival: sandberg_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
 Rudolf Hilferding is now an advisor.
@@ -346,7 +342,7 @@ title: Otto Wels
 subtitle: Otto Wels is a long-time party organizer and member of the leadership, serving under Friedrich Ebert. {!<br><br>!}[? if difficulty < 0 : Actions -  Clear the Agenda, Party Discipline, Emergency Fundraising ?]
 is-card: true
 card-image: img/portraits/WelsRudolf.jpg
-tags: center_advisor
+tags: radical_advisor
 view-if: wels_advisor = 0 and n_advisors < 3 and centrists_resign = 0
 on-arrival: wels_advisor = 1; n_advisors += 1
 go-to: advisor_menu
@@ -358,7 +354,7 @@ title: Hermann Müller
 subtitle: Hermann Müller is the last Social Democratic Chancellor. {!<br><br>!}[? if difficulty < 0 : Actions - Negotiating with the Coalition, Defending Toleration ?]
 is-card: true
 card-image: img/portraits/MüllerHermann.jpg
-tags: center_advisor
+tags: radical_advisor
 view-if: muller_advisor = 0 and muller_dead = 0 and n_advisors < 3 and centrists_resign = 0
 on-arrival: muller_advisor = 1; n_advisors += 1
 go-to: advisor_menu
@@ -373,11 +369,11 @@ card-image: img/portraits/BreitscheidRudolf.jpg
 view-if: breitscheid_advisor = 0 and n_advisors < 3
 on-arrival: breitscheid_advisor = 1; n_advisors += 1
 go-to: advisor_menu
-tags: center_advisor
+tags: radical_advisor
 
 Rudolf Breitscheid is now an advisor.
 
-# reformist
+# industrialist
 
 
 @add_severing
@@ -385,7 +381,7 @@ title: Carl Severing
 subtitle: Carl Severing is a one-time Prussian interior minister and police reformer. {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Police Affairs ?]
 is-card: true
 card-image: img/portraits/SeveringCarl.jpg
-tags: reformist_advisor
+tags: industrialist_advisor
 view-if: severing_advisor = 0 and n_advisors < 3
 on-arrival: severing_advisor = 1; n_advisors += 1; reformist_strength += 5
 go-to: advisor_menu
@@ -397,7 +393,7 @@ title: Otto Braun
 subtitle: Otto Braun is the Minister-President of Prussia, and one of the most recognizable and well-known Social Democratic leaders. {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Negotiating with the Coalition ?]
 is-card: true
 card-image: img/portraits/BraunOtto.jpg
-tags: reformist_advisor
+tags: industrialist_advisor
 view-if: braun_advisor = 0 and n_advisors < 3
 on-arrival: braun_advisor = 1; n_advisors += 1; reformist_strength += 5
 go-to: advisor_menu
@@ -412,7 +408,7 @@ card-image: img/portraits/JuchaczMarie.jpg
 view-if: juchacz_advisor = 0 and n_advisors < 3
 on-arrival: juchacz_advisor = 1; n_advisors += 1; reformist_strength += 5
 go-to: advisor_menu
-tags: reformist_advisor
+tags: industrialist_advisor
 
 Marie Juchacz is now an advisor.
 
@@ -424,13 +420,13 @@ card-image: img/portraits/PfülfAntonie.jpg
 view-if: pfulf_advisor = 0 and n_advisors < 3
 on-arrival: pfulf_advisor = 1; n_advisors += 1
 go-to: advisor_menu
-tags: reformist_advisor
+tags: industrialist_advisor
 
 Antonie Pfülf is now an advisor.
 
 
 
-# left
+# socialists
 
 @add_levi
 title: Paul Levi
@@ -440,7 +436,7 @@ card-image: img/portraits/LeviPaul.jpg
 view-if: levi_advisor = 0 and levi_dead = 0 and n_advisors < 3 and left_split = 0
 on-arrival: levi_advisor = 1; n_advisors += 1; left_strength += 5
 go-to: advisor_menu
-tags: left_advisor
+tags: socialist_advisor
 
 Paul Levi is now an advisor.
 
@@ -452,7 +448,7 @@ card-image: img/portraits/SenderToni.jpg
 view-if: sender_advisor = 0 and n_advisors < 3
 on-arrival: sender_advisor = 1; n_advisors += 1; left_strength += 5
 go-to: advisor_menu
-tags: left_advisor
+tags: socialist_advisor
 
 Toni Sender is now an advisor.
 
@@ -464,7 +460,7 @@ card-image: img/portraits/RosenfeldKurt.jpg
 view-if: rosenfeld_advisor = 0 and n_advisors < 3 and left_split = 0
 on-arrival: rosenfeld_advisor = 1; n_advisors += 1; left_strength += 5
 go-to: advisor_menu
-tags: left_advisor
+tags: socialist_advisor
 
 Kurt Rosenfeld is now an advisor.
 
@@ -476,7 +472,7 @@ card-image: img/portraits/SeydewitzMax.jpg
 view-if: seydewitz_advisor = 0 and n_advisors < 3 and left_split = 0
 on-arrival: seydewitz_advisor = 1; n_advisors += 1; left_strength += 5
 go-to: advisor_menu
-tags: left_advisor
+tags: socialist_advisor
 
 Max Seydewitz is now an advisor.
 
@@ -488,7 +484,7 @@ card-image: img/portraits/SiemsenAnna.jpg
 view-if: siemsen_advisor = 0 and n_advisors < 3 and left_split = 0
 on-arrival: siemsen_advisor = 1; n_advisors += 1; left_strength += 5
 go-to: advisor_menu
-tags: left_advisor
+tags: socialist_advisor
 
 Anna Siemsen is now an advisor.
 
@@ -501,7 +497,7 @@ title: Theodor Leipart
 subtitle: Theodor Leipart is the leader of the ADGB, the German Trade Union Federation. {!<br><br>!}[? if difficulty < 0 : Actions - Organizing Workers, Addressing the Economic Crisis ?]
 is-card: true
 card-image: img/portraits/LeipartTheodor.jpg
-tags: labor_advisor
+tags: liberal_advisor
 view-if: leipart_advisor = 0 and n_advisors < 3 and unions_independent = 0
 on-arrival: leipart_advisor = 1; n_advisors += 1; labor_strength += 5
 go-to: advisor_menu
@@ -513,7 +509,7 @@ title: Siegfried Aufhäuser
 subtitle: Siegfried Aufhäuser is the leader of the AfA-Bund, the white-collar trade union federation. {!<br><br>!}[? if difficulty < 0 : Actions - Organizing White-Collar Workers, Union-Party Coordination, Addressing the Economic Crisis ?]
 is-card: true
 card-image: img/portraits/AufhäuserSiegfried.jpg
-tags: labor_advisor
+tags: liberal_advisor
 view-if: aufhauser_advisor = 0 and n_advisors < 3
 on-arrival: aufhauser_advisor = 1; n_advisors += 1; labor_strength += 5
 go-to: advisor_menu
@@ -525,7 +521,7 @@ title: Rudolf Wissell
 subtitle: Rudolf Wissell is an economist who has been the Labor Minister, and is an advocate for the interests of labor within the government. {!<br><br>!}[? if difficulty < 0 : Actions - Union-Party Coordination, Labor Rights ?]
 is-card: true
 card-image: img/portraits/WissellRudolf.jpg
-tags: labor_advisor
+tags: liberal_advisor
 view-if: wissell_advisor = 0 and n_advisors < 3 and unions_independent = 0
 on-arrival: wissell_advisor = 1; n_advisors += 1; labor_strength += 3
 go-to: advisor_menu
@@ -538,7 +534,7 @@ title: Wladimir Woytinsky
 subtitle: Wladimir Woytinsky is a former Russian Menshevik who is now the lead trade union economist. {!<br><br>!}[? if difficulty < 0 : Actions - Addressing the Economic Crisis, Carrying Out the Economic Plan ?]
 is-card: true
 card-image: img/portraits/WoytinskyWladimir.jpg
-tags: labor_advisor
+tags: liberal_advisor
 view-if: woytinsky_advisor = 0 and n_advisors < 3 and unions_independent = 0
 on-arrival: woytinsky_advisor = 1; n_advisors += 1; labor_strength += 3
 go-to: advisor_menu
