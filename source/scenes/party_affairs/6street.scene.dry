@@ -29,9 +29,9 @@ on-arrival: month_actions += 1; str_timer += 6; str_militarization_cost = 2 if s
 choose-if: resources >= str_militarization_cost
 unavailable-subtitle: Not enough resources ([+ str_militarization_cost +] needed).
 subtitle: -[+ str_militarization_cost +] resources
-on-arrival: resources -= str_militarization_cost; str_investment += 1; str_strength += 100; str_militancy += 0.05; left_strength += 2; left_dissent -= 2; reformist_dissent += 5; str_militancy += 0.05; workers_ip += 2*(1-dissent); unemployed_ip += 2*(1-dissent); str_support += 1;
+on-arrival: resources -= str_militarization_cost; str_investment += 1; str_strength += 100; str_militancy += 0.05; radical_strength += 2; radical_dissent -= 2; liberal_dissent += 5; str_militancy += 0.05; workers_ip += 2*(1-dissent); unemployed_ip += 2*(1-dissent); merc_ip += 2*(1-dissent); str_support += 1;
 
-Some in our party decry the increasing militarization of 6th Street. They say it is emulating the right-wing nationalists or the communists, and risks alienating our allies in the centrist parties. On the other hand, more left-leaning radicals are being lured to our organizations, away from the communists.
+Some in our party decry the resources spent on money towards 6th Street. They say that the gang can support themselves. The radicals say that a strong paramilitary is important for our safety. Could they be right?
 
 
 @militant_2
@@ -43,16 +43,16 @@ As we have already funded resources towards 6th Street, we can invest in buildin
 
 @same
 
-6th Street is already serving the purpose we need them to serve. There is no reason to change what already works.
+6th Street is already serving the purpose we need them to serve. There is no reason to pay them more than we already do.
 
 - @return: Continue...
 
 
 @cut_str
 subtitle: +1 resources
-on-arrival: resources += 1; str_strength -= 100; str_militancy -= 0.05; socialist_strength -= 2; socialist_dissent -= 2; str_militancy -= 0.05; workers_cp += 2; unemployed_cp += 2; str_support -= 1;
+on-arrival: resources += 1; str_strength -= 100; str_militancy -= 0.05; radical_strength -= 2; radical_dissent -= 2; str_militancy -= 0.05; workers_cp += 2; unemployed_cp += 2; merc_ip += 2; str_support -= 1;
 
-Cutting resources to the Reichsbanner causes a drop in the membership, and leads some would-be members to join the Communists instead.
+Cutting resources to 6th Street causes a slight schism within us and them, and they become less keen to our party.
 
 @kill_the_bastards
 subtitle: -1 resources. What are they going to do, fight back?
