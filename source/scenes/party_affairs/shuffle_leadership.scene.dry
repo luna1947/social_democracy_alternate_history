@@ -37,7 +37,7 @@ tags: remove_advisor
 @remove_sandberg
 title: Remove Sandberg
 view-if: sandberg_advisor = 1
-on-arrival: hilferding_advisor = 0; center_dissent += 5; n_advisors -= 1
+on-arrival: hilferding_advisor = 0; radical_dissent += 5; n_advisors -= 1
 tags: remove_advisor
 go-to: rm_main
 
@@ -73,11 +73,11 @@ Breitscheid has been removed as an advisor. The Centrist faction disapproves.
 
 # industrialists
 
-@remove_severing
-title: Remove Severing
-view-if: severing_advisor = 1
+@remove_rovich
+title: Remove Rovich
+view-if: rovich_advisor = 1
 tags: remove_advisor
-on-arrival: severing_advisor = 0; reformist_dissent += 5; n_advisors -= 1
+on-arrival: rovich_advisor = 0; industrialist_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
 Severing has been removed as an advisor. The Reformist faction disapproves.
@@ -112,20 +112,20 @@ Pfülf has been removed as an advisor. The Reformist faction disapproves.
 
 # socialist
 
-@remove_leipart
-title: Remove Leipart
-view-if: leipart_advisor = 1
+@remove_oconnel
+title: Remove O'Connel
+view-if: oconnel_advisor = 1
 tags: remove_advisor
-on-arrival: leipart_advisor = 0; labor_dissent += 5; n_advisors -= 1
+on-arrival: oconnel_advisor = 0; socialist_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
 Leipart has been removed as an advisor. The Labor faction disapproves.
 
-@remove_aufhauser
-title: Remove Aufhäuser
-view-if: aufhauser_advisor = 1
+@remove_richter
+title: Remove Richter
+view-if: richter_advisor = 1
 tags: remove_advisor
-on-arrival: aufhauser_advisor = 0; labor_dissent += 5; n_advisors -= 1
+on-arrival: richter_advisor = 0; labor_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
 Aufhäuser has been removed as an advisor. The Labor faction disapproves.
@@ -327,7 +327,7 @@ view-if: n_advisors < 3
 
 @add_sandberg
 title: Walter Sandberg
-subtitle: Rudolf Hilferding is an economist and one of our chief Marxist theoreticians. {!<br><br>!}[? if difficulty < 0 : Actions - Against Right and Left, Defending Toleration, Fiscal Policy, Economic Democracy ?]
+subtitle: Walter Sandberg is a former NCWPP member who left due to disagreements over policy related to the paramilitary. {!<br><br>!}[? if difficulty < 0 : Actions - Against Right and Left, Defending Toleration, Fiscal Policy, Economic Democracy ?]
 is-card: true
 card-image: img/portraits/HilferdingRudolf.jpg
 tags: radical_advisor
@@ -335,7 +335,7 @@ view-if: sandberg_advisor = 0 and n_advisors < 3 and radicals_split = 0
 on-arrival: sandberg_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
-Rudolf Hilferding is now an advisor.
+Walter Sandberg is now an advisor.
 
 @add_wels
 title: Otto Wels
@@ -376,9 +376,9 @@ Rudolf Breitscheid is now an advisor.
 # industrialist
 
 
-@add_severing
-title: Carl Severing
-subtitle: Carl Severing is a one-time Prussian interior minister and police reformer. {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Police Affairs ?]
+@add_rovich
+title: Misha Rovich
+subtitle: Misha Rovich is the leader of the ICP, the corporate working union. {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Police Affairs ?]
 is-card: true
 card-image: img/portraits/SeveringCarl.jpg
 tags: industrialist_advisor
@@ -386,7 +386,7 @@ view-if: severing_advisor = 0 and n_advisors < 3
 on-arrival: severing_advisor = 1; n_advisors += 1; reformist_strength += 5
 go-to: advisor_menu
 
-Carl Severing is now an advisor.
+Misha Rovich is now an advisor.
 
 @add_braun
 title: Otto Braun
@@ -428,29 +428,29 @@ Antonie Pfülf is now an advisor.
 
 # socialists
 
-@add_levi
-title: Paul Levi
-subtitle: Paul Levi is a former KPD leader who was purged for criticizing Communist policies. {!<br><br>!}[? if difficulty < 0 : Actions - Building the Left, Cooperation with the KPD ?]
+@add_oconnel
+title: Ray O'Connel
+subtitle: O'Connel is our leading economic expert in the IPNC. {!<br><br>!}[? if difficulty < 0 : Actions - Building the Left, Cooperation with the KPD ?]
 is-card: true
 card-image: img/portraits/LeviPaul.jpg
-view-if: levi_advisor = 0 and levi_dead = 0 and n_advisors < 3 and left_split = 0
-on-arrival: levi_advisor = 1; n_advisors += 1; left_strength += 5
+view-if: levi_advisor = 0 and levi_dead = 0 and n_advisors < 3 and socialist_split = 0
+on-arrival: oconnel_advisor = 1; n_advisors += 1; socialist_strength += 5
 go-to: advisor_menu
 tags: socialist_advisor
 
-Paul Levi is now an advisor.
+Ray O'Connel is now an advisor.
 
-@add_sender
-title: Toni Sender
-subtitle: Toni Sender is an anti-war and womens' rights advocate, and Reichstag member. {!<br><br>!}[? if difficulty < 0 : Actions - Left-Center Unity, Organizing Women, Against Toleration, Addressing the Economic Crisis ?]
+@add_richter
+title: Johnathan Richter
+subtitle: Johnathan Richter is the head of the Socialist faction. {!<br><br>!}[? if difficulty < 0 : Actions - Left-Center Unity, Organizing Women, Against Toleration, Addressing the Economic Crisis ?]
 is-card: true
 card-image: img/portraits/SenderToni.jpg
-view-if: sender_advisor = 0 and n_advisors < 3
-on-arrival: sender_advisor = 1; n_advisors += 1; left_strength += 5
+view-if: richter_advisor = 0 and n_advisors < 3
+on-arrival: richter_advisor = 1; n_advisors += 1; socialist_strength += 5
 go-to: advisor_menu
 tags: socialist_advisor
 
-Toni Sender is now an advisor.
+Johnathan Richter is now an advisor.
 
 @add_rosenfeld
 title: Kurt Rosenfeld
