@@ -10,7 +10,7 @@ new-page: true
 O'Connel is the leading economic expert at the IPNC.
 
 - @worker_campaign
-- @communist_relations
+- @socialist_relations
 - @fiscal_stuff
 - @root: Return to main
 
@@ -25,14 +25,14 @@ on-arrival: advisor_action_timer = 6; workers_ip += 6*(1-dissent); workers_ip -=
 
 We have increased our campaigning among the workers. [? if unemployed >= 15: The high levels of unemployment make our campaign more difficult. ?][? if wtb_adopted = 1 : Adopting the WTB plan gives us a new rallying point around which to attract workers. ?]
 
-@communist_relations
-title: Cooperation with the NCWPP.
-subtitle: Push the party to be more friendly towards the NCWPP.
+@socialist_relations
+title: Cooperation with the NCSDP.
+subtitle: Push the party to be more friendly towards the NCSDP.
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 choose-if: advisor_action_timer = 0
-on-arrival: advisor_action_timer = 6; socialist_strength += 5; cp_relation += 4*(1-dissent); liberal_dissent += 2;
+on-arrival: advisor_action_timer = 6; socialist_strength += 5; ncsdp_relation += 4*(1-dissent); liberal_dissent += 2;
 
-O'Connel works different people in worker's rights leagues, allowing us to contact the NCWPP more closely.
+O'Connel works different people in worker's rights leagues, allowing us to contact the NCSDP more closely.
 
 @fiscal_stuff
 title: Fiscal Policy
