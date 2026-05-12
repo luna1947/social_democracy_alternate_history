@@ -50,7 +50,7 @@ on-arrival: workers_ip += 3; corpo_ip += 1; unemployed_ip += 2; merc_ip += 2;
 When 6th Street boots hit the ground, the crowds disperse. The proceeding press releases have the people and the press enamored by out show of strength.
 
 @terror
-choose-if: radical_strength < socialist_strength and radical_strength < liberal_strength
+choose-if: radical_strength > socialist_strength and radical_strength > liberal_strength
 subtitle: -1 resources.
 on-arrival: workers_nsnawp += 5; corpo_nsnawp += 3; unemployed_nsnawp += 4; merc_nsnawp += 4; radical_strength += 20; resources -= 2;
 unavailable-subtitle: In no circumstances would the moderates ever allow this.
