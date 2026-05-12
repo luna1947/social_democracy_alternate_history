@@ -1,0 +1,57 @@
+title: March on Heywood
+subtitle: A Nazi demonstration.
+on-arrival: strife += 1
+view-if: year == 2078 and month == 7
+max-visits: 1
+new-page: true
+
+= March on Heywood
+
+The Nazis have announced a rally in the Heywood district, which could prove to be detrimental due to the highly concentrated worker population in the region.
+
+The local delegation has asked for us to help them handle this.
+
+- @nothing: Do nothing about it.
+- @ban: Ban the march.
+- @counterprotest: Counterprotest against the march.
+- @militech: Use our Militech relations to fight back.
+- @str: Use 6th Street to fight back.
+- @terror: Fund a terrorist attack to scare off rallyers.
+
+  @nothing
+  on-arrival: workers_nsnawp += 10; corpo_nsnawp += 6; unemployed_nsnawp += 8; merc_nsnawp += 8
+
+  We decide to do nothing about the march. Many of our supporters defect off of us.
+
+  @ban
+  choose-if: interior_minister_party == "Independent"; juducial_reform >= 2
+  unavailable-subtitle: [? if interior_ministeer_party != "Independent": We do not control the Interior ministry. ?] [? if judicial_reform < 2: The corrupt judiciary would never allow this. ?]
+
+  We ban the march. Many NSNCWP leaders lodge their complaints, and their members send death threats and islamophobic messages to Al-Haddad.
+  
+
+  @counterprotest
+  subtitle: A confrontation may occur...
+  on-arrival: workers_nsnawp += 5; corpo_nsnawp += 3; unemployed_nsnawp += 4; merc_nsnawp += 4; workers_ip += 5; corpo_ip += 3; unemployed_ip += 4; merc_ip += 4; sa_strength += 100; str_strength += 100
+
+  When we interrupt the rally with one of our own, a violent confrontation occurs. People at the rally from both sides are enamored by the strength of the two factions and some even join 6th Street or the Storm Workers.
+
+  @militech
+  view-if: mt_affilition == "Independent"
+  on-arrival: workers_ip += 3; corpo_ip += 1; unemployed_ip += 2; merc_ip += 2;
+
+  When Militech boots hit the ground, the crowds disperse. The proceeding press releases have the people and the press enamored by out show of strength.
+
+  @str
+  view-if: not str_split
+  on-arrival: workers_ip += 3; corpo_ip += 1; unemployed_ip += 2; merc_ip += 2;
+
+  When 6th Street boots hit the ground, the crowds disperse. The proceeding press releases have the people and the press enamored by out show of strength.
+
+  @terror
+  choose-if: radical_strength < socialist_strength and radical_strength < liberal_strength
+  subtitle: -1 resources.
+  on-arrival: workers_nsnawp += 5; corpo_nsnawp += 3; unemployed_nsnawp += 4; merc_nsnawp += 4; radical_strength += 20; resources -= 2;
+  unavailable-subtitle: In no circumstances would the moderates ever allow this.
+
+  A terrorist attack at the march shocks the city and surrounding regions. [? if justice_minister_party == "Independent": Thanks to our influence, they'll never know that it was us. ?][? if justice_minister_party != "Independent": An investigation has been opened as to find the perpetrators of the attack. ?]
