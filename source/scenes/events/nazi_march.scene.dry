@@ -4,6 +4,7 @@ on-arrival: strife += 1
 view-if: year >= 2078 and month >= 7
 max-visits: 1
 new-page: true
+tags: event
 
 = March on Heywood
 
