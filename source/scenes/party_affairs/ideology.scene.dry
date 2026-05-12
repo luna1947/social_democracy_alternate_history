@@ -14,9 +14,9 @@ The SPD is torn between many different ideological currents. What should be our 
 
 [? if ideology != 0 : We have previously chosen a [+ ideology +] ideology. Changing it will likely have drawbacks. ?]
 
-- @socialist: Government ownership of most utilities and strong safety nets are of utmost importance to us.
-- @green: Stopping overproduction and pollution from corporations is our primary goal in government.
+- @radical: We must commit ourselves to revolutionary change.
 - @industrialist: We should ensure that industry remains strong in order to increase government profits via tax.
+- @socialist: Government ownership of most utilities and strong safety nets are of utmost importance to us.
 - @liberal: Free markets and the bare minimum of government intervention are most important to encourage commerce.
 - @easy_discard
 
@@ -31,14 +31,14 @@ on-departure: ideology = "socialist"; socialist_strength += 10; socialist_dissen
 
 The socialist wing of the party support this new ideology, and this may represent a partnership between us and the communists. This may also be detrimental towards any relations towards corporations.
 
-@green
+@radical
 on-arrival: {!
-if (Q.ideology && Q.ideology != "green") {
+if (Q.ideology && Q.ideology != "radical") {
     Q.changed = 1;
 }
 !}
 go-to: changed if changed = 1
-on-departure: ideology = "green"; center_strength += 10; center_dissent -= 10; left_dissent -= 5; liberal_dissent -= 5
+on-departure: ideology = "radical"; center_strength += 10; center_dissent -= 10; left_dissent -= 5; liberal_dissent -= 5
 
 The Center Marxists, represented by Kautsky and Hilferding, support a middle course of preparing for revolution while building up the consciousness of the working class.
 
