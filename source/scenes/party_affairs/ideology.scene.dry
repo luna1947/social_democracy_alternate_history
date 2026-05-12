@@ -38,7 +38,7 @@ if (Q.ideology && Q.ideology != "radical") {
 }
 !}
 go-to: changed if changed = 1
-on-departure: ideology = "radical"; center_strength += 10; center_dissent -= 10; left_dissent -= 5; liberal_dissent -= 5
+on-departure: ideology = "radical"; radical_strength += 10; radical_dissent -= 10; socialist_dissent -= 5; liberal_dissent -= 5
 
 The Center Marxists, represented by Kautsky and Hilferding, support a middle course of preparing for revolution while building up the consciousness of the working class.
 
@@ -65,6 +65,6 @@ on-departure: ideology = "liberal"; liberal_strength += 10; liberal_dissent -= 5
 The liberal wing of the party seeks to preserve the Republic and the democratic system of government, and is most supportive of coalitions with the other pro-democracy parties.
 
 @changed
-on-arrival: left_dissent += 5; center_dissent += 5; industrialist_dissent += 5; liberal_dissent += 5
+on-arrival: radical_dissent += 5; socialist_dissent += 5; industrialist_dissent += 5; liberal_dissent += 5
 
 We have changed ideologies. Many in the party feel unmoored.
