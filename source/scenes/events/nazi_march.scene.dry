@@ -24,7 +24,7 @@ on-arrival: workers_nsnawp += 10; corpo_nsnawp += 6; unemployed_nsnawp += 8; mer
 We decide to do nothing about the march. Many of our supporters defect off of us.
 
 @ban
-choose-if: interior_minister_party == "Independent" and juducial_reform >= 2;
+choose-if: interior_minister_party == "Independent" and juducial_reform >= 2
 unavailable-subtitle: [? if interior_ministeer_party != "Independent": We do not control the Interior ministry. ?] [? if judicial_reform < 2: The corrupt judiciary would never allow this. ?]
 
 We ban the march. Many NSNCWP leaders lodge their complaints, and their members send death threats and islamophobic messages to Al-Haddad.
