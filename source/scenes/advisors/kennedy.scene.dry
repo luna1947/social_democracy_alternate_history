@@ -1,0 +1,36 @@
+title: Johnathan Kennedy
+is-pinned-card: true
+tags: advisor, left
+card-image: img/portraits/KennedyJohnathan.jpg
+view-if: kennedy_advisor = 1
+new-page: true
+
+= Johnathan Kennedy
+
+A profiteer and former Kennedy during his prime, he is our lead corporate relation delegate.
+
+- @corpo_kennedy
+- @rkr_plan
+- @industrial_kennedy
+- @root: Return to Main
+
+@corpo_kennedy
+title: Build relations with the corporations.
+subtitle: Kennedy can use his ties with the major players to build their support for us.
+choose-if: advisor_action_timer <= 0
+unavailable-subtitle: [? if advisor_action_timer >= 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+go-to: corporate_relations
+
+@rkr_plan
+title: Support the RKR plan.
+subtitle: Push our party towards a more socialist ideology,
+choose-if: advisor_action_timer <= 0
+unavailable-subtitle: [? if advisor_action_timer >= 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+go-to: crisis_program.support_industrialist
+
+@industrial_kennedy
+title: Adopt an industrialist ideology
+subtitle: Push our party towards a more industrialist ideology,
+choose-if: advisor_action_timer <= 0
+unavailable-subtitle: [? if advisor_action_timer >= 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+go-to: ideology.industrialist
