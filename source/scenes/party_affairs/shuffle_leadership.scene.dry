@@ -82,20 +82,20 @@ go-to: rm_main
 
 Severing has been removed as an advisor. The Reformist faction disapproves.
 
-@remove_braun
-title: Remove Braun
-view-if: braun_advisor = 1
+@remove_kennedy
+title: Remove Kennedy
+view-if: kennedy_advisor = 1
 tags: remove_advisor
-on-arrival: braun_advisor = 0; reformist_dissent += 5; n_advisors -= 1
+on-arrival: kennedy_advisor = 0; industrialist_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Braun has been removed as an advisor. The Reformist faction disapproves.
+Kennedy has been removed as an advisor. The Industrialist faction disapproves.
 
 @remove_juchacz
 title: Remove Juchacz
 view-if: juchacz_advisor = 1
 tags: remove_advisor
-on-arrival: juchacz_advisor = 0; reformist_dissent += 5; n_advisors -= 1
+on-arrival: juchacz_advisor = 0; industrialist_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
 Juchacz has been removed as an advisor. The Reformist faction disapproves.
@@ -104,7 +104,7 @@ Juchacz has been removed as an advisor. The Reformist faction disapproves.
 title: Remove Pfülf
 view-if: pfulf_advisor = 1
 tags: remove_advisor
-on-arrival: pfulf_advisor = 0; reformist_dissent += 5; n_advisors -= 1
+on-arrival: pfulf_advisor = 0; industrialist_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
 Pfülf has been removed as an advisor. The Reformist faction disapproves.
@@ -231,7 +231,7 @@ Schumacher has been removed as an advisor. The Neorevisionist faction disapprove
 
 ## nonfactional
 
-# tbh I'm not sure if Baade should be a reformist or nonfactional. same for stampfer. they were vaguely reformist-aligned but had pretty different ideas from the other reformists here. so they're non-factional.
+# tbh I'm not sure if Baade should be a industrialist or nonfactional. same for stampfer. they were vaguely industrialist-aligned but had pretty different ideas from the other industrialists here. so they're non-factional.
 
 @remove_baade
 title: Remove Baade
@@ -383,19 +383,19 @@ is-card: true
 card-image: img/portraits/SeveringCarl.jpg
 tags: industrialist_advisor
 view-if: severing_advisor = 0 and n_advisors < 3
-on-arrival: severing_advisor = 1; n_advisors += 1; reformist_strength += 5
+on-arrival: severing_advisor = 1; n_advisors += 1; industrialist_strength += 5
 go-to: advisor_menu
 
 Misha Rovich is now an advisor.
 
-@add_braun
-title: Otto Braun
-subtitle: Otto Braun is the Minister-President of Prussia, and one of the most recognizable and well-known Social Democratic leaders. {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Negotiating with the Coalition ?]
+@add_kennedy
+title: Johnathan Kennedy
+subtitle: Johnathan Kennedy is a famous leader, mainly for the man he was bodysculpted after rather than he actual work. {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Negotiating with the Coalition ?]
 is-card: true
-card-image: img/portraits/BraunOtto.jpg
+card-image: img/portraits/KennedyJohnathan.jpg
 tags: industrialist_advisor
-view-if: braun_advisor = 0 and n_advisors < 3
-on-arrival: braun_advisor = 1; n_advisors += 1; reformist_strength += 5
+view-if: kennedy_advisor = 0 and n_advisors < 3
+on-arrival: kennedy_advisor = 1; n_advisors += 1; industrialist_strength += 5
 go-to: advisor_menu
 
 Otto Braun is now an advisor.
@@ -406,7 +406,7 @@ subtitle: Marie Juchacz is the founder of Worker's Welfare, a mutual-aid organiz
 is-card: true
 card-image: img/portraits/JuchaczMarie.jpg
 view-if: juchacz_advisor = 0 and n_advisors < 3
-on-arrival: juchacz_advisor = 1; n_advisors += 1; reformist_strength += 5
+on-arrival: juchacz_advisor = 1; n_advisors += 1; industrialist_strength += 5
 go-to: advisor_menu
 tags: industrialist_advisor
 
@@ -558,7 +558,7 @@ Carlo Mierendorff is now an advisor.
 
 @add_schumacher
 title: Kurt Schumacher
-subtitle: Kurt Schumacher is a Great War veteran and energetic speaker for the social-democratic cause, and favors reformist policies. {!<br><br>!}[? if difficulty < 0 : Actions - Emergency Fundraising, Building the Reichsbanner, Addressing the Economic Crisis ?]
+subtitle: Kurt Schumacher is a Great War veteran and energetic speaker for the social-democratic cause, and favors industrialist policies. {!<br><br>!}[? if difficulty < 0 : Actions - Emergency Fundraising, Building the Reichsbanner, Addressing the Economic Crisis ?]
 is-card: true
 card-image: img/portraits/SchumacherKurt.jpg
 tags: neorev_advisor
