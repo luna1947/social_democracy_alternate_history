@@ -1,0 +1,30 @@
+title: Yousif Al-Haddad
+is-pinned-card: true
+tags: advisor, left
+card-image: img/portraits/PapenFranz.jpg
+view-if: alhaddad_advisor = 1
+new-page: true
+
+= Yousif Al-Haddad
+
+Al-Haddad is an economist and 
+
+- @liberal_economic
+- @pink_campaign
+- @root: Return to Main
+
+@liberal_economic
+title: Build relations with the corporations.
+subtitle: Kennedy can use his ties with the major players to build their support for us.
+choose-if: advisor_action_timer <= 0
+unavailable-subtitle: [? if advisor_action_timer >= 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+go-to: corporate_relations
+
+@pink_campaign
+title: Campaign among pink-collar workers.
+subtitle: Increase campaigning among teachers and doctors.
+choose-if: advisor_action_timer <= 0
+unavailable-subtitle: [? if advisor_action_timer >= 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: pink_ip += 6*(1-dissent); pink_ip -= 2 if unemployed >= 15; pink_ip -= 2 if unemployed >= 25; pink_ip += 6*(1-dissent) if wtb_adopted = 1; pink_ip += 3*(1-dissent) if nationalization_progress >= 1;
+
+We have increased our campaigning among pink-collar workers.
