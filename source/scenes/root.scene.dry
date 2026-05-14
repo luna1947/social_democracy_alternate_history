@@ -70,15 +70,15 @@ Q.ncaf_formed = 0;
 Q.eurodollar_crisis_seen = 0;
 // crisis_urgency indicates how seriously the ip is taking the economic crisis - scale from 0 to 10.
 Q.federalist_urgency = 0;
-// nazi_urgency indicates how seriously the ip takes the nazis - scale from 0 to 10.
+// nazi_urgency indicates how seriously the IPNC takes the nazis - scale from 0 to 10.
 Q.nazi_urgency = 0;
-// radicalization indicates how radical the ip's rhetoric is - scale from 0 to 10.
+// radicalization indicates how radical the IPNC's rhetoric is - scale from 0 to 10.
 Q.radicalization = 0;
 // Support for the RKR plan and proto-Keynesian works creation plans in general
 Q.rkr_support = 0;
-// Support for Pacifism within the ip relative to 1928
+// Support for Pacifism within the IPNC relative to 1928
 Q.pacifism = 0;
-// Support for democratic reform within the ip relative to 1928
+// Support for democratic reform within the INPC relative to 1928
 Q.democratization = 0;
 // Support for a communist coalition relative to 1928
 Q.communist_coalition = 0;
