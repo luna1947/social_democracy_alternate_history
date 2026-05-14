@@ -43,6 +43,15 @@ go-to: rm_main
 
 Sandberg has been removed as an advisor. The Radical faction disapproves.
 
+@remove_brodzki
+title: Remove Brodzki
+view-if: brodzki_advisor = 1
+on-arrival: brodzki_advisor = 0; radical_dissent += 5; n_advisors -= 1
+tags: remove_advisor
+go-to: rm_main
+
+Sandberg has been removed as an advisor. The Radical faction disapproves.
+
 # industrialists
 
 @remove_rovich
@@ -94,6 +103,15 @@ go-to: rm_main
 
 Al-Haddad has been removed as an advisor. The Liberal faction disapproves.
 
+@remove_ramsey
+title: Remove Ramsey
+view-if: ramsey_advisor = 1
+tags: remove_advisor
+on-arrival: ramsey_advisor = 0; liberal_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Ramsey has been removed as an advisor. The Liberal faction disapproves.
+
 ## nonfactional
 
 @remove_staffer
@@ -104,9 +122,6 @@ on-arrival: staffer_advisor = 0; n_advisors -= 1
 go-to: rm_main
 
 Staffer has been removed as an advisor.
-
-#The Reformist faction disapproves.
-
 
 @remove_mantalos
 title: Remove Mantalos
@@ -180,6 +195,18 @@ go-to: advisor_menu
 
 Walter Sandberg is now an advisor.
 
+@add_brodzki
+title: Piotr Brodzki
+subtitle: Piotr Brodzki is a well-known public speaker and former illicit chrome dealer from Warsaw. {!<br><br>!}[? if difficulty < 0 : Actions - Against Right and Left, Defending Toleration, Fiscal Policy, Economic Democracy ?]
+is-card: true
+card-image: img/portraits/HilferdingRudolf.jpg
+tags: radical_advisor
+view-if: brodzki_advisor = 0 and n_advisors < 3 and radicals_split = 0
+on-arrival: brodzki_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+
+Piotr Brodzki is now an advisor.
+
 # industrialist
 
 @add_rovich
@@ -236,7 +263,7 @@ Johnathan Richter is now an advisor.
 
 @add_alhaddad
 title: Yousif Al-Haddad
-subtitle: Theodor Leipart is the leader of the ADGB, the German Trade Union Federation. {!<br><br>!}[? if difficulty < 0 : Actions - Organizing Workers, Addressing the Economic Crisis ?]
+subtitle: Yousif Al-Haddad is the leader of the insert corpo union name here. {!<br><br>!}[? if difficulty < 0 : Actions - Organizing Workers, Addressing the Economic Crisis ?]
 is-card: true
 card-image: img/portraits/PapenFranz.jpg
 tags: liberal_advisor
@@ -245,6 +272,18 @@ on-arrival: alhaddad_advisor = 1; n_advisors += 1; liberal_strength += 5
 go-to: advisor_menu
 
 Yousif Al-Haddad is now an advisor.
+
+@add_ramsey
+title: Johnathan Ramsey
+subtitle: Johnathan Ramsey is a placeholder title in the IPNC. {!<br><br>!}[? if difficulty < 0 : Actions - Organizing Workers, Addressing the Economic Crisis ?]
+is-card: true
+card-image: img/portraits/PapenFranz.jpg
+tags: liberal_advisor
+view-if: ramsey_advisor = 0 and n_advisors < 3 and unions_independent = 0
+on-arrival: ramsey_advisor = 1; n_advisors += 1; liberal_strength += 5
+go-to: advisor_menu
+
+Johnathan Ramsey is now an advisor.
 
 # Nonfactional advisors
 
