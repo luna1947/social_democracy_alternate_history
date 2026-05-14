@@ -505,6 +505,7 @@ Q.march_on_berlin_timer = 0;
 
 //radical advisors
 Q.sandberg_advisor = 0; //Walter Sandberg
+Q.brodzki_advisor = 0; //Piotr Brodzki
 
 //industrialist advisors
 Q.rovich_advisor = 1; //Misha Rovich
