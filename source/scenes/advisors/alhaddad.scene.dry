@@ -10,21 +10,22 @@ new-page: true
 Al-Haddad is an economist and 
 
 - @liberal_economic
-- @pink_campaign
+- @corpo_campaign
 - @root: Return to Main
 
 @liberal_economic
-title: Build relations with the corporations.
-subtitle: Kennedy can use his ties with the major players to build their support for us.
-choose-if: advisor_action_timer <= 0
-unavailable-subtitle: [? if advisor_action_timer >= 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+title: Support the Liberal economic plan.
+subtitle: Al-Haddad can support the party's inaction in the economic crisis.
+choose-if: advisor_action_timer <= 0 and eurodollar_crisis_seen
+unavailable-subtitle: [? if advisor_action_timer >= 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not eurodollar_crisis_seen: We are not in an economic crisis ?]
 go-to: corporate_relations
 
-@pink_campaign
-title: Campaign among pink-collar workers.
+@corpo_campaign
+title: Campaign among corporate workers.
 subtitle: Increase campaigning among teachers and doctors.
 choose-if: advisor_action_timer <= 0
 unavailable-subtitle: [? if advisor_action_timer >= 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: pink_ip += 6*(1-dissent); pink_ip -= 2 if unemployed >= 15; pink_ip -= 2 if unemployed >= 25; pink_ip += 6*(1-dissent) if wtb_adopted = 1; pink_ip += 3*(1-dissent) if nationalization_progress >= 1;
+on-arrival: corpo_ip += 6*(1-dissent); corpo_ip -= 4 if socialism <= 49 and peoples_party == 0; resources -= 1; peoples_party_support += 1; advisor_action_timer = 6;
 
-We have increased our campaigning among pink-collar workers.
+We have increased our campaigning among corporate workers. [peoples_party == 0: The popular support towards the main two parties among this group makes our campaign more difficult. ?] [? if peoples_party > 0: As a people's party, we have an easier time increasing support among the middle class than before. ?]
+
