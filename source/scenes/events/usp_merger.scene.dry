@@ -1,6 +1,6 @@
-title: Socialist Congress
+title: NCWPP Congress
 subtitle: The future of the greater Night City socialist movement will be decided here.
-view-if: cp_radicalization == ncsdp_radicalization
+view-if: cp_radicalization == ncsdp_radicalization and cp_relation > 40 and year == 2079 and month == 6 
 max-visits: 1
 tags: event
 face-image: img/dvp.jpg
