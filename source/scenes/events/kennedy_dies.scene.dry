@@ -1,0 +1,8 @@
+title: Kennedy shot??
+subtitle: Johnathan Kennedy shot from AV4 during rally in Santo Domingo.
+view-if: year == 2079 and month == 5
+on-arrival: kennedy_dead = 1; n_advisors += 1 if kennedy_advisor == 1; kennedy_advisor = 0;
+max-visits: 1
+tags: event
+
+Kennedy has been fatally shot in the back of the head during a rally in Santo Domingo. Witnesses and Microvideo footage report an AV4 flying at a vantage point before the shot was fired.[? if judicial_reform >= 2: This will not go unpunished. ?][? if judicial_reform < 1: Unfortunately, due to the corrupt judiciary, this will likely go unsolved. ?]
