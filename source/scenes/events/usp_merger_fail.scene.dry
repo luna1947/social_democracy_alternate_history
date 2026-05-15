@@ -1,0 +1,21 @@
+title: NCWPP Congress
+subtitle: The future of the greater Night City socialist movement will be decided here.
+view-if: cp_radicalization != ncsdp_radicalization and cp_relation > 40 and year == 2079 and month == 6 
+max-visits: 1
+tags: event
+face-image: img/dvp.jpg
+new-page: true
+
+= Socialist Congress
+
+Talks between the NCWPP and NCSDP over the years have been strained, to say the least. Hushed talks of a united socialist front have been brewing for years among the party's moderates, but now those plans may finally be coming to fruition.
+
+The radicals of the NCWPP are the only stumbling block of this merger. Will they prove to be too problematic?
+
+- @usp_formed: The party votes...
+
+@usp_formed
+on-arrival: usp_formed = 1
+face-image: img/weimar_coalition_3.jpg
+
+In a turn of unfortunate events, the radical holdout within the party has proven to be far too strong. They have, almost absolutely, jeopardized the thought of a united socialist party.
