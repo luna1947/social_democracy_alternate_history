@@ -1,0 +1,9 @@
+title: Streetfighting
+subtitle: Battles are raging on the streets.
+view-if: year >= 2079 and sa_strength >= 150 and streetfighting_timer == 0 and not return_to_normalcy
+tags: event
+max-visits: 1
+
+Battles have been raging on the streets between our own 6th Street Gang, Militech, the Storm Workers, and the communist Red Front.
+
+@root: Worrying.
