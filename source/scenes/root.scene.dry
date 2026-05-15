@@ -101,6 +101,8 @@ Q.moderate_plan_adopted = 0;
 Q.mt_affiliation = "Federalists";
 Q.arasaka_affiliation = "None";
 Q.str_support = 5;
+//dead people
+Q.kennedy_dead = 0;
 
 // organizations
 
