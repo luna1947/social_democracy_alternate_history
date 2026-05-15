@@ -1,7 +1,9 @@
 title: Kennedy's Killers Charged!
 subtitle: Unsurprisingly, they were Storm Workers.
 view-if: judicial_reform >= 2 and year == 2079 and month == 10
-on-arrival: strife += 2; nazi_alarm += 3
+on-arrival: strife += 2; nazi_alarm += 3; pink_nsnawp -= 3; worker_nsnawp -= 6
 tags: events
+
+# Killers Charged!
 
 Kennedy's Killers have been found and charged on counts of political violence and murder. This is a great day for the party.
