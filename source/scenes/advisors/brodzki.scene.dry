@@ -1,0 +1,38 @@
+title: Piotr Brodzki
+is-pinned-card: true
+tags: advisor, left
+card-image: img/portraits/AufhäuserSiegfriedjpg
+view-if: brodzki_advisor = 1
+new-page: true
+
+= Piotr Brodzki
+
+A former Polish chrome salesman and current 6th Street relation handler, Brodzki is a major figurehead of the radical faction.
+
+- @str_brodzki
+- @streetfighting_brod
+- @radical_plan
+- @root: Return to Main
+
+@str_brodzki
+title: We need to build up 6th Street
+subtitle: Brodzki can use his status to build up our relations with 6th Street
+choose-if: advisor_action_timer <= 0
+unavailable-subtitle: [? if advisor_action_timer >= 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+go-to: corporate_relations
+
+@streetfighting_brod
+title: Streetfighting
+subtitle: We need to fight, on the streets.
+choose-if: advisor_action_timer <= 0
+view-if: year >= 2079 and sa_strength >= 150 and streetfighting_timer == 0 and not return_to_normalcy
+unavailable-subtitle: [? if advisor_action_timer >= 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+go-to: streetfighting
+
+@radical_plan
+title: Adopt a radical plan.
+subtitle: Adopt a radical economic plan.
+choose-if: advisor_action_timer <= 0
+unavailable-subtitle: [? if advisor_action_timer >= 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+
+uhhh placeholder rn
